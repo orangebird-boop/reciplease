@@ -3,6 +3,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     let searchView = SearchView()
+    let searchService = SearchService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,13 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
+        searchService.getData()
         let searchResultsVC = UIViewController()
         searchResultsVC.view.backgroundColor = .red
         navigationController?.pushViewController(searchResultsVC, animated: true)
+    }
+    
+    func didTapAddButton() {
+        searchView.myIngredients.text.append(contentsOf: searchView.inTheFridge.text)
     }
 }
