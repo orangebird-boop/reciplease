@@ -7,7 +7,6 @@ class SearchService {
     let apiKey = "20cb82c63b8becd5a0050ee9ab6375f5"
     var queryText = "cheese"
     
-    
     //https://api.edamam.com/api/recipes/v2?type=public&q=cheese&app_id=c18c9f08&app_key=20cb82c63b8becd5a0050ee9ab6375f5
     
 //    func buildURLcall() {
@@ -21,6 +20,4 @@ class SearchService {
             print(data)
         }
     }
-    
-    
 }

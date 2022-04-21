@@ -4,6 +4,8 @@ import UIKit
 class SearchViewController: UIViewController {
     let searchView = SearchView()
     let searchService = SearchService()
+    var searchViewModel = SearchViewModel()
+    var elements: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +17,7 @@ class SearchViewController: UIViewController {
     
     func setupViews() {
         searchView.delegate = self
-        searchView.backgroundColor = .white
+        searchView.backgroundColor = .yellow
         view.addSubview(searchView)
     }
     
@@ -34,7 +36,7 @@ class SearchViewController: UIViewController {
 
 // MARK: - SearchViewDelegate
 
-extension SearchViewController: SearchViewDelegate {
+extension SearchViewController: SearchViewDelegate, SearchViewModelDelegate {
     func didTapSearchButton() {
         searchService.getData()
         let searchResultsVC = UIViewController()
@@ -43,6 +45,8 @@ extension SearchViewController: SearchViewDelegate {
     }
     
     func didTapAddButton() {
+        
         searchView.myIngredients.text.append(contentsOf: searchView.inTheFridge.text)
+        searchView.inTheFridge.text = ""
     }
 }

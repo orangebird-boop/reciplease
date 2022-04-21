@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93752811660F00F6B36A /* SearchViewModel.swift */; };
 		B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF18280ECD92005F680C /* AppDelegate.swift */; };
 		B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF1C280ECD92005F680C /* TabBarController.swift */; };
 		B2A2DF22280ECD92005F680C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2A2DF21280ECD92005F680C /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
+		B21B93752811660F00F6B36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B2A2DF15280ECD92005F680C /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A2DF18280ECD92005F680C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2A2DF1C280ECD92005F680C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B21B9374281165E200F6B36A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B21B93752811660F00F6B36A /* SearchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		B2A2DF0C280ECD92005F680C = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 				B2A2DF18280ECD92005F680C /* AppDelegate.swift */,
 				B2A2DF1C280ECD92005F680C /* TabBarController.swift */,
 				B2A2DF23280ECD92005F680C /* LaunchScreen.storyboard */,
+				B21B9374281165E200F6B36A /* ViewModels */,
 				B2AAADD8280F07EA0039784E /* Views */,
 				B2AAADD7280F07DD0039784E /* ViewControllers */,
 				B2AAADD6280F07CD0039784E /* Models */,
@@ -282,6 +293,7 @@
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
 				B2AAADD5280F062F0039784E /* SearchService.swift in Sources */,
 				B2F61CF628107A09005F4B0D /* ModelJSON.swift in Sources */,
+				B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */,
 				B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */,
 				B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */,
 			);

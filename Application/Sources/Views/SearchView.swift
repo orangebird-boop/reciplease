@@ -5,7 +5,6 @@ protocol SearchViewDelegate: AnyObject {
     func didTapAddButton()
 }
 
-
 class SearchView: UIView {
     var inTheFridge = UITextView()
     var myIngredients = UITextView()
@@ -30,12 +29,12 @@ class SearchView: UIView {
     
     func setupView() {
         inTheFridge.text = "Fridge"
-        inTheFridge.backgroundColor = .blue
+        inTheFridge.backgroundColor = .white
         inTheFridge.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         addSubview(inTheFridge)
         
         myIngredients.text = ""
-        myIngredients.backgroundColor = .blue
+        myIngredients.backgroundColor = .white
         myIngredients.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         addSubview(myIngredients)
         
@@ -58,15 +57,16 @@ class SearchView: UIView {
         
         NSLayoutConstraint.activate([
             
-            inTheFridge.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -16),
+            inTheFridge.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
 //            inTheFridge.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             inTheFridge.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             inTheFridge.heightAnchor.constraint(equalToConstant: 42),
             
-            addButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -16),
+            addButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             addButton.leadingAnchor.constraint(equalTo: inTheFridge.trailingAnchor, constant: 8),
             addButton.heightAnchor.constraint(equalToConstant: 42),
+            addButton.widthAnchor.constraint(equalToConstant: 52),
             
             myIngredients.topAnchor.constraint(equalTo: inTheFridge.bottomAnchor, constant: 8),
             myIngredients.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
