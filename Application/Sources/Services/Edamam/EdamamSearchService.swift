@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-class SearchService {
+class EdamamSearchService: SearchService {
     let URL = "https://api.edamam.com/api/recipes/v2"
     let appID = "c18c9f08"
     let apiKey = "20cb82c63b8becd5a0050ee9ab6375f5"
@@ -19,5 +19,9 @@ class SearchService {
         request.responseJSON { (data) in
             print(data)
         }
+    }
+    
+    func getRecipies(page: Int, completionHandler: @escaping () -> Void) {
+        <#code#>
     }
 }

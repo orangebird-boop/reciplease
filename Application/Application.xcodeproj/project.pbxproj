@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93752811660F00F6B36A /* SearchViewModel.swift */; };
+		B21B938928156C2100F6B36A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B938828156C2100F6B36A /* SearchService.swift */; };
 		B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF18280ECD92005F680C /* AppDelegate.swift */; };
 		B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF1C280ECD92005F680C /* TabBarController.swift */; };
 		B2A2DF22280ECD92005F680C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2A2DF21280ECD92005F680C /* Assets.xcassets */; };
@@ -16,14 +17,15 @@
 		B2A2DF36280ED5B4005F680C /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF35280ED5B4005F680C /* FavouritesViewController.swift */; };
 		B2A2DF3A280EDA02005F680C /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF39280EDA02005F680C /* FavouritesView.swift */; };
 		B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD0280F00AE0039784E /* SearchView.swift */; };
-		B2AAADD5280F062F0039784E /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD4280F062F0039784E /* SearchService.swift */; };
+		B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD4280F062F0039784E /* EdamamSearchService.swift */; };
 		B2F61CF628107A09005F4B0D /* ModelJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61CF528107A09005F4B0D /* ModelJSON.swift */; };
 		D96CCBE26D9316236AE86518 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
+		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
 		B21B93752811660F00F6B36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		B21B938828156C2100F6B36A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		B2A2DF15280ECD92005F680C /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A2DF18280ECD92005F680C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2A2DF1C280ECD92005F680C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -34,10 +36,10 @@
 		B2A2DF35280ED5B4005F680C /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		B2A2DF39280EDA02005F680C /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		B2AAADD0280F00AE0039784E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		B2AAADD4280F062F0039784E /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		B2AAADD4280F062F0039784E /* EdamamSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSearchService.swift; sourceTree = "<group>"; };
 		B2F61CF528107A09005F4B0D /* ModelJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelJSON.swift; sourceTree = "<group>"; };
 		D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3CB7CD4D0927AFC810E2D6A /* Pods-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.debug.xcconfig"; path = "Target Support Files/Pods-Application/Pods-Application.debug.xcconfig"; sourceTree = "<group>"; };
+		F3CB7CD4D0927AFC810E2D6A /* Pods-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,77 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		B21B937F28156AAB00F6B36A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B21B938328156AD900F6B36A /* Views */,
+				B21B938228156ACF00F6B36A /* ViewControllers */,
+				B21B938128156AC500F6B36A /* Models */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B21B938028156AB900F6B36A /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				B21B938528156B4B00F6B36A /* Views */,
+				B21B938428156AE600F6B36A /* ViewControllers */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		B21B938128156AC500F6B36A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B21B938228156ACF00F6B36A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B21B938328156AD900F6B36A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B21B938428156AE600F6B36A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B21B938528156B4B00F6B36A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B21B938628156B9300F6B36A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B21B938728156BAF00F6B36A /* Edamam */,
+				B21B938828156C2100F6B36A /* SearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B21B938728156BAF00F6B36A /* Edamam */ = {
+			isa = PBXGroup;
+			children = (
+				B2AAADD4280F062F0039784E /* EdamamSearchService.swift */,
+			);
+			path = Edamam;
+			sourceTree = "<group>";
+		};
 		B2A2DF0C280ECD92005F680C = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +173,9 @@
 		B2A2DF17280ECD92005F680C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B21B938628156B9300F6B36A /* Services */,
+				B21B938028156AB900F6B36A /* Favourites */,
+				B21B937F28156AAB00F6B36A /* Search */,
 				B2A2DF18280ECD92005F680C /* AppDelegate.swift */,
 				B2A2DF1C280ECD92005F680C /* TabBarController.swift */,
 				B2A2DF23280ECD92005F680C /* LaunchScreen.storyboard */,
@@ -130,7 +206,6 @@
 		B2AAADD6280F07CD0039784E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B2AAADD4280F062F0039784E /* SearchService.swift */,
 				B2F61CF528107A09005F4B0D /* ModelJSON.swift */,
 			);
 			path = Models;
@@ -291,9 +366,10 @@
 				B2A2DF3A280EDA02005F680C /* FavouritesView.swift in Sources */,
 				B2A2DF36280ED5B4005F680C /* FavouritesViewController.swift in Sources */,
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
-				B2AAADD5280F062F0039784E /* SearchService.swift in Sources */,
+				B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */,
 				B2F61CF628107A09005F4B0D /* ModelJSON.swift in Sources */,
 				B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */,
+				B21B938928156C2100F6B36A /* SearchService.swift in Sources */,
 				B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */,
 				B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */,
 			);
