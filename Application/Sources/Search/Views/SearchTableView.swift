@@ -2,14 +2,20 @@ import Foundation
 import UIKit
 
 class SearchTableView: UIView, UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-    }
-    
-   
+    var ingredientList = MyIngredients()
     let tableView = UITableView()
     let dataSource = MyIngredientsDataSource()
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredientList.listOfIngredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath as IndexPath)
+    
+        cell.textLabel?.text = ingredientList.listOfIngredients[indexPath.row]
+        return cell
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

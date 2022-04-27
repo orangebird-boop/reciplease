@@ -1,6 +1,6 @@
 import UIKit
 
-class SerachTableViewCell: UITableViewCell{
+class SerachTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -14,14 +14,9 @@ class SerachTableViewCell: UITableViewCell{
         }
 
         func initialize() {
-
+// ??
         }
-        /*
-        override func awakeFromNib() {
-            super.awakeFromNib()
-
-        }
-        */
+    
         override func prepareForReuse() {
             super.prepareForReuse()
 

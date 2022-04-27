@@ -22,8 +22,6 @@ class SearchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
-    
     func setupSearchView() {
         setupView()
         setupLayout()
@@ -35,7 +33,6 @@ class SearchView: UIView {
         inTheFridge.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         addSubview(inTheFridge)
         
-    
         addSubview(myIngredients)
         
         addButton.setTitle("Add", for: .normal)

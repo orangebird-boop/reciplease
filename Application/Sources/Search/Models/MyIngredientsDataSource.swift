@@ -1,6 +1,6 @@
 import UIKit
 
-class MyIngredientsDataSource : NSObject, UITableViewDataSource {
+class MyIngredientsDataSource: NSObject, UITableViewDataSource {
     let dataStore = MyIngredients()
     
     // TableView data source functions

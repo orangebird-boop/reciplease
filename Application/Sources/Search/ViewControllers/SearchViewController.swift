@@ -4,7 +4,7 @@ import UIKit
 class SearchViewController: UIViewController {
     var searchViewModel = SearchViewModel()
     let searchView = SearchView()
-    var ingredientsList = [String]()
+    var ingredientList = MyIngredients()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +44,11 @@ extension SearchViewController: SearchViewDelegate {
     }
     
     func didTapAddButton() {
+        guard let ingredient = searchView.inTheFridge.text, !ingredient.isEmpty else {return}
+        ingredientList.listOfIngredients.append(ingredient)
         
     }
 }
-
 
 extension SearchViewController: SearchViewModelDelegate {
     func didFindRecepies() {
