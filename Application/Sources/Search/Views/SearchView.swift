@@ -22,13 +22,15 @@ class SearchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    
     func setupSearchView() {
         setupView()
         setupLayout()
     }
     
     func setupView() {
-        inTheFridge.text = "Fridge"
+        inTheFridge.text = ""
         inTheFridge.backgroundColor = .white
         inTheFridge.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         addSubview(inTheFridge)

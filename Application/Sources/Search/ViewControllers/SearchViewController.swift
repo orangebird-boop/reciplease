@@ -2,14 +2,13 @@ import Foundation
 import UIKit
 
 class SearchViewController: UIViewController {
-    let searchView = SearchView()
-    let searchService = SearchService()
     var searchViewModel = SearchViewModel()
-    var elements: [String] = []
+    let searchView = SearchView()
+    var ingredientsList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Reciplease"
+        title = "Reciplease"
         
         setupViews()
         setupLayout()
@@ -36,9 +35,9 @@ class SearchViewController: UIViewController {
 
 // MARK: - SearchViewDelegate
 
-extension SearchViewController: SearchViewDelegate, SearchViewModelDelegate {
+extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
-        searchService.getData()
+        searchViewModel.searchRecipies(with: ["chease", "ham"])
         let searchResultsVC = UIViewController()
         searchResultsVC.view.backgroundColor = .red
         navigationController?.pushViewController(searchResultsVC, animated: true)
@@ -46,7 +45,16 @@ extension SearchViewController: SearchViewDelegate, SearchViewModelDelegate {
     
     func didTapAddButton() {
         
-        searchView.myIngredients.text.append(contentsOf: searchView.inTheFridge.text)
-        searchView.inTheFridge.text = ""
+    }
+}
+
+
+extension SearchViewController: SearchViewModelDelegate {
+    func didFindRecepies() {
+        // todo refresh list of recipies
+    }
+    
+    func didNotFindRecipe(error: Error) {
+        // todo display error for user
     }
 }

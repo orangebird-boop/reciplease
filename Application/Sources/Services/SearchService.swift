@@ -1,12 +1,9 @@
-//
-//  SearchService.swift
-//  Application
-//
-//  Created by Nora Lilla Matyassi on 24/04/2022.
-//
-
 import Foundation
 
+enum SearchServiceError: Error {
+    case networkError
+}
+
 protocol SearchService {
-    func getRecipies(page: Int, completionHandler: @escaping () -> Void)
+    func getRecipies<T: Decodable>(page: Int, completionHandler: @escaping (Result<T, SearchServiceError>) -> Void)
 }
