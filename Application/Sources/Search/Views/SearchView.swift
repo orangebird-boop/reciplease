@@ -7,7 +7,7 @@ protocol SearchViewDelegate: AnyObject {
 
 class SearchView: UIView {
     var inTheFridge = UITextView()
-    var myIngredients = UITextView()
+    var myIngredients = SearchTableView()
     var searchButton = UIButton()
     var addButton = UIButton()
     
@@ -35,9 +35,7 @@ class SearchView: UIView {
         inTheFridge.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         addSubview(inTheFridge)
         
-        myIngredients.text = ""
-        myIngredients.backgroundColor = .white
-        myIngredients.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+    
         addSubview(myIngredients)
         
         addButton.setTitle("Add", for: .normal)

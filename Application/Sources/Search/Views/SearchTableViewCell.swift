@@ -1,18 +1,29 @@
 import UIKit
 
 class SerachTableViewCell: UITableViewCell{
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
-        {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
-            setupViews()
-        }
 
-        private func setupViews()
-        {
-            // Nothing yet.
+            self.initialize()
         }
 
         required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+            super.init(coder: aDecoder)
+
+            self.initialize()
+        }
+
+        func initialize() {
+
+        }
+        /*
+        override func awakeFromNib() {
+            super.awakeFromNib()
+
+        }
+        */
+        override func prepareForReuse() {
+            super.prepareForReuse()
+
         }
 }
