@@ -1,39 +1,23 @@
 import Foundation
 
-struct EdamamResponse: Codable {
-    let from, to, count: Int
+struct EdamamResponse: Decodable {
     let hits: [Hit]
-
-    enum CodingKeys: String, CodingKey {
-        case from, to, count
-        case hits
-    }
 }
-// SERPARATE IN DIFFERENT FILES!
-// MARK: - Hit
-struct Hit: Codable {
-    let recipe: EdamamRecipe
 
-    enum CodingKeys: String, CodingKey {
-        case recipe
-      
-    }
+// MARK: - Hit
+struct Hit: Decodable {
+    let recipe: EdamamRecipe?
 }
 
 // MARK: - Recipe
-struct EdamamRecipe: Codable {
-    let uri, label, image: String
-    let images: String?
-    let source, url, shareAs: String
-    let yield: Int
-    let dietLabels, healthLabels, cautions, ingredientLines: [String]
-    let ingredients: [Ingredient]
-    let calories, glycemicIndex: Double
-    let totalWeight: Int
-    let cuisineType, mealType, dishType: [String]
-    
+struct EdamamRecipe: Decodable {
+    let label: String
+    let image: String?
+    let url: String
+    let yield: Double?
+    let ingredientLines: [String]
+    let totalTime: Int?
 }
-
 // MARK: - Ingredient
 struct Ingredient: Codable {
     let text: String

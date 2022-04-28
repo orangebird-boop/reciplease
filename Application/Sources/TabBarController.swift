@@ -14,15 +14,15 @@ class TabBarController: UITabBarController {
     
     func setupViews() {
         
-        let searchVC = SearchViewController()
-        searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        let searchViewController = SearchViewController()
+        searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         
-        let favouritesVC = FavouritesViewController()
-        favouritesVC.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(systemName: "star"), tag: 2)
+        let favouritesViewController = FavouritesViewController()
+        favouritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(systemName: "star"), tag: 2)
             
         setViewControllers([
-           UINavigationController(rootViewController: searchVC),
-           UINavigationController(rootViewController: favouritesVC)],
+           UINavigationController(rootViewController: searchViewController),
+           UINavigationController(rootViewController: favouritesViewController)],
                            animated: true)
     }
 }

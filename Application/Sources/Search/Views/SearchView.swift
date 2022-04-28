@@ -7,7 +7,7 @@ protocol SearchViewDelegate: AnyObject {
 
 class SearchView: UIView {
     var inTheFridge = UITextView()
-    var myIngredients = SearchTableView()
+//    var myIngredients = SearchTableView()
     var searchButton = UIButton()
     var addButton = UIButton()
     
@@ -33,7 +33,7 @@ class SearchView: UIView {
         inTheFridge.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         addSubview(inTheFridge)
         
-        addSubview(myIngredients)
+//        addSubview(myIngredients)
         
         addButton.setTitle("Add", for: .normal)
         addButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
@@ -50,7 +50,10 @@ class SearchView: UIView {
     }
     
     private func setupLayout() {
-        [inTheFridge, myIngredients, addButton, searchButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [inTheFridge,
+//         myIngredients,
+         addButton,
+         searchButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             
@@ -65,10 +68,10 @@ class SearchView: UIView {
             addButton.heightAnchor.constraint(equalToConstant: 42),
             addButton.widthAnchor.constraint(equalToConstant: 52),
             
-            myIngredients.topAnchor.constraint(equalTo: inTheFridge.bottomAnchor, constant: 8),
-            myIngredients.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            myIngredients.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -24),
-            myIngredients.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+//            myIngredients.topAnchor.constraint(equalTo: inTheFridge.bottomAnchor, constant: 8),
+//            myIngredients.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+//            myIngredients.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -24),
+//            myIngredients.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             
             searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             searchButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

@@ -37,16 +37,16 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
-        searchViewModel.searchRecipies(with: ["chease", "ham"])
+        searchViewModel.searchRecipies(with: ["cheese"])
         let searchResultsVC = UIViewController()
         searchResultsVC.view.backgroundColor = .red
         navigationController?.pushViewController(searchResultsVC, animated: true)
     }
     
     func didTapAddButton() {
-        guard let ingredient = searchView.inTheFridge.text, !ingredient.isEmpty else {return}
-        ingredientList.listOfIngredients.append(ingredient)
-        
+//        guard let ingredient = searchView.inTheFridge.text, !ingredient.isEmpty else {return}
+//        ingredientList.listOfIngredients.append(ingredient)
+//        
     }
 }
 
@@ -56,6 +56,6 @@ extension SearchViewController: SearchViewModelDelegate {
     }
     
     func didNotFindRecipe(error: Error) {
-        // todo display error for user
+       
     }
 }
