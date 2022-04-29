@@ -26,7 +26,6 @@ class SearchViewModel {
                 dump(error)
                 delegate?.didNotFindRecipe(error: error)
                 
-                
 //                switch error {
 //                    
 //                case SearchServiceError.invalidURL:

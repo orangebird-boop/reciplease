@@ -1,6 +1,6 @@
 import UIKit
 
-class SerachTableViewCell: UITableViewCell {
+class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
 

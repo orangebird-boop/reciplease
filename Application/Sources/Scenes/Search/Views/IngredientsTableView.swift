@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class SearchTableView: UIView, UITableViewDataSource, UITableViewDelegate {
+class IngredientsTableView: UIView, UITableViewDataSource, UITableViewDelegate {
     var ingredientList = MyIngredients()
     let tableView = UITableView()
     let dataSource = MyIngredientsDataSource()
@@ -19,7 +19,7 @@ class SearchTableView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        tableView.register(SerachTableViewCell.self, forCellReuseIdentifier: "CellId")
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "CellId")
         tableView.delegate = self
         tableView.dataSource = self
     }

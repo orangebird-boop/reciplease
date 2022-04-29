@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 
 class SearchViewController: UIViewController {
@@ -38,9 +37,9 @@ class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
         searchViewModel.searchRecipies(with: ["cheese"])
-        let searchResultsVC = UIViewController()
-        searchResultsVC.view.backgroundColor = .red
-        navigationController?.pushViewController(searchResultsVC, animated: true)
+        let searchResultViewController = UIViewController()
+        searchResultViewController.view.backgroundColor = .red
+        navigationController?.pushViewController(searchResultViewController, animated: true)
     }
     
     func didTapAddButton() {
@@ -56,6 +55,8 @@ extension SearchViewController: SearchViewModelDelegate {
     }
     
     func didNotFindRecipe(error: Error) {
-       
+//        let alertVC = UIAlertController(title: "Error", message: ???????, preferredStyle: .alert)
+//        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//        present(alertVC, animated: true, completion: nil)
     }
 }
