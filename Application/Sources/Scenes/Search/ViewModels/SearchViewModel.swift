@@ -1,26 +1,32 @@
 import Foundation
 
 protocol SearchViewModelDelegate: AnyObject {
-    func didFindRecepies()
+    func didUpgradeIngredients()
+    func didFindRecipes()
     func didNotFindRecipe(error: Error)
 }
 class SearchViewModel {
     
     private let searchService: EdamamSearchService
-    private (set) var recipies: [EdamamRecipe] = []
+    private (set) var ingredients: [String] = []
     weak var delegate: SearchViewModelDelegate?
     
     init(searchService: EdamamSearchService = EdamamSearchService()) {
         self.searchService = searchService
     }
     
-    func searchRecipies(with ingredients: [String]) {
-        searchService.getRecipies(page: 0) { [unowned self] result in
+    func add(ingredient: String) {
+        ingredients.append(ingredient)
+        
+        delegate?.didUpgradeIngredients()
+    }
+    func searchRecipes(with ingredients: [String]) {
+        searchService.getRecipes(page: 0) { [unowned self] result in
             switch result {
             case.success(let response):
                 dump(response)
-                recipies = response.hits.map { $0.recipe!}
-                delegate?.didFindRecepies()
+//                recipies = response.hits.compactMap { $0.recipe }
+                delegate?.didFindRecipes()
                 
             case.failure(let error):
                 dump(error)

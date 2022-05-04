@@ -107,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				B2A2DF31280ED520005F680C /* SearchViewController.swift */,
-				B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -224,8 +223,8 @@
 		B2FFD11B28199624001C576A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B2FFD1192819581D001C576A /* MyIngredientsDataSource.swift */,
 				B2FFD1172819571F001C576A /* MyIngredients.swift */,
+				B2FFD1192819581D001C576A /* MyIngredientsDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,10 +232,19 @@
 		B2FFD11E281C0566001C576A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B2FFD11F282026DA001C576A /* Recipies */,
 				B21B937F28156AAB00F6B36A /* Search */,
 				B21B938028156AB900F6B36A /* Favourites */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B2FFD11F282026DA001C576A /* Recipies */ = {
+			isa = PBXGroup;
+			children = (
+				B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */,
+			);
+			path = Recipies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

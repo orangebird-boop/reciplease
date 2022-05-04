@@ -1,33 +1,49 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+
     var searchViewModel = SearchViewModel()
     let searchView = SearchView()
-    var ingredientList = MyIngredients()
+    let ingredientsTableView = UITableView()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Reciplease"
+        
+        searchViewModel.delegate = self
         
         setupViews()
         setupLayout()
     }
     
     func setupViews() {
+        view.backgroundColor = .systemGroupedBackground
+        
+        title = "Reciplease"
+        
         searchView.delegate = self
         searchView.backgroundColor = .yellow
         view.addSubview(searchView)
+        
+        ingredientsTableView.backgroundColor = .clear
+        ingredientsTableView.dataSource = self
+        ingredientsTableView.delegate = self
+        view.addSubview(ingredientsTableView)
     }
     
     func setupLayout() {
-        searchView.translatesAutoresizingMaskIntoConstraints = false
+        [ingredientsTableView, searchView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
-            
             searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             searchView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             searchView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            searchView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            searchView.heightAnchor.constraint(equalToConstant: 128),
+            
+            ingredientsTableView.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: 16),
+            ingredientsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            ingredientsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            ingredientsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
 }
@@ -36,22 +52,24 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
-        searchViewModel.searchRecipies(with: ["cheese"])
-        let searchResultViewController = UIViewController()
-        searchResultViewController.view.backgroundColor = .red
-        navigationController?.pushViewController(searchResultViewController, animated: true)
+        searchViewModel.searchRecipes(with: ["cheese"])
     }
     
     func didTapAddButton() {
-//        guard let ingredient = searchView.inTheFridge.text, !ingredient.isEmpty else {return}
-//        ingredientList.listOfIngredients.append(ingredient)
-//        
+        guard let ingredient = searchView.ingredientsTextField.text, !ingredient.isEmpty else {return}
+        
+        searchViewModel.add(ingredient: ingredient)
+        
     }
 }
 
 extension SearchViewController: SearchViewModelDelegate {
-    func didFindRecepies() {
-        // todo refresh list of recipies
+    func didUpgradeIngredients() {
+        ingredientsTableView.reloadData()
+    }
+    
+    func didFindRecipes() {
+        // TODO Display recipes
     }
     
     func didNotFindRecipe(error: Error) {
@@ -59,4 +77,21 @@ extension SearchViewController: SearchViewModelDelegate {
 //        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 //        present(alertVC, animated: true, completion: nil)
     }
+}
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        searchViewModel.ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableViewCell = UITableViewCell(style: .value1, reuseIdentifier: "test")
+        let ingredient = searchViewModel.ingredients[indexPath.row]
+        tableViewCell.textLabel?.text = ingredient
+        
+        return tableViewCell
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
+    
 }

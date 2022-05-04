@@ -6,8 +6,7 @@ protocol SearchViewDelegate: AnyObject {
 }
 
 class SearchView: UIView {
-    var inTheFridge = UITextView()
-//    var myIngredients = SearchTableView()
+    var ingredientsTextField = UITextField()
     var searchButton = UIButton()
     var addButton = UIButton()
     
@@ -28,12 +27,10 @@ class SearchView: UIView {
     }
     
     func setupView() {
-        inTheFridge.text = ""
-        inTheFridge.backgroundColor = .white
-        inTheFridge.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        addSubview(inTheFridge)
-        
-//        addSubview(myIngredients)
+        ingredientsTextField.text = ""
+        ingredientsTextField.backgroundColor = .white
+        ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        addSubview(ingredientsTextField)
         
         addButton.setTitle("Add", for: .normal)
         addButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
@@ -41,42 +38,33 @@ class SearchView: UIView {
         addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
         addSubview(addButton)
 
-        searchButton.setTitle("Search", for: .normal)
-        searchButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        searchButton.backgroundColor = .green
-        searchButton.addTarget(self, action: #selector(searchForRecipes), for: .touchUpInside)
-        addSubview(searchButton)
-        
+//        searchButton.setTitle("Search", for: .normal)
+//        searchButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+//        searchButton.backgroundColor = .green
+//        searchButton.addTarget(self, action: #selector(searchForRecipes), for: .touchUpInside)
+//        addSubview(searchButton)
+//
     }
     
     private func setupLayout() {
-        [inTheFridge,
-//         myIngredients,
-         addButton,
-         searchButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [ingredientsTextField, addButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             
-            inTheFridge.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-//            inTheFridge.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            inTheFridge.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            inTheFridge.heightAnchor.constraint(equalToConstant: 42),
+            ingredientsTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            ingredientsTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            ingredientsTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            ingredientsTextField.heightAnchor.constraint(equalToConstant: 32),
             
-            addButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            addButton.topAnchor.constraint(equalTo: ingredientsTextField.bottomAnchor, constant: 16),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            addButton.leadingAnchor.constraint(equalTo: inTheFridge.trailingAnchor, constant: 8),
-            addButton.heightAnchor.constraint(equalToConstant: 42),
-            addButton.widthAnchor.constraint(equalToConstant: 52),
+            addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            addButton.heightAnchor.constraint(equalToConstant: 42)
             
-//            myIngredients.topAnchor.constraint(equalTo: inTheFridge.bottomAnchor, constant: 8),
-//            myIngredients.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            myIngredients.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -24),
-//            myIngredients.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            
-            searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            searchButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            searchButton.heightAnchor.constraint(equalToConstant: 42),
-            searchButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
+//            searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+//            searchButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+//            searchButton.heightAnchor.constraint(equalToConstant: 42),
+//            searchButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
         ])
     }
     
