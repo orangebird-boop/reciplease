@@ -7,7 +7,7 @@ protocol SearchViewDelegate: AnyObject {
 
 class SearchView: UIView {
     var ingredientsTextField = UITextField()
-    var searchButton = UIButton()
+    
     var addButton = UIButton()
     
     weak var delegate: SearchViewDelegate?
@@ -60,19 +60,10 @@ class SearchView: UIView {
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             addButton.heightAnchor.constraint(equalToConstant: 42)
-            
-//            searchButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            searchButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-//            searchButton.heightAnchor.constraint(equalToConstant: 42),
-//            searchButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8)
+   
         ])
     }
-    
-    @objc
-    func searchForRecipes() {
-        delegate?.didTapSearchButton()
-    }
-    
+
     @objc
     func addIngredient() {
         delegate?.didTapAddButton()

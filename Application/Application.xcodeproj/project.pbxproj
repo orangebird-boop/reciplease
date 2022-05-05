@@ -25,6 +25,7 @@
 		B2FFD1182819571F001C576A /* MyIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD1172819571F001C576A /* MyIngredients.swift */; };
 		B2FFD11A2819581D001C576A /* MyIngredientsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD1192819581D001C576A /* MyIngredientsDataSource.swift */; };
 		B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */; };
+		B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */; };
 		D96CCBE26D9316236AE86518 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		B2FFD1172819571F001C576A /* MyIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIngredients.swift; sourceTree = "<group>"; };
 		B2FFD1192819581D001C576A /* MyIngredientsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyIngredientsDataSource.swift; sourceTree = "<group>"; };
 		B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3CB7CD4D0927AFC810E2D6A /* Pods-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,9 +244,18 @@
 		B2FFD11F282026DA001C576A /* Recipies */ = {
 			isa = PBXGroup;
 			children = (
+				B2FFD1222823DA70001C576A /* ViewModels */,
 				B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */,
 			);
 			path = Recipies;
+			sourceTree = "<group>";
+		};
+		B2FFD1222823DA70001C576A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +394,7 @@
 				B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */,
 				B2FFD11A2819581D001C576A /* MyIngredientsDataSource.swift in Sources */,
 				B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */,
+				B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */,
 				B2A2DF3A280EDA02005F680C /* FavouritesView.swift in Sources */,
 				B2A2DF36280ED5B4005F680C /* FavouritesViewController.swift in Sources */,
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,

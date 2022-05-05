@@ -25,7 +25,7 @@ enum SearchServiceError: Error {
 }
 
 protocol SearchService {
-    associatedtype ServiceResponse : Decodable
+    associatedtype ServiceResponse: Decodable
     
     func getRecipes(page: Int, completionHandler: @escaping (Result<ServiceResponse, SearchServiceError>) -> Void)
 }
