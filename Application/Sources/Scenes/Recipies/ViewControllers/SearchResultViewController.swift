@@ -19,10 +19,11 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SearchResultTableViewCell")
-        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+        tableView.dataSource = self // replace with diffabledatatsource
+        tableView.delegate = self
         
-        self.view.addSubview(tableView)
+        view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -35,28 +36,27 @@ class SearchResultViewController: UIViewController {
     }
 }
 
-extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.recipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as! SearchResultTableViewCell
-//        guard let cell = tableViewCell else {
-//            return ???? UITableViewCell()
-//        }
-//
-        let recipe = viewModel.recipes[indexPath.row]
-        tableViewCell.configure(with: recipe.label)
-        tableViewCell.delegate = self
-//        tableViewCell.textLabel?.text = recipe.label
+        guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
+            fatalError("This cell should be registerd")
+        }
         
+        let recipe = viewModel.recipes[indexPath.row]
+        tableViewCell.configure(with: recipe)
+         
         return tableViewCell
     }
 }
 
-extension SearchResultViewController: SearchResultTableViewCellDelegate {
-    func didTapButton(with title: String) {
-        print(title)
+extension SearchResultViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipe = viewModel.recipes[indexPath.row]
+      
+        navigationController?.pushViewController(UIViewController(), animated: true)
     }
 }

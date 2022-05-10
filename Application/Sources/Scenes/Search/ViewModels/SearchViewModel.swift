@@ -40,27 +40,26 @@ class SearchViewModel {
     }
     func searchRecipes(ingredients: [String]) {
         
-        searchService.getRecipes(ingredients: ingredients.joined(separator: "%2C%20"), page: 0) { [weak self] result in
+        searchService.getRecipes(ingredients: ingredients, page: 0) { [weak self] result in
+            guard let self = self else {return}
+            
             switch result {
             case.success(let response):
                 dump(response)
                 
-                self?.recipes = response.hits.compactMap { $0.recipe }
-                self?.delegate?.didFindRecipes()
+                self.recipes = response.hits.compactMap { $0.recipe }
+                self.delegate?.didFindRecipes()
                 
             case.failure(let error):
-                dump(error)
-//                delegate?.didNotFindRecipe(error: error)
-//
-//                switch error {
-//
-//                case .invalidURL, networkError:
-//                    delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
-//
-//                case .invalidData, invalidResponse, invalidJSONStructure:
-//                    delegate?.didNotFindRecipe(error: .defaultError)
-//                
-//                }
+                switch error {
+
+                case .invalidURL, .networkError:
+                    self.delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
+
+                case .invalidData, .invalidResponse, .invalidJSONStructure:
+                    self.delegate?.didNotFindRecipe(error: .defaultError)
+                
+                }
             }
         }
     }

@@ -1,39 +1,49 @@
 import UIKit
-protocol SearchResultTableViewCellDelegate: AnyObject{
-    func didTapButton(with title: String)
-}
 
 class SearchResultTableViewCell: UITableViewCell {
-
-    weak var delegate: SearchResultTableViewCellDelegate?
     
     static let identifier = "SearchResultTableViewCell"
     
-//    static func nib() -> UINib {
-//        return UINib(nibName: "SearchResultTableViewCell", bundle: nil)
-//    }
-
-    var button = UIButton()
-    private var title: String = ""
+    lazy var label: UILabel = {
+        let label = UILabel()
+        
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .red
+        
+        return label
+    }()
+    private var recipe: EdamamRecipe?
     
-    func configure(with title: String) {
-        self.title = title
-        button.setTitle(title, for: .normal)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+        setupLayout()
+        
     }
     
-    @objc
-    func didtapButton() {
-        delegate?.didTapButton(with: <#T##String#>)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        button.setTitleColor(.link, for: .normal)
+    func configure(with recipe: EdamamRecipe) {
+        self.recipe = recipe
+        label.text = recipe.label
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setupViews() {
+        contentView.addSubview(label)
+              
+    }
+    
+    func setupLayout() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: topAnchor),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor)
+        ])
     }
 }
