@@ -3,7 +3,6 @@ import UIKit
 class SearchResultViewController: UIViewController {
     
     let viewModel: SearchResultViewModel
-    weak var tableView: UITableView!
     
     init(viewModel: SearchResultViewModel) {
         self.viewModel = viewModel
@@ -15,13 +14,37 @@ class SearchResultViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+        return tableView
+    }()
+    
+    var dataSource: UITableViewDiffableDataSource<Section, EdamamRecipe>!
+    
+    func updateDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, EdamamRecipe>()
+        snapshot.appendSections([.first])
+       
+    }
+    enum Section {
+        case first
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
-        tableView.dataSource = self // replace with diffabledatatsource
+//        let tableView = UITableView(frame: .zero, style: .plain)
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+////        tableView.dataSource = self // replace with diffabledatatsource
+//        tableView.delegate = self
         tableView.delegate = self
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, model -> UITableViewCell? in
+            let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath)
+            cell.textLabel?.text = model.label
+            return cell
+        })
+        
         
         view.addSubview(tableView)
         
@@ -36,22 +59,22 @@ class SearchResultViewController: UIViewController {
     }
 }
 
-extension SearchResultViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.recipes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
-            fatalError("This cell should be registerd")
-        }
-        
-        let recipe = viewModel.recipes[indexPath.row]
-        tableViewCell.configure(with: recipe)
-         
-        return tableViewCell
-    }
-}
+// extension SearchResultViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        viewModel.recipes.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
+//            fatalError("This cell should be registerd")
+//        }
+//        
+//        let recipe = viewModel.recipes[indexPath.row]
+//        tableViewCell.configure(with: recipe)
+//         
+//        return tableViewCell
+//    }
+//}
 
 extension SearchResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

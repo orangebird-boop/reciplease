@@ -11,6 +11,7 @@ class EdamamSearchService {
 
     func buildUrl(for ingredients: [String]) -> String? {
        var urlComponents = URLComponents(string: path)
+        urlComponents?.queryItems = []
         urlComponents?.queryItems?.append(URLQueryItem(name: "type", value: "public"))
         urlComponents?.queryItems?.append(URLQueryItem(name: "q", value: ingredients.joined(separator: " ")))
         urlComponents?.queryItems?.append(URLQueryItem(name: "app_id", value: appID))
@@ -22,8 +23,10 @@ class EdamamSearchService {
     func getRecipes(ingredients: [String], page: Int, completionHandler: @escaping (Result<EdamamResponse, SearchServiceError>) -> Void) {
         guard let url = buildUrl(for: ingredients) else {
             completionHandler(.failure(.invalidURL))
+            
             return
         }
+        print(url)
                 let request = AF.request(url)
         
         request.responseJSON { networkResponse in

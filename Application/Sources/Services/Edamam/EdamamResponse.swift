@@ -10,7 +10,7 @@ struct Hit: Decodable {
 }
 
 // MARK: - Recipe
-struct EdamamRecipe: Decodable {
+struct EdamamRecipe: Decodable, Hashable {
     let label: String
     let image: String?
     let url: String
