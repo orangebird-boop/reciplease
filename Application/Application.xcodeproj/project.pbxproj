@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85741B59305C27E5DA178BA9 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
 		B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93752811660F00F6B36A /* SearchViewModel.swift */; };
 		B21B938928156C2100F6B36A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B938828156C2100F6B36A /* SearchService.swift */; };
 		B27AF73428350A2300E16EB7 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF73328350A2300E16EB7 /* RecipeDetailsView.swift */; };
@@ -26,7 +27,6 @@
 		B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */; };
 		B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */; };
 		B2FFD12928252C3F001C576A /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD12828252C3F001C576A /* SearchResultTableViewCell.swift */; };
-		D96CCBE26D9316236AE86518 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D96CCBE26D9316236AE86518 /* Pods_Application.framework in Frameworks */,
+				85741B59305C27E5DA178BA9 /* Pods_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
