@@ -12,7 +12,7 @@ class SearchResultTableViewCell: UITableViewCell {
         
         return label
     }()
-    private var recipe: EdamamRecipe?
+    private var recipe: Recipe?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,9 +26,9 @@ class SearchResultTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with recipe: EdamamRecipe) {
+    func configure(with recipe: Recipe) {
         self.recipe = recipe
-        label.text = recipe.label
+        label.text = recipe.name
     }
     
     func setupViews() {

@@ -1,5 +1,5 @@
 import Foundation
 
-class RecipeDetailsViewModel {
-    
+struct RecipeDetailsViewModel {
+    let recipe: Recipe
 }

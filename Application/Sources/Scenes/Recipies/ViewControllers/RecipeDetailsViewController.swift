@@ -2,10 +2,14 @@ import Foundation
 import UIKit
 
 class RecipeDetailsViewController: UIViewController {
-    let viewModel: SearchResultViewModel
-    private (set) var recipes: [EdamamRecipe] = []
+
+    // MARK: - Properties
+
+    let viewModel: RecipeDetailsViewModel
+
+    // MARK: - Initialization
     
-    init(viewModel: SearchResultViewModel) {
+    init(viewModel: RecipeDetailsViewModel) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -14,6 +18,12 @@ class RecipeDetailsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 
+    // MARK: - Functions
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .red
+    }
 }

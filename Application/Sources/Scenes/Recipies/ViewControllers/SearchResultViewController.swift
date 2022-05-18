@@ -11,7 +11,7 @@ class SearchResultViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:}) has not been implemented")
     }
     
     lazy var tableView: UITableView = {
@@ -23,7 +23,7 @@ class SearchResultViewController: UIViewController {
     private lazy var dataSource = makeDataSource()
     
     func updateDataSource() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, EdamamRecipe>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
         snapshot.appendSections([.first])
     }
     
@@ -31,8 +31,8 @@ class SearchResultViewController: UIViewController {
         case first
     }
     
-    typealias DataSource = UITableViewDiffableDataSource<Section, EdamamRecipe>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, EdamamRecipe>
+    typealias DataSource = UITableViewDiffableDataSource<Section, Recipe>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>
     
     func applySnapshot(animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
@@ -46,6 +46,8 @@ class SearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = .systemGroupedBackground
         
         tableView.delegate = self
     
@@ -81,7 +83,8 @@ extension SearchResultViewController: UITableViewDelegate {
           return
         }
        
-        let viewController = RecipeDetailsViewController(viewModel: SearchResultViewModel(recipes: [recipe]))
+        let viewController = RecipeDetailsViewController(viewModel: RecipeDetailsViewModel(recipe: recipe))
+
         present(viewController, animated: true, completion: nil)
 //        let recipe = viewModel.recipes[indexPath.row]
 //        let viewController = RecipeDetailsViewController(viewModel: SearchResultViewModel(recipes: [recipe]))

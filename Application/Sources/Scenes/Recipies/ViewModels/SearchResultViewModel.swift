@@ -1,9 +1,9 @@
 import Foundation
 
 class SearchResultViewModel {
-    var recipes: [EdamamRecipe] = []
+    var recipes: [Recipe] = []
     
-    init(recipes: [EdamamRecipe]) {
+    init(recipes: [Recipe]) {
         self.recipes = recipes
     }
     
