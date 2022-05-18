@@ -8,7 +8,7 @@ class SearchResultTableViewCell: UITableViewCell {
         let label = UILabel()
         
         label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textColor = .red
+        label.textColor = .black
         
         return label
     }()

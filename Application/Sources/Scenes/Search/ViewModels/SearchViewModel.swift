@@ -64,3 +64,7 @@ class SearchViewModel {
         }
     }
 }
+
+enum Section {
+    case first
+}

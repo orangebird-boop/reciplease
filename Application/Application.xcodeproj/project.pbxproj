@@ -18,6 +18,8 @@
 		B2A2DF3A280EDA02005F680C /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF39280EDA02005F680C /* FavouritesView.swift */; };
 		B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD0280F00AE0039784E /* SearchView.swift */; };
 		B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD4280F062F0039784E /* EdamamSearchService.swift */; };
+		B2D3C1692834FD4F00E48122 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3C1682834FD4F00E48122 /* RecipeDetailsViewController.swift */; };
+		B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */; };
 		B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61CF528107A09005F4B0D /* Recipe.swift */; };
 		B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD10E2816A132001C576A /* EdamamResponse.swift */; };
 		B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */; };
@@ -41,6 +43,8 @@
 		B2A2DF39280EDA02005F680C /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		B2AAADD0280F00AE0039784E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		B2AAADD4280F062F0039784E /* EdamamSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSearchService.swift; sourceTree = "<group>"; };
+		B2D3C1682834FD4F00E48122 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewModel.swift; sourceTree = "<group>"; };
 		B2F61CF528107A09005F4B0D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B2FFD10E2816A132001C576A /* EdamamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamResponse.swift; sourceTree = "<group>"; };
 		B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */,
+				B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			children = (
 				B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */,
 				B2FFD12828252C3F001C576A /* SearchResultTableViewCell.swift */,
+				B2D3C1682834FD4F00E48122 /* RecipeDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2FFD12928252C3F001C576A /* SearchResultTableViewCell.swift in Sources */,
+				B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */,
 				B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */,
 				B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */,
 				B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */,
@@ -403,6 +410,7 @@
 				B21B938928156C2100F6B36A /* SearchService.swift in Sources */,
 				B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */,
 				B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */,
+				B2D3C1692834FD4F00E48122 /* RecipeDetailsViewController.swift in Sources */,
 				B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

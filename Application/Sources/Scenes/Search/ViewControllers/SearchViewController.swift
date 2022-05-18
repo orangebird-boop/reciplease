@@ -1,12 +1,19 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    
+    // MARK: - Properties
     var searchViewModel = SearchViewModel()
     let searchView = SearchView()
     let ingredientsTableView = UITableView()
     var searchButton = UIButton()
+//    private var sections = Section.first
+//    private lazy var dataSource = makeDataSource()
+//    
+//    // MARK: - Value Types
+//    typealias DataSource = UITableViewDiffableDataSource<Section, Ingredient>
+//    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Ingredient>
     
+    // MARK: - Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,16 +29,16 @@ class SearchViewController: UIViewController {
         title = "Reciplease"
         
         searchView.delegate = self
-        searchView.backgroundColor = .yellow
+        searchView.backgroundColor = .systemGray4
         view.addSubview(searchView)
         
         searchButton.setTitle("Search", for: .normal)
         searchButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        searchButton.backgroundColor = .green
+        searchButton.backgroundColor = .systemGray
         searchButton.addTarget(self, action: #selector(searchForRecipes), for: .touchUpInside)
         view.addSubview(searchButton)
         
-        ingredientsTableView.backgroundColor = .clear
+        ingredientsTableView.backgroundColor = .systemBackground
         ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         ingredientsTableView.dataSource = self
         ingredientsTableView.delegate = self

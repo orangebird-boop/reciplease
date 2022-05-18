@@ -28,22 +28,15 @@ class SearchView: UIView {
     
     func setupView() {
         ingredientsTextField.text = ""
-        ingredientsTextField.backgroundColor = .white
-        ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        ingredientsTextField.backgroundColor = .systemBackground
+        ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .title1)
         addSubview(ingredientsTextField)
         
         addButton.setTitle("Add", for: .normal)
         addButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        addButton.backgroundColor = .green
+        addButton.backgroundColor = .systemGray
         addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
         addSubview(addButton)
-
-//        searchButton.setTitle("Search", for: .normal)
-//        searchButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-//        searchButton.backgroundColor = .green
-//        searchButton.addTarget(self, action: #selector(searchForRecipes), for: .touchUpInside)
-//        addSubview(searchButton)
-//
     }
     
     private func setupLayout() {

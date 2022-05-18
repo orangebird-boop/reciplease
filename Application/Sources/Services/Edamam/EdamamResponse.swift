@@ -17,6 +17,11 @@ struct EdamamRecipe: Decodable, Hashable {
     let yield: Double?
     let ingredientLines: [String]
     let totalTime: Int?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(label)
+        hasher.combine(url)
+    }
 }
 // MARK: - Ingredient
 struct Ingredient: Codable {
