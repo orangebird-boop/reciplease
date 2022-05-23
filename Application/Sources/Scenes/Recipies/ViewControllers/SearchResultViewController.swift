@@ -46,11 +46,10 @@ class SearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemGroupedBackground
         
         tableView.delegate = self
-    
         view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +62,7 @@ class SearchResultViewController: UIViewController {
         ])
         applySnapshot()
     }
-
+    
     func makeDataSource() -> DataSource {
         DataSource(tableView: tableView) { tableView, indexPath, model in
             guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
@@ -78,17 +77,20 @@ class SearchResultViewController: UIViewController {
 }
 
 extension SearchResultViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140.0 // Choose your custom row height
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let recipe = dataSource.itemIdentifier(for: indexPath) else {
-          return
+            return
         }
-       
+        
         let viewController = RecipeDetailsViewController(viewModel: RecipeDetailsViewModel(recipe: recipe))
-
+        
         present(viewController, animated: true, completion: nil)
-//        let recipe = viewModel.recipes[indexPath.row]
-//        let viewController = RecipeDetailsViewController(viewModel: SearchResultViewModel(recipes: [recipe]))
-//        navigationController?.pushViewController(viewController, animated: true)
+        //        let recipe = viewModel.recipes[indexPath.row]
+        //        let viewController = RecipeDetailsViewController(viewModel: SearchResultViewModel(recipes: [recipe]))
+        //        navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true )
     }
 }
