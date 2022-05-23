@@ -3,10 +3,10 @@ import UIKit
 class SearchResultTableViewCell: UITableViewCell {
     
     static let identifier = "SearchResultTableViewCell"
+    var foodImage = UIImageView()
     
     lazy var label: UILabel = {
         let label = UILabel()
-        
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = .black
         
@@ -29,21 +29,29 @@ class SearchResultTableViewCell: UITableViewCell {
     func configure(with recipe: Recipe) {
         self.recipe = recipe
         label.text = recipe.name
+        foodImage.loadFrom(URLAddress: recipe.foodImage!)  //where do i unwrapp it?
+        
     }
     
     func setupViews() {
         contentView.addSubview(label)
-              
+        contentView.addSubview(foodImage)
+        
     }
     
     func setupLayout() {
-        label.translatesAutoresizingMaskIntoConstraints = false
+        [label, foodImage].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor)
+            foodImage.topAnchor.constraint(equalTo: contentView.topAnchor),
+            foodImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            foodImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            foodImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 }
+
+

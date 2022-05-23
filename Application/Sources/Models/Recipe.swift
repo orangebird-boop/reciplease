@@ -1,7 +1,8 @@
 import Foundation
 
-struct Recipe {
+struct Recipe: Decodable {
     let name: String
+    let foodImage: String?
 }
 
 extension Recipe: Hashable {

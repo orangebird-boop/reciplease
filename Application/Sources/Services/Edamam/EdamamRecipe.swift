@@ -17,6 +17,8 @@ struct EdamamRecipe: Decodable, Hashable {
 extension EdamamRecipe {
 
     func toGenericModel() -> Recipe {
-        Recipe(name: label)
+     
+        Recipe(name: label, foodImage: image)
+        
     }
 }

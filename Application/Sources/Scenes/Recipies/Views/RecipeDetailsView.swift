@@ -31,11 +31,6 @@ class RecipeDetailsView: UIView {
         recipeTitle.textColor = .darkGray
         addSubview(recipeTitle)
         
-//        euroTextView.font = UIFont.preferredFont(forTextStyle: .footnote)
-//        euroTextView.textAlignment = .left
-//        euroTextView.keyboardType = .numberPad
-//        euroTextView.layer.cornerRadius = 10
-//        addSubview(euroTextView)
     }
 
     func setupLayout() {

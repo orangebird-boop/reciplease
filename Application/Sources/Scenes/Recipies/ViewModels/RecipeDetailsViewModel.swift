@@ -1,5 +1,9 @@
 import Foundation
 
-struct RecipeDetailsViewModel {
+class RecipeDetailsViewModel {
     let recipe: Recipe
+    
+    init(recipe: Recipe) {
+        self.recipe = recipe
+    }
 }
