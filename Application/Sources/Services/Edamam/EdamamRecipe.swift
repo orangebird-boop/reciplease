@@ -18,7 +18,7 @@ extension EdamamRecipe {
 
     func toGenericModel() -> Recipe {
      
-        Recipe(name: label, foodImage: image)
+        Recipe(name: label, foodImage: image, url: url, yield: yield, ingredientLines: ingredientLines, totalTime: totalTime)
         
     }
 }

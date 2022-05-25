@@ -59,10 +59,6 @@ class SearchResultTableViewCell: UITableViewCell {
             foodImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             foodImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             foodImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            //            foodImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            //            foodImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            //            foodImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            //            foodImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)

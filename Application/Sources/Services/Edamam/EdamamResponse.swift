@@ -15,5 +15,3 @@ extension EdamamResponse {
 struct Hit: Decodable {
     let recipe: EdamamRecipe?
 }
-
-

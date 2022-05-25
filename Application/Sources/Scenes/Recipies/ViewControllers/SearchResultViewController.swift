@@ -87,10 +87,7 @@ extension SearchResultViewController: UITableViewDelegate {
         
         let viewController = RecipeDetailsViewController(viewModel: RecipeDetailsViewModel(recipe: recipe))
         
-        present(viewController, animated: true, completion: nil)
-        //        let recipe = viewModel.recipes[indexPath.row]
-        //        let viewController = RecipeDetailsViewController(viewModel: SearchResultViewModel(recipes: [recipe]))
-        //        navigationController?.pushViewController(viewController, animated: true)
+                navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true )
     }
 }
