@@ -20,7 +20,7 @@ class SearchViewModel {
     
     private let searchService: EdamamSearchService
     private (set) var ingredients: [String] = []
-    private (set) var recipes: [EdamamRecipe] = []
+    private (set) var recipes: [Recipe] = []
     weak var delegate: SearchViewModelDelegate?
     
     init(searchService: EdamamSearchService = EdamamSearchService()) {
@@ -44,10 +44,9 @@ class SearchViewModel {
             guard let self = self else {return}
             
             switch result {
-            case.success(let response):
-                dump(response)
-                
-                self.recipes = response.hits.compactMap { $0.recipe }
+            case.success(let recipeResponse):
+
+                self.recipes = recipeResponse.recipes
                 self.delegate?.didFindRecipes()
                 
             case.failure(let error):

@@ -11,7 +11,7 @@ class SearchResultViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:}) has not been implemented")
     }
     
     lazy var tableView: UITableView = {
@@ -23,7 +23,7 @@ class SearchResultViewController: UIViewController {
     private lazy var dataSource = makeDataSource()
     
     func updateDataSource() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, EdamamRecipe>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
         snapshot.appendSections([.first])
     }
     
@@ -31,8 +31,8 @@ class SearchResultViewController: UIViewController {
         case first
     }
     
-    typealias DataSource = UITableViewDiffableDataSource<Section, EdamamRecipe>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, EdamamRecipe>
+    typealias DataSource = UITableViewDiffableDataSource<Section, Recipe>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>
     
     func applySnapshot(animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
@@ -47,8 +47,9 @@ class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemGroupedBackground
+        
         tableView.delegate = self
-    
         view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +62,7 @@ class SearchResultViewController: UIViewController {
         ])
         applySnapshot()
     }
-
+    
     func makeDataSource() -> DataSource {
         DataSource(tableView: tableView) { tableView, indexPath, model in
             guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
@@ -76,16 +77,17 @@ class SearchResultViewController: UIViewController {
 }
 
 extension SearchResultViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140.0 // Choose your custom row height
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let recipe = dataSource.itemIdentifier(for: indexPath) else {
-          return
+            return
         }
-       
-        let viewController = RecipeDetailsViewController(viewModel: SearchResultViewModel(recipes: [recipe]))
-        present(viewController, animated: true, completion: nil)
-//        let recipe = viewModel.recipes[indexPath.row]
-//        let viewController = RecipeDetailsViewController(viewModel: SearchResultViewModel(recipes: [recipe]))
-//        navigationController?.pushViewController(viewController, animated: true)
+        
+        let viewController = RecipeDetailsViewController(viewModel: RecipeDetailsViewModel(recipe: recipe))
+        
+                navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true )
     }
 }

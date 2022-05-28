@@ -1,9 +1,9 @@
-
 import UIKit
 
 protocol RecipeDetailsViewDelegate: AnyObject {
     
 }
+
 class RecipeDetailsView: UIView {
     let recipeTitle = UILabel()
     let recipeDetails = UITextView()
@@ -31,10 +31,9 @@ class RecipeDetailsView: UIView {
         recipeTitle.textColor = .darkGray
         addSubview(recipeTitle)
         
-        euroTextView.font = UIFont.preferredFont(forTextStyle: .footnote)
-        euroTextView.textAlignment = .left
-        euroTextView.keyboardType = .numberPad
-        euroTextView.layer.cornerRadius = 10
-        addSubview(euroTextView)
+    }
+
+    func setupLayout() {
+
     }
 }
