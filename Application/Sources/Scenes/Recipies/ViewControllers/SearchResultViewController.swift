@@ -3,6 +3,7 @@ import UIKit
 class SearchResultViewController: UIViewController {
     
     let viewModel: SearchResultViewModel
+    let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     
     init(viewModel: SearchResultViewModel) {
         self.viewModel = viewModel
@@ -78,7 +79,7 @@ class SearchResultViewController: UIViewController {
 
 extension SearchResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220.0 // Choose your custom row height
+        return 260.0 // Choose your custom row height
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let recipe = dataSource.itemIdentifier(for: indexPath) else {

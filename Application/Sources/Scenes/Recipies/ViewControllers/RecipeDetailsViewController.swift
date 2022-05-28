@@ -6,9 +6,10 @@ class RecipeDetailsViewController: UIViewController {
     // MARK: - Properties
 
     let viewModel: RecipeDetailsViewModel
-    let image = UIImageView()
+    var image = UIImageView()
     let label = UILabel()
     let textView = UITextView()
+    let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
 //    let addToFavouritesButton = UIButton()
     // MARK: - Initialization
     
@@ -23,25 +24,30 @@ class RecipeDetailsViewController: UIViewController {
     }
 
     // MARK: - Functions
-
-    func configure(with recipe: Recipe) {
-        viewModel.recipe = recipe
-        label.text = recipe.name
-        image.loadFrom(URLAddress: recipe.foodImage!)  // where do i unwrapp it?
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        setupLayouts()
+        
+    }
+    
+     func setupViews() {
+       
         view.backgroundColor = .systemBackground
         
         let buttonImage = UIImage(systemName: "star")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(addToFavourites))
-       
+        
+        if let foodImageFromURL = viewModel.recipe.foodImage {
+        image.loadFrom(URLAddress: foodImageFromURL)
+        } else {
+            image = UIImageView(image: defaultImage)
+        }
         view.addSubview(image)
-    
-        label.textColor = .white
+        
+        label.text = viewModel.recipe.name
+        label.textColor = .black
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         view.addSubview(label)
         
@@ -49,7 +55,7 @@ class RecipeDetailsViewController: UIViewController {
         view.addSubview(textView)
     }
     
-    func setupLayout() {
+    func setupLayouts() {
         [image, label, textView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([

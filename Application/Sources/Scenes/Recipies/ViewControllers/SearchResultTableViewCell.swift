@@ -4,10 +4,11 @@ class SearchResultTableViewCell: UITableViewCell {
     
     static let identifier = "SearchResultTableViewCell"
     var foodImageView = UIImageView()
+    let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let gradientLayer = CAGradientLayer()
     lazy var label: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textColor = .white
         
         return label
@@ -33,19 +34,17 @@ class SearchResultTableViewCell: UITableViewCell {
         if let foodImageFromUrl = recipe.foodImage {
             foodImageView.loadFrom(URLAddress: foodImageFromUrl)
         } else {
-            // Choose default image
+            foodImageView.image = defaultImage
         }
     }
     
     func setupViews() {
-//        contentView.addSubview(label)
-//        contentView.addSubview(foodImage)
-        
+
         let foodImage = UIImageView(frame: .zero)
         self.contentView.addSubview(foodImage)
         self.foodImageView = foodImage
         
-        let label = UILabel(frame: .zero)
+        
         self.contentView.addSubview(label)
         self.label = label
         

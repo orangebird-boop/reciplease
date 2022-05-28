@@ -44,14 +44,14 @@ class SearchView: UIView {
         
         NSLayoutConstraint.activate([
             
-            ingredientsTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            ingredientsTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            ingredientsTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            ingredientsTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
+            ingredientsTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
+            ingredientsTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
             ingredientsTextField.heightAnchor.constraint(equalToConstant: 32),
             
-            addButton.topAnchor.constraint(equalTo: ingredientsTextField.bottomAnchor, constant: 16),
-            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            addButton.topAnchor.constraint(equalTo: ingredientsTextField.bottomAnchor, constant: Margins.medium),
+            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
+            addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
             addButton.heightAnchor.constraint(equalToConstant: 42)
    
         ])
