@@ -22,6 +22,14 @@ class SearchResultTableViewCell: UITableViewCell {
         return ingredientsLabel
     }()
     
+    lazy var timeLabel: UILabel = {
+        let timeLabel = UILabel()
+        timeLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        timeLabel.textColor = .white
+        
+        return timeLabel
+    }()
+    
     private var recipe: Recipe?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -41,6 +49,8 @@ class SearchResultTableViewCell: UITableViewCell {
         label.text = recipe.name
         
         ingredientsLabel.text = recipe.ingredientLines.joined(separator: ", ")
+        
+        timeLabel.text = "\(String(describing: recipe.totalTime))"
         
         if let foodImageFromUrl = recipe.foodImage {
             foodImageView.loadFrom(URLAddress: foodImageFromUrl)
@@ -69,7 +79,7 @@ class SearchResultTableViewCell: UITableViewCell {
     }
     
     func setupLayout() {
-        [foodImageView, label, ingredientsLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [foodImageView, label, ingredientsLabel, timeLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             foodImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -83,6 +93,8 @@ class SearchResultTableViewCell: UITableViewCell {
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             ingredientsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             ingredientsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            
+            
         ])
     }
 }
