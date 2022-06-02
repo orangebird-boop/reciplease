@@ -15,9 +15,9 @@ class SearchResultTableViewCell: UITableViewCell {
     }()
     
     lazy var ingredientsLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textColor = .white
+        let ingredientsLabel = UILabel()
+        ingredientsLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        ingredientsLabel.textColor = .white
         
         return ingredientsLabel
     }()
@@ -82,7 +82,7 @@ class SearchResultTableViewCell: UITableViewCell {
             ingredientsLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: -Margins.small),
             ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             ingredientsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            ingredientsLabel.heightAnchor.constraint(equalToConstant: 2*Margins.medium)
+            ingredientsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }
