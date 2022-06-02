@@ -16,6 +16,8 @@
 		B24FD83E28452C31001A4C34 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83D28452C31001A4C34 /* ApplicationTests.swift */; };
 		B24FD86B2847C203001A4C34 /* RecipleaseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8692847C202001A4C34 /* RecipleaseDataModel.xcdatamodeld */; };
 		B24FD86F28481C34001A4C34 /* FavouritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD86E28481C33001A4C34 /* FavouritesTableViewCell.swift */; };
+		B24FD8722848C07C001A4C34 /* RecipeData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8702848C07C001A4C34 /* RecipeData+CoreDataProperties.swift */; };
+		B24FD8732848C07C001A4C34 /* RecipeData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8712848C07C001A4C34 /* RecipeData+CoreDataClass.swift */; };
 		B27AF73428350A2300E16EB7 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF73328350A2300E16EB7 /* RecipeDetailsView.swift */; };
 		B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF18280ECD92005F680C /* AppDelegate.swift */; };
 		B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF1C280ECD92005F680C /* TabBarController.swift */; };
@@ -59,6 +61,8 @@
 		B24FD83D28452C31001A4C34 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		B24FD86A2847C202001A4C34 /* RecipleaseDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipleaseDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B24FD86E28481C33001A4C34 /* FavouritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCell.swift; sourceTree = "<group>"; };
+		B24FD8702848C07C001A4C34 /* RecipeData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecipeData+CoreDataProperties.swift"; path = "/Users/noralilla/Documents/work/reciplease/Application/Sources/Models/RecipeData+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		B24FD8712848C07C001A4C34 /* RecipeData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecipeData+CoreDataClass.swift"; path = "/Users/noralilla/Documents/work/reciplease/Application/Sources/Models/RecipeData+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		B27AF73328350A2300E16EB7 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
 		B2A2DF15280ECD92005F680C /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A2DF18280ECD92005F680C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 				B2F61CF528107A09005F4B0D /* Recipe.swift */,
 				B24FD83228429103001A4C34 /* RecipeIngredients.swift */,
 				EDFFF32128351B0600B4B012 /* RecipeResponse.swift */,
+				B24FD8712848C07C001A4C34 /* RecipeData+CoreDataClass.swift */,
+				B24FD8702848C07C001A4C34 /* RecipeData+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2FFD12928252C3F001C576A /* SearchResultTableViewCell.swift in Sources */,
+				B24FD8722848C07C001A4C34 /* RecipeData+CoreDataProperties.swift in Sources */,
 				B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */,
 				B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */,
 				B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */,
@@ -524,6 +531,7 @@
 				B2D3C1692834FD4F00E48122 /* RecipeDetailsViewController.swift in Sources */,
 				EDFFF31E28351A4B00B4B012 /* EdamamRecipe.swift in Sources */,
 				B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */,
+				B24FD8732848C07C001A4C34 /* RecipeData+CoreDataClass.swift in Sources */,
 				EDFFF32028351A6800B4B012 /* EdamamIngredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

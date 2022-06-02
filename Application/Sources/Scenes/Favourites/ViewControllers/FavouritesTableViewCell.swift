@@ -1,4 +1,3 @@
-
 import UIKit
 
 class FavouritesTableViewCell: UITableViewCell {
@@ -68,4 +67,3 @@ class FavouritesTableViewCell: UITableViewCell {
         ])
     }
 }
-

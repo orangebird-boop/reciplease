@@ -2,10 +2,10 @@ import UIKit
 
 class FavouritesViewController: UIViewController {
 //    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //.persistentContainer.viewContext
+        // .persistentContainer.viewContext
     
 //    let context = (UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
-    var items: [RecipeData]?
+//    var items: [RecipeData]?
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(FavouritesTableViewCell.self, forCellReuseIdentifier: FavouritesTableViewCell.identifier)
@@ -36,23 +36,23 @@ class FavouritesViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
-    func fetchFavourites() {
-        do {
-            self.items = try context.fetch(RecipeData.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } catch {
-            
-        }
-    }
+//    func fetchFavourites() {
+//        do {
+//            self.items = try context.fetch(RecipeData.fetchRequest())
+//            
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        } catch {
+//            
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemGroupedBackground
-        fetchFavourites()
+//        fetchFavourites()
         tableView.delegate = self
         view.addSubview(tableView)
         

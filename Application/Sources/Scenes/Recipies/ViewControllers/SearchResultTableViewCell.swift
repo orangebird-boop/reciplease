@@ -13,6 +13,15 @@ class SearchResultTableViewCell: UITableViewCell {
         
         return label
     }()
+    
+    lazy var ingredientsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .white
+        
+        return ingredientsLabel
+    }()
+    
     private var recipe: Recipe?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -31,6 +40,8 @@ class SearchResultTableViewCell: UITableViewCell {
         self.recipe = recipe
         label.text = recipe.name
         
+        ingredientsLabel.text = recipe.ingredientLines.joined(separator: ", ")
+        
         if let foodImageFromUrl = recipe.foodImage {
             foodImageView.loadFrom(URLAddress: foodImageFromUrl)
         } else {
@@ -47,6 +58,9 @@ class SearchResultTableViewCell: UITableViewCell {
         self.contentView.addSubview(label)
         self.label = label
         
+        self.contentView.addSubview(ingredientsLabel)
+        self.ingredientsLabel = ingredientsLabel
+        
         gradientLayer.colors = [UIColor.clear, UIColor.black]
              gradientLayer.locations = [0.6, 1.0]
              gradientLayer.frame = self.bounds
@@ -55,7 +69,7 @@ class SearchResultTableViewCell: UITableViewCell {
     }
     
     func setupLayout() {
-        [foodImageView, label].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [foodImageView, label, ingredientsLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             foodImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -63,7 +77,12 @@ class SearchResultTableViewCell: UITableViewCell {
             foodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            ingredientsLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: -Margins.small),
+            ingredientsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            ingredientsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            ingredientsLabel.heightAnchor.constraint(equalToConstant: 2*Margins.medium)
         ])
     }
 }
