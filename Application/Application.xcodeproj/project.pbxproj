@@ -10,6 +10,12 @@
 		85741B59305C27E5DA178BA9 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
 		B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93752811660F00F6B36A /* SearchViewModel.swift */; };
 		B21B938928156C2100F6B36A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B938828156C2100F6B36A /* SearchService.swift */; };
+		B24FD83128428A0F001A4C34 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83028428A0F001A4C34 /* UIImageView.swift */; };
+		B24FD83328429103001A4C34 /* RecipeIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83228429103001A4C34 /* RecipeIngredients.swift */; };
+		B24FD8352842A639001A4C34 /* Margins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8342842A639001A4C34 /* Margins.swift */; };
+		B24FD83E28452C31001A4C34 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83D28452C31001A4C34 /* ApplicationTests.swift */; };
+		B24FD86B2847C203001A4C34 /* RecipleaseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8692847C202001A4C34 /* RecipleaseDataModel.xcdatamodeld */; };
+		B24FD86F28481C34001A4C34 /* FavouritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD86E28481C33001A4C34 /* FavouritesTableViewCell.swift */; };
 		B27AF73428350A2300E16EB7 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF73328350A2300E16EB7 /* RecipeDetailsView.swift */; };
 		B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF18280ECD92005F680C /* AppDelegate.swift */; };
 		B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF1C280ECD92005F680C /* TabBarController.swift */; };
@@ -27,16 +33,32 @@
 		B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */; };
 		B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */; };
 		B2FFD12928252C3F001C576A /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD12828252C3F001C576A /* SearchResultTableViewCell.swift */; };
-		D96CCBE26D9316236AE86518 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
 		EDFFF31E28351A4B00B4B012 /* EdamamRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */; };
 		EDFFF32028351A6800B4B012 /* EdamamIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */; };
 		EDFFF32228351B0600B4B012 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF32128351B0600B4B012 /* RecipeResponse.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B24FD83F28452C31001A4C34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2A2DF0D280ECD92005F680C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2A2DF14280ECD92005F680C;
+			remoteInfo = Application;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
 		B21B93752811660F00F6B36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B21B938828156C2100F6B36A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		B24FD83028428A0F001A4C34 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		B24FD83228429103001A4C34 /* RecipeIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeIngredients.swift; path = /Users/noralilla/Documents/work/reciplease/Application/Sources/Models/RecipeIngredients.swift; sourceTree = "<absolute>"; };
+		B24FD8342842A639001A4C34 /* Margins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margins.swift; sourceTree = "<group>"; };
+		B24FD83B28452C30001A4C34 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B24FD83D28452C31001A4C34 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
+		B24FD86A2847C202001A4C34 /* RecipleaseDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipleaseDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B24FD86E28481C33001A4C34 /* FavouritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCell.swift; sourceTree = "<group>"; };
 		B27AF73328350A2300E16EB7 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
 		B2A2DF15280ECD92005F680C /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A2DF18280ECD92005F680C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +86,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B24FD83828452C30001A4C34 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2A2DF12280ECD92005F680C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				B2A2DF35280ED5B4005F680C /* FavouritesViewController.swift */,
+				B24FD86E28481C33001A4C34 /* FavouritesTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,12 +193,32 @@
 			path = Edamam;
 			sourceTree = "<group>";
 		};
+		B24FD82F28428A0F001A4C34 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B24FD83028428A0F001A4C34 /* UIImageView.swift */,
+				B24FD8342842A639001A4C34 /* Margins.swift */,
+			);
+			name = Extensions;
+			path = Sources/Scenes/Extensions;
+			sourceTree = SOURCE_ROOT;
+		};
+		B24FD83C28452C31001A4C34 /* ApplicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				B24FD83D28452C31001A4C34 /* ApplicationTests.swift */,
+			);
+			path = ApplicationTests;
+			sourceTree = "<group>";
+		};
 		B2A2DF0C280ECD92005F680C = {
 			isa = PBXGroup;
 			children = (
+				B24FD8692847C202001A4C34 /* RecipleaseDataModel.xcdatamodeld */,
 				B2A2DF2D280ECDB5005F680C /* Configurations */,
 				B2A2DF2C280ECDAA005F680C /* Resources */,
 				B2A2DF17280ECD92005F680C /* Sources */,
+				B24FD83C28452C31001A4C34 /* ApplicationTests */,
 				B2A2DF16280ECD92005F680C /* Products */,
 				80FF30ACF2605F0DBC0930A8 /* Pods */,
 				36388C048FC96162E283321E /* Frameworks */,
@@ -179,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				B2A2DF15280ECD92005F680C /* Application.app */,
+				B24FD83B28452C30001A4C34 /* ApplicationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F61CF528107A09005F4B0D /* Recipe.swift */,
+				B24FD83228429103001A4C34 /* RecipeIngredients.swift */,
 				EDFFF32128351B0600B4B012 /* RecipeResponse.swift */,
 			);
 			path = Models;
@@ -232,6 +284,7 @@
 		B2FFD11E281C0566001C576A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B24FD82F28428A0F001A4C34 /* Extensions */,
 				B2FFD11F282026DA001C576A /* Recipies */,
 				B21B937F28156AAB00F6B36A /* Search */,
 				B21B938028156AB900F6B36A /* Favourites */,
@@ -279,6 +332,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B24FD83A28452C30001A4C34 /* ApplicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B24FD84128452C31001A4C34 /* Build configuration list for PBXNativeTarget "ApplicationTests" */;
+			buildPhases = (
+				B24FD83728452C30001A4C34 /* Sources */,
+				B24FD83828452C30001A4C34 /* Frameworks */,
+				B24FD83928452C30001A4C34 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B24FD84028452C31001A4C34 /* PBXTargetDependency */,
+			);
+			name = ApplicationTests;
+			productName = ApplicationTests;
+			productReference = B24FD83B28452C30001A4C34 /* ApplicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B2A2DF14280ECD92005F680C /* Application */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B2A2DF29280ECD92005F680C /* Build configuration list for PBXNativeTarget "Application" */;
@@ -309,6 +380,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					B24FD83A28452C30001A4C34 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = B2A2DF14280ECD92005F680C;
+					};
 					B2A2DF14280ECD92005F680C = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -328,11 +403,19 @@
 			projectRoot = "";
 			targets = (
 				B2A2DF14280ECD92005F680C /* Application */,
+				B24FD83A28452C30001A4C34 /* ApplicationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B24FD83928452C30001A4C34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2A2DF13280ECD92005F680C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,6 +488,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B24FD83728452C30001A4C34 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B24FD83E28452C31001A4C34 /* ApplicationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B2A2DF11280ECD92005F680C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,17 +505,22 @@
 				B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */,
 				B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */,
 				B27AF73428350A2300E16EB7 /* RecipeDetailsView.swift in Sources */,
+				B24FD86F28481C34001A4C34 /* FavouritesTableViewCell.swift in Sources */,
 				B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */,
+				B24FD8352842A639001A4C34 /* Margins.swift in Sources */,
 				B2A2DF3A280EDA02005F680C /* FavouritesView.swift in Sources */,
 				B2A2DF36280ED5B4005F680C /* FavouritesViewController.swift in Sources */,
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
 				B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */,
+				B24FD83328429103001A4C34 /* RecipeIngredients.swift in Sources */,
 				B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */,
 				B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */,
 				B21B938928156C2100F6B36A /* SearchService.swift in Sources */,
 				B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */,
+				B24FD86B2847C203001A4C34 /* RecipleaseDataModel.xcdatamodeld in Sources */,
 				EDFFF32228351B0600B4B012 /* RecipeResponse.swift in Sources */,
 				B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */,
+				B24FD83128428A0F001A4C34 /* UIImageView.swift in Sources */,
 				B2D3C1692834FD4F00E48122 /* RecipeDetailsViewController.swift in Sources */,
 				EDFFF31E28351A4B00B4B012 /* EdamamRecipe.swift in Sources */,
 				B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */,
@@ -433,6 +529,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B24FD84028452C31001A4C34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2A2DF14280ECD92005F680C /* Application */;
+			targetProxy = B24FD83F28452C31001A4C34 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B2A2DF23280ECD92005F680C /* LaunchScreen.storyboard */ = {
@@ -446,6 +550,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B24FD84228452C31001A4C34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U56C9Q3FLL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = a.ApplicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Application.app/Application";
+			};
+			name = Debug;
+		};
+		B24FD84328452C31001A4C34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U56C9Q3FLL;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = a.ApplicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Application.app/Application";
+			};
+			name = Release;
+		};
 		B2A2DF27280ECD92005F680C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -627,6 +767,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B24FD84128452C31001A4C34 /* Build configuration list for PBXNativeTarget "ApplicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B24FD84228452C31001A4C34 /* Debug */,
+				B24FD84328452C31001A4C34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B2A2DF10280ECD92005F680C /* Build configuration list for PBXProject "Application" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -646,6 +795,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B24FD8692847C202001A4C34 /* RecipleaseDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B24FD86A2847C202001A4C34 /* RecipleaseDataModel.xcdatamodel */,
+			);
+			currentVersion = B24FD86A2847C202001A4C34 /* RecipleaseDataModel.xcdatamodel */;
+			path = RecipleaseDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B2A2DF0D280ECD92005F680C /* Project object */;
 }

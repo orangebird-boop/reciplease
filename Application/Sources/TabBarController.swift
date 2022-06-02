@@ -15,14 +15,25 @@ class TabBarController: UITabBarController {
     func setupViews() {
         
         let searchViewController = SearchViewController()
-        searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
         
         let favouritesViewController = FavouritesViewController()
-        favouritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(systemName: "star"), tag: 2)
+        favouritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
             
         setViewControllers([
            UINavigationController(rootViewController: searchViewController),
            UINavigationController(rootViewController: favouritesViewController)],
                            animated: true)
     }
+}
+
+extension UIImage {
+    convenience init?(image: SystemImage) {
+        self.init(systemName: image.rawValue)
+    }
+}
+
+enum SystemImage: String {
+    case star
+    case mglass = "magnifyingglass"
 }

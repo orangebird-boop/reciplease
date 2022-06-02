@@ -1,15 +1,15 @@
 import UIKit
 
 protocol SearchViewDelegate: AnyObject {
-    func didTapSearchButton()
     func didTapAddButton()
+    func didTapClearButton()
 }
-
+// MARK: - Properties
 class SearchView: UIView {
     var ingredientsTextField = UITextField()
-    
     var addButton = UIButton()
-    
+    var clearAllButton = UIButton()
+    var label = UILabel()
     weak var delegate: SearchViewDelegate?
     
     override init(frame: CGRect) {
@@ -20,7 +20,7 @@ class SearchView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: - Functions
     func setupSearchView() {
         setupView()
         setupLayout()
@@ -37,10 +37,19 @@ class SearchView: UIView {
         addButton.backgroundColor = .systemGray
         addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
         addSubview(addButton)
+        
+        label.text = "Ingredients"
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        addSubview(label)
+        
+        clearAllButton.setTitle("Clear", for: .normal)
+        clearAllButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        clearAllButton.backgroundColor = .systemGray
+        clearAllButton.addTarget(self, action: #selector(clearAll), for: .touchUpInside)
     }
-    
+    // , clearAllButton, label
     private func setupLayout() {
-        [ingredientsTextField, addButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [ingredientsTextField, addButton, clearAllButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             
@@ -53,12 +62,28 @@ class SearchView: UIView {
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
             addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
             addButton.heightAnchor.constraint(equalToConstant: 42)
-   
+
+//            label.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
+//            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
+//            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
+//            label.heightAnchor.constraint(equalToConstant: 42),
+//           label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Margins.medium),
+//
+//            clearAllButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
+//            clearAllButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
+//            clearAllButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
+//            clearAllButton.heightAnchor.constraint(equalToConstant: 42)
+//  
         ])
     }
-
+    
     @objc
     func addIngredient() {
         delegate?.didTapAddButton()
+    }
+    
+    @objc
+    func clearAll() {
+        delegate?.didTapClearButton()
     }
 }

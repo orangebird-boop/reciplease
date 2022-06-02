@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
             searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
             searchView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
             searchView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
-            searchView.heightAnchor.constraint(equalToConstant: 128),
+            searchView.heightAnchor.constraint(equalToConstant: 198),
             
             ingredientsTableView.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: Margins.medium),
             ingredientsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
@@ -83,7 +83,11 @@ extension SearchViewController: SearchViewDelegate {
         
         searchViewModel.add(ingredient: ingredient)
         searchView.ingredientsTextField.text = ""
-        
+    }
+    
+    func didTapClearButton() {
+        searchViewModel.ingredients.removeAll()
+        searchView.ingredientsTextField.text = ""
     }
 }
 

@@ -19,7 +19,7 @@ protocol SearchViewModelDelegate: AnyObject {
 class SearchViewModel {
     
     private let searchService: EdamamSearchService
-    private (set) var ingredients: [String] = []
+    var ingredients: [String] = []
     private (set) var recipes: [Recipe] = []
     weak var delegate: SearchViewModelDelegate?
     
