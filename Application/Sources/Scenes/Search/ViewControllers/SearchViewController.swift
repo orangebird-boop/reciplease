@@ -88,6 +88,13 @@ extension SearchViewController: SearchViewDelegate {
     func didTapClearButton() {
         searchViewModel.ingredients.removeAll()
         searchView.ingredientsTextField.text = ""
+        
+        // TODO: refresh snapshot
+        ingredientsTableView.reloadData()
+    }
+    
+    func didTapTextField() {
+        searchView.ingredientsTextField.text = ""
     }
 }
 

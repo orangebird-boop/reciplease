@@ -11,6 +11,7 @@
 		B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93752811660F00F6B36A /* SearchViewModel.swift */; };
 		B21B938928156C2100F6B36A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B938828156C2100F6B36A /* SearchService.swift */; };
 		B2377A4A2848CF48005A607A /* RecipeDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2377A482848CF48005A607A /* RecipeDataModel.xcdatamodeld */; };
+		B2377A4E284BA7D2005A607A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2377A4D284BA7D2005A607A /* UILabel.swift */; };
 		B24FD83128428A0F001A4C34 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83028428A0F001A4C34 /* UIImageView.swift */; };
 		B24FD83328429103001A4C34 /* RecipeIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83228429103001A4C34 /* RecipeIngredients.swift */; };
 		B24FD8352842A639001A4C34 /* Margins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8342842A639001A4C34 /* Margins.swift */; };
@@ -53,6 +54,7 @@
 		B21B93752811660F00F6B36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B21B938828156C2100F6B36A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		B2377A492848CF48005A607A /* RecipeDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B2377A4D284BA7D2005A607A /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		B24FD83028428A0F001A4C34 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		B24FD83228429103001A4C34 /* RecipeIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeIngredients.swift; path = /Users/noralilla/Documents/work/reciplease/Application/Sources/Models/RecipeIngredients.swift; sourceTree = "<absolute>"; };
 		B24FD8342842A639001A4C34 /* Margins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margins.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				B24FD83028428A0F001A4C34 /* UIImageView.swift */,
 				B24FD8342842A639001A4C34 /* Margins.swift */,
+				B2377A4D284BA7D2005A607A /* UILabel.swift */,
 			);
 			name = Extensions;
 			path = Sources/Scenes/Extensions;
@@ -514,6 +517,7 @@
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
 				B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */,
 				B24FD83328429103001A4C34 /* RecipeIngredients.swift in Sources */,
+				B2377A4E284BA7D2005A607A /* UILabel.swift in Sources */,
 				B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */,
 				B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */,
 				B21B938928156C2100F6B36A /* SearchService.swift in Sources */,

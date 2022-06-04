@@ -1,11 +1,14 @@
 import UIKit
+import SwiftUI
 
 protocol SearchViewDelegate: AnyObject {
     func didTapAddButton()
     func didTapClearButton()
+    func didTapTextField()
 }
-// MARK: - Properties
 class SearchView: UIView {
+    // MARK: - Properties
+
     var ingredientsTextField = UITextField()
     var addButton = UIButton()
     var clearAllButton = UIButton()
@@ -20,16 +23,17 @@ class SearchView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: - Functions
+// MARK: - Functions
     func setupSearchView() {
         setupView()
         setupLayout()
     }
     
     func setupView() {
-        ingredientsTextField.text = ""
+        ingredientsTextField.text = "What is  in your fridge?"
         ingredientsTextField.backgroundColor = .systemBackground
         ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .title1)
+        ingredientsTextField.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
         addSubview(ingredientsTextField)
         
         addButton.setTitle("Add", for: .normal)
@@ -38,18 +42,20 @@ class SearchView: UIView {
         addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
         addSubview(addButton)
         
-        label.text = "Ingredients"
+        label.text = "Ingredients :"
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.backgroundColor = .orange
         addSubview(label)
         
-        clearAllButton.setTitle("Clear", for: .normal)
+        clearAllButton.setTitle("Clear all", for: .normal)
         clearAllButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         clearAllButton.backgroundColor = .systemGray
         clearAllButton.addTarget(self, action: #selector(clearAll), for: .touchUpInside)
+        addSubview(clearAllButton)
     }
-    // , clearAllButton, label
+   
     private func setupLayout() {
-        [ingredientsTextField, addButton, clearAllButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [ingredientsTextField, addButton, label, clearAllButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             
@@ -61,19 +67,19 @@ class SearchView: UIView {
             addButton.topAnchor.constraint(equalTo: ingredientsTextField.bottomAnchor, constant: Margins.medium),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
             addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
-            addButton.heightAnchor.constraint(equalToConstant: 42)
+            addButton.heightAnchor.constraint(equalToConstant: 42),
 
-//            label.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
-//            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
-//            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
-//            label.heightAnchor.constraint(equalToConstant: 42),
+            label.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
+            label.trailingAnchor.constraint(equalTo: clearAllButton.leadingAnchor, constant: -Margins.medium),
+            label.heightAnchor.constraint(equalToConstant: 42),
 //           label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Margins.medium),
-//
-//            clearAllButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
-//            clearAllButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
-//            clearAllButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
-//            clearAllButton.heightAnchor.constraint(equalToConstant: 42)
-//  
+
+            clearAllButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
+            clearAllButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
+            clearAllButton.heightAnchor.constraint(equalToConstant: 42),
+            clearAllButton.widthAnchor.constraint(equalToConstant: 82)
+  
         ])
     }
     
@@ -85,5 +91,10 @@ class SearchView: UIView {
     @objc
     func clearAll() {
         delegate?.didTapClearButton()
+    }
+    
+    @objc
+    func clearTextField() {
+        delegate?.didTapTextField()
     }
 }
