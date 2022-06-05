@@ -1,16 +1,31 @@
 import UIKit
 
-class FavouritesViewController: UIViewController {
-//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        // .persistentContainer.viewContext
+class FavoritesViewController: UIViewController {
+
+    let viewModel: FavoritesViewModel
+    init(viewModel: FavoritesViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
     
-//    let context = (UIApplication.shared.delegate) as! AppDelegate).persistentContainer.viewContext
-//    var items: [RecipeData]?
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:}) has not been implemented")
+    }
+    
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(FavouritesTableViewCell.self, forCellReuseIdentifier: FavouritesTableViewCell.identifier)
+        tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: FavoritesTableViewCell.identifier)
         return tableView
     }()
+    
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        fatalError()
+    }
+    
+    // should be in view model
+    let context = appDelegate.persistentContainer.viewContext
     
     private lazy var dataSource = makeDataSource()
     
@@ -31,22 +46,24 @@ class FavouritesViewController: UIViewController {
         
         snapshot.appendSections([.first])
         
+        
+      
 //        snapshot.appendItems(viewModel.recipes)
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
-//    func fetchFavourites() {
-//        do {
-//            self.items = try context.fetch(RecipeData.fetchRequest())
-//            
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        } catch {
-//            
-//        }
-//    }
+    func fetchFavourites() {
+        do {
+            self.items = try context.fetch(RecipeEntity.fetchRequest())
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } catch {
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +86,7 @@ class FavouritesViewController: UIViewController {
     
     func makeDataSource() -> DataSource {
         DataSource(tableView: tableView) { tableView, indexPath, model in
-            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: FavouritesTableViewCell.identifier, for: indexPath) as? FavouritesTableViewCell else {
+            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell else {
                 fatalError("This cell should be registerd")
             }
             
@@ -80,7 +97,7 @@ class FavouritesViewController: UIViewController {
     }
     
 }
-extension FavouritesViewController: UITableViewDelegate {
+extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 260.0 // Choose your custom row height
     }
@@ -89,8 +106,8 @@ extension FavouritesViewController: UITableViewDelegate {
             return
         }
         
-//        let viewController = RecipeDetailsViewController(viewModel: RecipeDetailsViewModel(recipe: recipe))
-//
+//        let viewController = FavoritesDetailsViewController(viewModel: FavoritesViewModel(recipe: recipe))
+
 //                navigationController?.pushViewController(viewController, animated: true)
 //        tableView.deselectRow(at: indexPath, animated: true )
     }

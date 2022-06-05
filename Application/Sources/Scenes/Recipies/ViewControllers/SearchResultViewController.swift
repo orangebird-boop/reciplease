@@ -22,12 +22,7 @@ class SearchResultViewController: UIViewController {
     }()
     
     private lazy var dataSource = makeDataSource()
-    
-    func updateDataSource() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
-        snapshot.appendSections([.first])
-    }
-    
+
     enum Section {
         case first
     }

@@ -25,6 +25,7 @@ class SearchResultTableViewCell: UITableViewCell {
     
     lazy var timeLabel: UILabel = {
         let timeLabel = UILabel()
+        timeLabel.textAlignment = .right
         timeLabel.font = UIFont.preferredFont(forTextStyle: .body)
         timeLabel.textColor = .white
 
@@ -52,9 +53,8 @@ class SearchResultTableViewCell: UITableViewCell {
         ingredientsLabel.text = recipe.ingredientLines.joined(separator: ", ")
         
         guard let preparationTime = recipe.totalTime else {return}
-        timeLabel.text = "\(String(describing: preparationTime))"
+        timeLabel.text = "\(String(describing: preparationTime)) min"
 //        timeLabel.text!.addImageWith(name: "clock", behindText: false)
-        
         
         if let foodImageFromUrl = recipe.foodImage {
             foodImageView.loadFrom(URLAddress: foodImageFromUrl)

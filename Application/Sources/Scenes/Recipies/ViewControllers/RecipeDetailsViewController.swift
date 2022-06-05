@@ -11,7 +11,7 @@ class RecipeDetailsViewController: UIViewController {
     var textView = UITextView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
-    //    let addToFavouritesButton = UIButton()
+ 
     // MARK: - Initialization
     
     init(viewModel: RecipeDetailsViewModel) {

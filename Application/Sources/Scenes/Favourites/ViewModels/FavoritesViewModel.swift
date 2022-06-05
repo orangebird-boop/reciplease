@@ -1,11 +1,12 @@
 import Foundation
 
-class RecipeDetailsViewModel {
+class FavoritesViewModel {
+    
     var recipe: Recipe
     
     init(recipe: Recipe) {
         self.recipe = recipe
     }
     
-    // ajouter aux favorites
+
 }
