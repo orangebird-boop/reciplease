@@ -2,16 +2,41 @@ import UIKit
 
 class SearchViewController: UIViewController {
     // MARK: - Properties
-    var searchViewModel = SearchViewModel()
+    var searchViewModel = SearchViewModel()  // (recipeIngredients: [])
     let searchView = SearchView()
     let ingredientsTableView = UITableView()
     var searchButton = UIButton()
-//    private var sections = Section.first
-//    private lazy var dataSource = makeDataSource()
-//    
-//    // MARK: - Value Types
-//    typealias DataSource = UITableViewDiffableDataSource<Section, Ingredient>
-//    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Ingredient>
+
+    private lazy var dataSource = makeDataSource()
+    
+    enum Section {
+        case first
+    }
+    
+    typealias DataSource = UITableViewDiffableDataSource<Section, String>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, String>
+    
+    func applySnapshot(animatingDifferences: Bool = true) {
+        var snapshot = Snapshot()
+        
+        snapshot.appendSections([.first])
+        
+        snapshot.appendItems(searchViewModel.ingredients)
+        
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
+    
+    func makeDataSource() -> DataSource {
+        DataSource(tableView: ingredientsTableView) { tableView, indexPath, model in
+            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell else {
+                fatalError("This cell should be registerd")
+            }
+            
+            //            tableViewCell.configure(with: model)
+            
+            return tableViewCell
+        }
+    }
     
     // MARK: - Life Cycles
     override func viewDidLoad() {
@@ -39,9 +64,7 @@ class SearchViewController: UIViewController {
         view.addSubview(searchButton)
         
         ingredientsTableView.backgroundColor = .systemBackground
-        ingredientsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        ingredientsTableView.dataSource = self
-        ingredientsTableView.delegate = self
+        //        ingredientsTableView.delegate = self
         view.addSubview(ingredientsTableView)
     }
     
@@ -64,7 +87,9 @@ class SearchViewController: UIViewController {
             searchButton.heightAnchor.constraint(equalToConstant: 42),
             searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.small)
         ])
+        applySnapshot()
     }
+    
     @objc
     func searchForRecipes() {
         didTapSearchButton()
@@ -82,15 +107,16 @@ extension SearchViewController: SearchViewDelegate {
         guard let ingredient = searchView.ingredientsTextField.text, !ingredient.isEmpty else {return}
         
         searchViewModel.add(ingredient: ingredient)
+        
         searchView.ingredientsTextField.text = ""
+        applySnapshot()
     }
     
     func didTapClearButton() {
         searchViewModel.ingredients.removeAll()
         searchView.ingredientsTextField.text = ""
         
-        // TODO: refresh snapshot
-        ingredientsTableView.reloadData()
+        applySnapshot()
     }
     
     func didTapTextField() {
@@ -103,7 +129,7 @@ extension SearchViewController: SearchViewModelDelegate {
         
         let alertViewController = UIAlertController(title: "Error", message: "huston we have a problem", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    present(alertViewController, animated: true, completion: nil)
+        present(alertViewController, animated: true, completion: nil)
         
     }
     
@@ -117,33 +143,29 @@ extension SearchViewController: SearchViewModelDelegate {
     }
     
 }
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        searchViewModel.ingredients.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        let ingredient = searchViewModel.ingredients[indexPath.row]
-        tableViewCell.textLabel?.text = ingredient
-        
-        return tableViewCell
-    }
-    
-    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-            
-            let index = indexPath.first!
-            searchViewModel.deleteIngredient(index: index)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
 
-            tableView.endUpdates()
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let ingredient = dataSource.indexPath(for: SearchTableViewCell.identifier) else {
+            return
         }
     }
 }
+
+//    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
+//        return .delete
+//    }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            tableView.beginUpdates()
+//
+//            let index = indexPath.first!
+//            searchViewModel.deleteIngredient(index: index)
+//
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//
+//            tableView.endUpdates()
+//        }
+//    }
+// }

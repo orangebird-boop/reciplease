@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import CoreData
 
 class RecipeDetailsViewController: UIViewController {
     
@@ -11,7 +12,7 @@ class RecipeDetailsViewController: UIViewController {
     var textView = UITextView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
- 
+    var favourites: [NSManagedObject] = []
     // MARK: - Initialization
     
     init(viewModel: RecipeDetailsViewModel) {
@@ -57,7 +58,6 @@ class RecipeDetailsViewController: UIViewController {
         let ingredients = viewModel.recipe.ingredientLines.map { "\($0)" }.joined(separator: "\n- ")
         
         textView.text = "- " + String(ingredients)
-        //         textView.text = viewModel.recipe.url
         textView.font = .preferredFont(forTextStyle: .title2)
         textView.backgroundColor = .systemGray
         view.addSubview(textView)

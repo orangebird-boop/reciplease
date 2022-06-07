@@ -7,6 +7,4 @@ class FavoritesViewModel {
     init(recipe: Recipe) {
         self.recipe = recipe
     }
-    
-
 }

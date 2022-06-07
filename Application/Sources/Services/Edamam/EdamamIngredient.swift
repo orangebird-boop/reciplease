@@ -17,7 +17,7 @@ extension EdamamIngredient {
 
     func toGenericModel() -> RecipeIngredients {
      
-        RecipeIngredients(text: text, quantity: quantity, measure: measure, food: food, weight: weight, foodID: foodID)
+        RecipeIngredients(text: text)
         
     }
 }

@@ -2,30 +2,11 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
-    let viewModel: FavoritesViewModel
-    init(viewModel: FavoritesViewModel) {
-        self.viewModel = viewModel
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:}) has not been implemented")
-    }
-    
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: FavoritesTableViewCell.identifier)
         return tableView
     }()
-    
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        fatalError()
-    }
-    
-    // should be in view model
-    let context = appDelegate.persistentContainer.viewContext
     
     private lazy var dataSource = makeDataSource()
     
@@ -44,26 +25,30 @@ class FavoritesViewController: UIViewController {
     func applySnapshot(animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
         
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            fatalError()
+        }
+        
+        // should be in view model
+        let context = appDelegate.persistentContainer.viewContext
         snapshot.appendSections([.first])
         
-        
-      
 //        snapshot.appendItems(viewModel.recipes)
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
-    func fetchFavourites() {
-        do {
-            self.items = try context.fetch(RecipeEntity.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } catch {
-            
-        }
-    }
+//    func fetchFavourites() {
+//        do {
+//            self.items = try context.fetch(RecipeEntity.fetchRequest())
+//
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        } catch {
+//
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +87,7 @@ extension FavoritesViewController: UITableViewDelegate {
         return 260.0 // Choose your custom row height
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let recipe = dataSource.itemIdentifier(for: indexPath) else {
+        guard dataSource.itemIdentifier(for: indexPath) != nil else {
             return
         }
         

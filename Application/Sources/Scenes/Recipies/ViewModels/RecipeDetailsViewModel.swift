@@ -1,6 +1,7 @@
-import Foundation
+import UIKit
 
 class RecipeDetailsViewModel {
+    
     var recipe: Recipe
     
     init(recipe: Recipe) {

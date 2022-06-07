@@ -18,10 +18,16 @@ protocol SearchViewModelDelegate: AnyObject {
 }
 class SearchViewModel {
     
-    private let searchService: EdamamSearchService
+     let searchService: EdamamSearchService
+//    var recipeIngredients: [RecipeIngredients] = []
     var ingredients: [String] = []
     private (set) var recipes: [Recipe] = []
     weak var delegate: SearchViewModelDelegate?
+    
+//    init(recipeIngredients: [RecipeIngredients]) {
+//        self.recipeIngredients = recipeIngredients
+//
+//    }
     
     init(searchService: EdamamSearchService = EdamamSearchService()) {
         self.searchService = searchService
@@ -35,7 +41,7 @@ class SearchViewModel {
     
     func add(ingredient: String) {
         ingredients.append(ingredient)
-        
+//        recipeIngredients.append(ingredient)
         delegate?.didUpgradeIngredients()
     }
     func searchRecipes(ingredients: [String]) {
@@ -62,8 +68,4 @@ class SearchViewModel {
             }
         }
     }
-}
-
-enum Section {
-    case first
 }
