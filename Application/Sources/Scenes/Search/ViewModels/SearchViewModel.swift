@@ -20,7 +20,7 @@ class SearchViewModel {
     
      let searchService: EdamamSearchService
 //    var recipeIngredients: [RecipeIngredients] = []
-    var ingredients: [String] = []
+    var ingredients: [RecipeIngredient] = []
     private (set) var recipes: [Recipe] = []
     weak var delegate: SearchViewModelDelegate?
     
@@ -40,13 +40,13 @@ class SearchViewModel {
     }
     
     func add(ingredient: String) {
-        ingredients.append(ingredient)
+        ingredients.append(RecipeIngredient(text: ingredient))
 //        recipeIngredients.append(ingredient)
         delegate?.didUpgradeIngredients()
     }
-    func searchRecipes(ingredients: [String]) {
+    func searchRecipes() {
         
-        searchService.getRecipes(ingredients: ingredients, page: 0) { [weak self] result in
+        searchService.getRecipes(ingredients: ingredients.map { $0.text }, page: 0) { [weak self] result in
             guard let self = self else {return}
             
             switch result {

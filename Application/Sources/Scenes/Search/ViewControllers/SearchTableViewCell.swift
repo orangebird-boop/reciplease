@@ -7,7 +7,7 @@ class SearchTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.textColor = .white
+        label.textColor = .black
         
         return label
     }()
@@ -19,25 +19,18 @@ class SearchTableViewCell: UITableViewCell {
         
         setupViews()
         setupLayout()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //
-    //    func configure(with recipe: RecipeIngredients) {
-    //       self.recipeIngredients = recipeIngredients
-    //        titleLabel.text = recipeIngredients?.text
-    //
-    //
-    //    }
+    
+    func configure(with ingredient: RecipeIngredient) {
+        titleLabel.text = ingredient.text
+    }
     
     func setupViews() {
-        
         self.contentView.addSubview(titleLabel)
-        self.titleLabel = titleLabel
-        
     }
     
     func setupLayout() {

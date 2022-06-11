@@ -15,9 +15,9 @@ struct EdamamIngredient: Codable {
 
 extension EdamamIngredient {
 
-    func toGenericModel() -> RecipeIngredients {
+    func toGenericModel() -> RecipeIngredient {
      
-        RecipeIngredients(text: text)
+        RecipeIngredient(text: text)
         
     }
 }

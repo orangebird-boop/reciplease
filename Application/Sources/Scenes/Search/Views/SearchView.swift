@@ -30,7 +30,7 @@ class SearchView: UIView {
     }
     
     func setupView() {
-        ingredientsTextField.text = "What is  in your fridge?"
+        ingredientsTextField.text = ""
         ingredientsTextField.backgroundColor = .systemBackground
         ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .title1)
         ingredientsTextField.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)

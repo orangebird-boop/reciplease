@@ -1,6 +1,6 @@
 import Foundation
 
-struct RecipeIngredients: Decodable {
+struct RecipeIngredient: Decodable {
     var text: String
 //    let quantity: Double
 //    let measure: String
@@ -9,6 +9,6 @@ struct RecipeIngredients: Decodable {
 //    let foodID: String
 }
 
-extension RecipeIngredients: Hashable {
+extension RecipeIngredient: Hashable {
     
 }
