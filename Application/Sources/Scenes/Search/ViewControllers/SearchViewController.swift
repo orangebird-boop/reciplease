@@ -17,6 +17,8 @@ class SearchViewController: UIViewController {
         
         setupViews()
         setupLayout()
+
+        refreshSnapshot()
     }
     
     func setupViews() {
@@ -59,7 +61,6 @@ class SearchViewController: UIViewController {
             searchButton.heightAnchor.constraint(equalToConstant: 42),
             searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.small)
         ])
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     @objc
@@ -71,10 +72,11 @@ class SearchViewController: UIViewController {
 // MARK: - SearchViewDelegate
 
 extension SearchViewController: SearchViewDelegate {
+
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
-        searchViewModel.ingredients.removeAll()
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
+
+        searchViewModel.removeAllIngredients()
     }
     
     func didTapAddButton() {
@@ -83,32 +85,33 @@ extension SearchViewController: SearchViewDelegate {
         searchViewModel.add(ingredient: ingredient)
         
         searchView.ingredientsTextField.text = ""
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func didTapClearButton() {
-        searchViewModel.ingredients.removeAll()
         searchView.ingredientsTextField.text = ""
-        
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
+
+        searchViewModel.removeAllIngredients()
     }
     
     func didTapTextField() {
         searchView.ingredientsTextField.text = ""
     }
+
+    func refreshSnapshot() {
+        dataSourceProvider.ingredients = searchViewModel.ingredients
+    }
 }
 
 extension SearchViewController: SearchViewModelDelegate {
+
     func didNotFindRecipe(error: SearchViewModelError) {
-        
         let alertViewController = UIAlertController(title: "Error", message: "huston we have a problem", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertViewController, animated: true, completion: nil)
-        
     }
     
     func didUpgradeIngredients() {
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
+        refreshSnapshot()
     }
     
     func didFindRecipes() {
@@ -119,37 +122,13 @@ extension SearchViewController: SearchViewModelDelegate {
 }
 
 extension SearchViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
-            return
-        }
+
     }
-//    
-//    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
-//        }
-//    }
-    
-    //    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
-    //        return .delete
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            tableView.beginUpdates()
-    //
-    //            let index = indexPath.first!
-    //            searchViewModel.deleteIngredient(index: index)
-    //
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //
-    //            tableView.endUpdates()
-    //        }
-    //    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+    }
+
 }

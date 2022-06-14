@@ -16,7 +16,6 @@
 		B2377A4A2848CF48005A607A /* RecipeDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2377A482848CF48005A607A /* RecipeDataModel.xcdatamodeld */; };
 		B2377A4E284BA7D2005A607A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2377A4D284BA7D2005A607A /* UILabel.swift */; };
 		B24FD83128428A0F001A4C34 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83028428A0F001A4C34 /* UIImageView.swift */; };
-		B24FD83328429103001A4C34 /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83228429103001A4C34 /* RecipeIngredient.swift */; };
 		B24FD8352842A639001A4C34 /* Margins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8342842A639001A4C34 /* Margins.swift */; };
 		B24FD83E28452C31001A4C34 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83D28452C31001A4C34 /* ApplicationTests.swift */; };
 		B24FD86F28481C34001A4C34 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD86E28481C33001A4C34 /* FavoritesTableViewCell.swift */; };
@@ -39,6 +38,7 @@
 		B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* SearchResultViewController.swift */; };
 		B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */; };
 		B2FFD12928252C3F001C576A /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD12828252C3F001C576A /* SearchResultTableViewCell.swift */; };
+		ED3092B428587B1F0071537E /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3092B328587B1F0071537E /* RecipeIngredient.swift */; };
 		EDFFF31E28351A4B00B4B012 /* EdamamRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */; };
 		EDFFF32028351A6800B4B012 /* EdamamIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */; };
 		EDFFF32228351B0600B4B012 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF32128351B0600B4B012 /* RecipeResponse.swift */; };
@@ -64,7 +64,6 @@
 		B2377A492848CF48005A607A /* RecipeDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B2377A4D284BA7D2005A607A /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		B24FD83028428A0F001A4C34 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		B24FD83228429103001A4C34 /* RecipeIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeIngredient.swift; path = /Users/noralilla/Documents/work/reciplease/Application/Sources/Models/RecipeIngredient.swift; sourceTree = "<absolute>"; };
 		B24FD8342842A639001A4C34 /* Margins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margins.swift; sourceTree = "<group>"; };
 		B24FD83B28452C30001A4C34 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B24FD83D28452C31001A4C34 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		B2FFD1232823DA90001C576A /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		B2FFD12828252C3F001C576A /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3092B328587B1F0071537E /* RecipeIngredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeIngredient.swift; sourceTree = "<group>"; };
 		EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamRecipe.swift; sourceTree = "<group>"; };
 		EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamIngredient.swift; sourceTree = "<group>"; };
 		EDFFF32128351B0600B4B012 /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
@@ -292,8 +292,8 @@
 		B2AAADD6280F07CD0039784E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED3092B328587B1F0071537E /* RecipeIngredient.swift */,
 				B2F61CF528107A09005F4B0D /* Recipe.swift */,
-				B24FD83228429103001A4C34 /* RecipeIngredient.swift */,
 				EDFFF32128351B0600B4B012 /* RecipeResponse.swift */,
 			);
 			path = Models;
@@ -542,10 +542,10 @@
 				B2A2DF36280ED5B4005F680C /* FavoritesViewController.swift in Sources */,
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
 				B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */,
-				B24FD83328429103001A4C34 /* RecipeIngredient.swift in Sources */,
 				B2377A4E284BA7D2005A607A /* UILabel.swift in Sources */,
 				B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */,
 				B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */,
+				ED3092B428587B1F0071537E /* RecipeIngredient.swift in Sources */,
 				B21EA8EF284BB49F00EB63DF /* FavoritesDetailsViewController.swift in Sources */,
 				B21B938928156C2100F6B36A /* SearchService.swift in Sources */,
 				B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */,

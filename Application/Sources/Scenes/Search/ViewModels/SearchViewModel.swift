@@ -19,33 +19,37 @@ protocol SearchViewModelDelegate: AnyObject {
 class SearchViewModel {
     
      let searchService: EdamamSearchService
-//    var recipeIngredients: [RecipeIngredients] = []
-    var ingredients: [RecipeIngredient] = []
+    private (set) var ingredients: [RecipeIngredient] = []
     private (set) var recipes: [Recipe] = []
     weak var delegate: SearchViewModelDelegate?
-    
-//    init(recipeIngredients: [RecipeIngredients]) {
-//        self.recipeIngredients = recipeIngredients
-//
-//    }
-    
+
     init(searchService: EdamamSearchService = EdamamSearchService()) {
         self.searchService = searchService
     }
     
-    func deleteIngredient(index: Int) {
-        ingredients.remove(at: index)
+    func delete(ingredient: RecipeIngredient) {
+        ingredients.removeAll(where: { $0 == ingredient })
         
         delegate?.didUpgradeIngredients()
     }
     
     func add(ingredient: String) {
+        guard !ingredients.contains(where: { $0.text == ingredient }) else {
+            return
+        }
+
         ingredients.append(RecipeIngredient(text: ingredient))
-//        recipeIngredients.append(ingredient)
+
         delegate?.didUpgradeIngredients()
     }
+
+    func removeAllIngredients() {
+        ingredients.removeAll()
+
+        delegate?.didUpgradeIngredients()
+    }
+
     func searchRecipes() {
-        
         searchService.getRecipes(ingredients: ingredients.map { $0.text }, page: 0) { [weak self] result in
             guard let self = self else {return}
             
