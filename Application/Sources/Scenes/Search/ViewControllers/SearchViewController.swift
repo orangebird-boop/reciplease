@@ -47,7 +47,7 @@ class SearchViewController: UIViewController {
             searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
             searchView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
             searchView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
-            searchView.heightAnchor.constraint(equalToConstant: 198),
+            searchView.heightAnchor.constraint(equalToConstant: Margins.medium*11),
             
             ingredientsTableView.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: Margins.medium),
             ingredientsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
@@ -73,6 +73,8 @@ class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
+        searchViewModel.ingredients.removeAll()
+        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func didTapAddButton() {
@@ -117,26 +119,37 @@ extension SearchViewController: SearchViewModelDelegate {
 }
 
 extension SearchViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let ingredient = dataSourceProvider.dataSource.itemIdentifier(for: indexPath) else {
+        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
             return
         }
     }
+//    
+//    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
+//        }
+//    }
     
-    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-
-            let index = indexPath.first!
-            searchViewModel.deleteIngredient(index: index)
-
-            tableView.deleteRows(at: [indexPath], with: .fade)
-
-            tableView.endUpdates()
-        }
-    }
+    //    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
+    //        return .delete
+    //    }
+    //
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            tableView.beginUpdates()
+    //
+    //            let index = indexPath.first!
+    //            searchViewModel.deleteIngredient(index: index)
+    //
+    //            tableView.deleteRows(at: [indexPath], with: .fade)
+    //
+    //            tableView.endUpdates()
+    //        }
+    //    }
 }

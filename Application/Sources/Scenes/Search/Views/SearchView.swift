@@ -44,7 +44,7 @@ class SearchView: UIView {
         
         label.text = "Ingredients :"
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.backgroundColor = .orange
+        label.backgroundColor = .systemGray4
         addSubview(label)
         
         clearAllButton.setTitle("Clear all", for: .normal)

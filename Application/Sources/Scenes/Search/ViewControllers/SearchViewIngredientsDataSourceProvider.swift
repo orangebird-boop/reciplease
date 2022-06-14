@@ -1,20 +1,21 @@
 import UIKit
 
 struct SearchViewIngredientsDataSourceProvider {
-    
+
     enum Section {
         case first
     }
     
     typealias DataSource = UITableViewDiffableDataSource<Section, RecipeIngredient>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, RecipeIngredient>
-  
+
     let tableView: UITableView
     
+//    var dataSource = SearchDataSource(tableView: tableView, cellProvider: (UITableView, IndexPath, RecipeIngredient))
     var dataSource: DataSource {
         makeDataSource()
     }
-    
+
     func applySnapshot(ingredients: [RecipeIngredient], animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
         
