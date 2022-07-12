@@ -48,7 +48,7 @@ class RecipeDetailsViewController: UIViewController {
             image.contentMode = .scaleToFill
         }
         view.addSubview(image)
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         
         label.text = viewModel.recipe.name
         label.textColor = .black

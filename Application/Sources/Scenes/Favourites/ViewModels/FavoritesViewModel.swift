@@ -2,9 +2,9 @@ import Foundation
 
 class FavoritesViewModel {
     
-    var recipe: Recipe
+    var recipes: [Recipe] = []
     
-    init(recipe: Recipe) {
-        self.recipe = recipe
-    }
+//    init(recipes: [Recipe]) {
+//        self.recipes = recipes
+//    }
 }

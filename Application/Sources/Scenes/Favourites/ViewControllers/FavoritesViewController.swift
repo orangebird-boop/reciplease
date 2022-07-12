@@ -2,6 +2,19 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
+    var viewModel = FavoritesViewModel()
+    let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
+    
+    init(viewModel: FavoritesViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:}) has not been implemented")
+    }
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: FavoritesTableViewCell.identifier)
@@ -9,11 +22,6 @@ class FavoritesViewController: UIViewController {
     }()
     
     private lazy var dataSource = makeDataSource()
-    
-    func updateDataSource() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>()
-        snapshot.appendSections([.first])
-    }
     
     enum Section {
         case first
@@ -25,18 +33,18 @@ class FavoritesViewController: UIViewController {
     func applySnapshot(animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError()
-        }
-        
-        // should be in view model
-        let context = appDelegate.persistentContainer.viewContext
         snapshot.appendSections([.first])
         
-//        snapshot.appendItems(viewModel.recipes)
+        snapshot.appendItems(viewModel.recipes)
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
+
+        // should be in view model
+        
+//        snapshot.appendItems(viewModel.recipes)
+       
+    
     
 //    func fetchFavourites() {
 //        do {
@@ -54,7 +62,7 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemGroupedBackground
-//        fetchFavourites()
+        
         tableView.delegate = self
         view.addSubview(tableView)
         
@@ -87,13 +95,13 @@ extension FavoritesViewController: UITableViewDelegate {
         return 260.0 // Choose your custom row height
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard dataSource.itemIdentifier(for: indexPath) != nil else {
+        guard let recipe = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
         
-//        let viewController = FavoritesDetailsViewController(viewModel: FavoritesViewModel(recipe: recipe))
-
-//                navigationController?.pushViewController(viewController, animated: true)
-//        tableView.deselectRow(at: indexPath, animated: true )
+        let viewController = FavoritesDetailsViewController(viewModel: FavouritesDetailsViewModel(recipe: recipe))
+        
+                navigationController?.pushViewController(viewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true )
     }
 }
