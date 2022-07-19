@@ -1,6 +1,5 @@
 import Foundation
 import UIKit
-import CoreData
 
 class RecipeDetailsViewController: UIViewController {
     
@@ -12,7 +11,6 @@ class RecipeDetailsViewController: UIViewController {
     var textView = UITextView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
-    var favourites: [NSManagedObject] = []
     // MARK: - Initialization
     
     init(viewModel: RecipeDetailsViewModel) {

@@ -44,8 +44,7 @@ class FavoritesViewController: UIViewController {
         
 //        snapshot.appendItems(viewModel.recipes)
        
-    
-    
+        
 //    func fetchFavourites() {
 //        do {
 //            self.items = try context.fetch(RecipeEntity.fetchRequest())
