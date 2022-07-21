@@ -103,8 +103,8 @@ struct SearchResultViewControllerPreview: PreviewProvider {
 
 struct SearchResultViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UINavigationController {
-        let recipe = Recipe(name: "Hambourger", foodImage: nil, url: "", yield: 20, ingredientLines: ["lala", "lili"], totalTime: 3)
-        let recipe2 = Recipe(name: "Cheeseburger", foodImage: nil, url: "", yield: 20, ingredientLines: ["lolo", "lulu"], totalTime: 4)
+        let recipe = Recipe(name: "Hambourger", foodImage: nil, url: "", ingredientLines: ["lala", "lili"], totalTime: 3)
+        let recipe2 = Recipe(name: "Cheeseburger", foodImage: nil, url: "", ingredientLines: ["lolo", "lulu"], totalTime: 4)
         let model = SearchResultViewModel(recipes: [recipe, recipe2])
         let viewController = SearchResultViewController.init(viewModel: model)
         let nvc = UINavigationController(rootViewController: viewController)

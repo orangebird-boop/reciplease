@@ -126,7 +126,7 @@ struct RecipeDetailsViewControllerPreview: PreviewProvider {
 
 struct RecipeDetailsViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UINavigationController {
-        let recipe = Recipe(name: "Hambourger", foodImage: nil, url: "", yield: 20, ingredientLines: ["lala", "lili"], totalTime: 3)
+        let recipe = Recipe(name: "Hambourger", foodImage: nil, url: "", ingredientLines: ["lala", "lili"], totalTime: 3)
         let model = RecipeDetailsViewModel(recipe: recipe)
         let viewController = RecipeDetailsViewController.init(viewModel: model)
         let nvc = UINavigationController(rootViewController: viewController)
