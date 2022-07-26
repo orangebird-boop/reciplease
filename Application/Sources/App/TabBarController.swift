@@ -13,16 +13,17 @@ class TabBarController: UITabBarController {
     }
     
     func setupViews() {
+        tabBar.tintColor = .label
         
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
         
-        let favouritesViewController = FavoritesViewController(viewModel: FavoritesViewModel())
+        let favouritesViewController = FavoritesViewController(coder: <#NSCoder#>)
         favouritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
             
         setViewControllers([
            UINavigationController(rootViewController: searchViewController),
-           UINavigationController(rootViewController: favouritesViewController)],
+           UINavigationController(rootViewController: favouritesViewController ?? <#default value#>)],
                            animated: true)
     }
 }

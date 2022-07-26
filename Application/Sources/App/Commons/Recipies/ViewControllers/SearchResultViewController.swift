@@ -87,34 +87,3 @@ extension SearchResultViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true )
     }
 }
-
-import SwiftUI
-
-struct SearchResultViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SearchResultViewControllerRepresentable()
-                .previewDevice("iPhone 13")
-            SearchResultViewControllerRepresentable()
-                .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}
-
-struct SearchResultViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UINavigationController {
-        let recipe = Recipe(name: "Hambourger", foodImage: nil, url: "", ingredientLines: ["lala", "lili"], totalTime: 3)
-        let recipe2 = Recipe(name: "Cheeseburger", foodImage: nil, url: "", ingredientLines: ["lolo", "lulu"], totalTime: 4)
-        let model = SearchResultViewModel(recipes: [recipe, recipe2])
-        let viewController = SearchResultViewController.init(viewModel: model)
-        let nvc = UINavigationController(rootViewController: viewController)
-        return nvc
-    }
-    
-    typealias UIViewControllerType = UINavigationController
-    
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
-        
-    }
-    
-}

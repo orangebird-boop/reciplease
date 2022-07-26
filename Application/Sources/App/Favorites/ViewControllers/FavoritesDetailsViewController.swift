@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class FavoritesDetailsViewController: UIViewController {
     
@@ -24,6 +25,7 @@ class FavoritesDetailsViewController: UIViewController {
     }
     
     // MARK: - Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +33,7 @@ class FavoritesDetailsViewController: UIViewController {
         setupLayouts()
         
     }
-    
+        
     func setupViews() {
         
         view.backgroundColor = .systemBackground
@@ -95,7 +97,7 @@ class FavoritesDetailsViewController: UIViewController {
     
     @objc
     func addToFavourites() {
-        
+        didTapStarButton()
     }
     @objc
     func getDirections() {
@@ -105,6 +107,10 @@ class FavoritesDetailsViewController: UIViewController {
     func didTapGetDirectionsButton() {
         guard let url = URL(string: viewModel.recipe.url) else { return }
         UIApplication.shared.open(url)
+    }
+    
+    func didTapStarButton() {
+        
     }
 }
 
@@ -118,21 +124,5 @@ struct FavoritesDetailsViewControllerPreview: PreviewProvider {
             RecipeDetailsViewControllerRepresentable()
                 .previewDevice("iPhone SE (2nd generation)")
         }
-    }
-}
-
-struct FavoritesDetailsViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UINavigationController {
-        let recipe = Recipe(name: "Hambourger", foodImage: nil, url: "", ingredientLines: ["lala", "lili"], totalTime: 3)
-        let model = RecipeDetailsViewModel(recipe: recipe)
-        let viewController = RecipeDetailsViewController.init(viewModel: model)
-        let nvc = UINavigationController(rootViewController: viewController)
-        return nvc
-    }
-    
-    typealias UIViewControllerType = UINavigationController
-    
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
-        
     }
 }

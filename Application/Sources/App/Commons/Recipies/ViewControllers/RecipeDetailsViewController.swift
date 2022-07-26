@@ -1,14 +1,12 @@
 import Foundation
 import UIKit
 
-
-
-
 class RecipeDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
     let viewModel: RecipeDetailsViewModel
+    var favortiesViewModel = FavoritesViewModel()
     var image = UIImageView()
     let label = UILabel()
     var textView = UITextView()
@@ -39,8 +37,9 @@ class RecipeDetailsViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
-        let buttonImage = UIImage(systemName: "star")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(addToFavourites))
+        navigationController?.navigationBar.tintColor = .label
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         
         if let foodImageFromURL = viewModel.recipe.foodImage {
             image.loadFrom(URLAddress: foodImageFromURL)
@@ -98,8 +97,14 @@ class RecipeDetailsViewController: UIViewController {
     
     @objc
     func addToFavourites() {
+//        favortiesViewModel.favoriteRecipes.append(viewModel.recipe)
         
+        navigationItem.rightBarButtonItem?.tintColor = .systemYellow
+        navigationItem.rightBarButtonItem?.style = .done
+        
+        print(favortiesViewModel.favoriteRecipes)
     }
+    
     @objc
     func getDirections() {
         didTapGetDirectionsButton()
@@ -109,34 +114,4 @@ class RecipeDetailsViewController: UIViewController {
         guard let url = URL(string: viewModel.recipe.url) else { return }
         UIApplication.shared.open(url)
     }
-}
-
-import SwiftUI
-
-struct RecipeDetailsViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        Group {
-            RecipeDetailsViewControllerRepresentable()
-                .previewDevice("iPhone 13")
-            RecipeDetailsViewControllerRepresentable()
-                .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}
-
-struct RecipeDetailsViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UINavigationController {
-        let recipe = Recipe(name: "Hambourger", foodImage: nil, url: "", ingredientLines: ["lala", "lili"], totalTime: 3)
-        let model = RecipeDetailsViewModel(recipe: recipe)
-        let viewController = RecipeDetailsViewController.init(viewModel: model)
-        let nvc = UINavigationController(rootViewController: viewController)
-        return nvc
-    }
-    
-    typealias UIViewControllerType = UINavigationController
-    
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
-        
-    }
-    
 }
