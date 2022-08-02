@@ -6,6 +6,7 @@ struct Recipe: Decodable {
     let url: String
     let ingredientLines: [String]
     let totalTime: Int?
+    
 }
 
 extension Recipe: Hashable {

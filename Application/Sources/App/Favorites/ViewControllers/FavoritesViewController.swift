@@ -3,11 +3,11 @@ import CoreData
 
 class FavoritesViewController: UIViewController, UITableViewDelegate {
 
-    var viewModel = FavoritesViewModel()
+    var model = Favorites()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     
-    init(viewModel: FavoritesViewModel) {
-        self.viewModel = viewModel
+    init(model: Favorites) {
+        self.model = model
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -93,7 +93,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
 //      }
 //    }
 
-    
 //    func makeDataSource() -> DataSource {
 //        DataSource(tableView: tableView) { tableView, indexPath, model in
 //            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell else {
@@ -110,20 +109,20 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
 extension FavoritesViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return viewModel.favoriteRecipes.count
+      return model.recipes.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-      let recipe = viewModel.favoriteRecipes[indexPath.row]
+      let recipe = model.recipes[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-    cell.textLabel?.text = recipe.value(forKeyPath: "name") as? String
+      cell.textLabel?.text = recipe.name//(forKeyPath: "name") as? String
     return cell
   }
 }
 
-//extension FavoritesViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+// extension FavoritesViewController: UITableViewDelegate {
+//   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 260.0 // Choose your custom row height
 //    }
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -136,4 +135,4 @@ extension FavoritesViewController: UITableViewDataSource {
 //                navigationController?.pushViewController(viewController, animated: true)
 //        tableView.deselectRow(at: indexPath, animated: true )
 //    }
-//}
+// }

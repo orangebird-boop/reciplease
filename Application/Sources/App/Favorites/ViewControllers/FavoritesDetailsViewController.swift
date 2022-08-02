@@ -113,16 +113,3 @@ class FavoritesDetailsViewController: UIViewController {
         
     }
 }
-
-import SwiftUI
-
-struct FavoritesDetailsViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        Group {
-            RecipeDetailsViewControllerRepresentable()
-                .previewDevice("iPhone 13")
-            RecipeDetailsViewControllerRepresentable()
-                .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}

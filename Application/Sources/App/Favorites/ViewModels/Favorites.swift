@@ -1,9 +1,7 @@
 import Foundation
 
-
-struct Favorites {
+class Favorites {
     
     var recipes = [Recipe]()
-    
     
 }

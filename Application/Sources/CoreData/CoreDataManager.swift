@@ -15,8 +15,7 @@ final class CoreDataManager {
         context = container.viewContext
     }
                                     
-                                       
-
+                                    
     // MARK: - Core Data Saving support
 
     func saveContext() {

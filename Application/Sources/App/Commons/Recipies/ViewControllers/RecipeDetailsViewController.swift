@@ -1,12 +1,14 @@
 import Foundation
 import UIKit
+import CoreData
 
 class RecipeDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
+    let corDataManager = CoreDataManager(name: "RecipeTestEntity")
     let viewModel: RecipeDetailsViewModel
-    var favortiesViewModel = FavoritesViewModel()
+    var favortiesModel = Favorites()
     var image = UIImageView()
     let label = UILabel()
     var textView = UITextView()
@@ -97,12 +99,14 @@ class RecipeDetailsViewController: UIViewController {
     
     @objc
     func addToFavourites() {
-//        favortiesViewModel.favoriteRecipes.append(viewModel.recipe)
+        favortiesModel.recipes.append(viewModel.recipe)
         
         navigationItem.rightBarButtonItem?.tintColor = .systemYellow
         navigationItem.rightBarButtonItem?.style = .done
         
-        print(favortiesViewModel.favoriteRecipes)
+        corDataManager.saveContext()
+        
+        print(favortiesModel.recipes)
     }
     
     @objc

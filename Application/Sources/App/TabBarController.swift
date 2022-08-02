@@ -1,7 +1,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
+    let model = Favorites()
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -18,12 +18,12 @@ class TabBarController: UITabBarController {
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
         
-        let favouritesViewController = FavoritesViewController(coder: <#NSCoder#>)
+        let favouritesViewController = FavoritesViewController(model: model)
         favouritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
             
         setViewControllers([
            UINavigationController(rootViewController: searchViewController),
-           UINavigationController(rootViewController: favouritesViewController ?? <#default value#>)],
+           UINavigationController(rootViewController: favouritesViewController)],
                            animated: true)
     }
 }
