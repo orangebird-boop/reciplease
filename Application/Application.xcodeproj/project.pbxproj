@@ -198,7 +198,6 @@
 		B21EA8F0284BB55F00EB63DF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B21EA8F1284BB57600EB63DF /* Favorites.swift */,
 				B252922A287D8FFF0007D07C /* FavouritesDetailsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -269,6 +268,7 @@
 		B2529231287DE26E0007D07C /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				B2FED2CE28999C470071D860 /* Models */,
 				B21B938428156AE600F6B36A /* ViewControllers */,
 				B21B938528156B4B00F6B36A /* Views */,
 				B21EA8F0284BB55F00EB63DF /* ViewModels */,
@@ -335,6 +335,14 @@
 				B252923528868C3C0007D07C /* RecipeIngredient.swift */,
 				B2F61CF528107A09005F4B0D /* Recipe.swift */,
 				EDFFF32128351B0600B4B012 /* RecipeResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B2FED2CE28999C470071D860 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B21EA8F1284BB57600EB63DF /* Favorites.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
