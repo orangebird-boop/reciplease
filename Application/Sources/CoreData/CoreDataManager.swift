@@ -15,7 +15,6 @@ final class CoreDataManager {
         context = container.viewContext
     }
                                     
-                                    
     // MARK: - Core Data Saving support
 
     func saveContext() {
@@ -28,5 +27,18 @@ final class CoreDataManager {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    
+    // MARK: - Manage Task Entity
+    
+    func createRecipe(title: String, ingredients: [String], totalTime: Int64, image: String, url: String) {
+        let recipe = RecipeEntity(context: context)
+        recipe.name = title
+        recipe.ingredients = ingredients
+        recipe.totalTime = totalTime
+        recipe.foodImage = image
+        recipe.directions = url
+        saveContext()
     }
 }
