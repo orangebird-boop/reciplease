@@ -6,7 +6,6 @@ class RecipeDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
-    let corDataManager = CoreDataManager(name: "RecipeTestEntity")
     let viewModel: RecipeDetailsViewModel
     var favortiesModel = Favorites()
     var image = UIImageView()
@@ -14,6 +13,7 @@ class RecipeDetailsViewController: UIViewController {
     var textView = UITextView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
+    
     // MARK: - Initialization
     
     init(viewModel: RecipeDetailsViewModel) {
@@ -43,7 +43,9 @@ class RecipeDetailsViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         
-        if let foodImageFromURL = viewModel.recipe.foodImage {
+        guard let recipe = viewModel.recipe else {return}
+        
+        if let foodImageFromURL = recipe.foodImage {
             image.loadFrom(URLAddress: foodImageFromURL)
         } else {
             image = UIImageView(image: defaultImage)
@@ -52,12 +54,12 @@ class RecipeDetailsViewController: UIViewController {
         view.addSubview(image)
         view.backgroundColor = .white
         
-        label.text = viewModel.recipe.name
+        label.text = recipe.name
         label.textColor = .black
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         view.addSubview(label)
         
-        let ingredients = viewModel.recipe.ingredientLines.map { "\($0)" }.joined(separator: "\n- ")
+        let ingredients = recipe.ingredientLines.map { "\($0)" }.joined(separator: "\n- ")
         
         textView.text = "- " + String(ingredients)
         textView.font = .preferredFont(forTextStyle: .title2)
@@ -99,13 +101,12 @@ class RecipeDetailsViewController: UIViewController {
     
     @objc
     func addToFavourites() {
-        favortiesModel.recipes.append(viewModel.recipe)
+        guard let recipe = viewModel.recipe else {return}
+        
+        favortiesModel.recipes.append(recipe)
         
         navigationItem.rightBarButtonItem?.tintColor = .systemYellow
         navigationItem.rightBarButtonItem?.style = .done
-        
-        corDataManager.saveContext()
-        
         print(favortiesModel.recipes)
     }
     
@@ -115,7 +116,9 @@ class RecipeDetailsViewController: UIViewController {
     }
     
     func didTapGetDirectionsButton() {
-        guard let url = URL(string: viewModel.recipe.url) else { return }
+        guard let recipe = viewModel.recipe else {return}
+        guard let url = URL(string: recipe.url) else { return }
         UIApplication.shared.open(url)
     }
+    
 }

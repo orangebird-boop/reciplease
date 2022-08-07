@@ -29,16 +29,35 @@ final class CoreDataManager {
         }
     }
     
-    
     // MARK: - Manage Task Entity
     
-    func createRecipe(title: String, ingredients: [String], totalTime: Int64, image: String, url: String) {
+    func createRecipe(title: String, ingredients: String, totalTime: Int64, image: String, url: String) {
         let recipe = RecipeEntity(context: context)
         recipe.name = title
         recipe.ingredients = ingredients
         recipe.totalTime = totalTime
         recipe.foodImage = image
-        recipe.directions = url
+        recipe.url = url
+        saveContext()
+    }
+    
+    func checkIfRecipeFavorite(name: String, url: String) -> Bool {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", name)
+        request.predicate = NSPredicate(format: "url == %@", url)
+        
+        guard let numberOfFavorites = try? context.count(for: request) else {return false}
+        return numberOfFavorites == 0 ? false : true
+    }
+    
+    func deleteFavorite(name: String, url: String) {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", name)
+        request.predicate = NSPredicate(format: "url == %@", url)
+        
+        if let entity = try? context.fetch(request){
+            entity.forEach {context.delete($0)}
+        }
         saveContext()
     }
 }

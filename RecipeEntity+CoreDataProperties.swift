@@ -2,7 +2,7 @@
 //  RecipeEntity+CoreDataProperties.swift
 //  Application
 //
-//  Created by Nora Lilla Matyassi on 02/08/2022.
+//  Created by Nora Lilla Matyassi on 07/08/2022.
 //
 //
 
@@ -16,9 +16,9 @@ extension RecipeEntity {
         return NSFetchRequest<RecipeEntity>(entityName: "RecipeEntity")
     }
 
-    @NSManaged public var directions: String?
+    @NSManaged public var url: String?
     @NSManaged public var foodImage: String?
-    @NSManaged public var ingredients: [String]?
+    @NSManaged public var ingredients: String?
     @NSManaged public var name: String?
     @NSManaged public var totalTime: Int64
 

@@ -116,7 +116,7 @@ extension FavoritesViewController: UITableViewDataSource {
 
       let recipe = model.recipes[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-      cell.textLabel?.text = recipe.name//(forKeyPath: "name") as? String
+      cell.textLabel?.text = recipe.name// (forKeyPath: "name") as? String
     return cell
   }
 }
