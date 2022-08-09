@@ -1,4 +1,3 @@
-import Foundation
 import UIKit
 import CoreData
 
@@ -103,8 +102,7 @@ class RecipeDetailsViewController: UIViewController {
     func addToFavourites() {
         guard let recipe = viewModel.recipe else {return}
         isRecipeFavorite()
-        
-       
+        // if recipe is not favorite: viewModel.addToFavorites(), else: delete it from favorites
         favortiesViewModel.recipes.append(recipe)
         
         navigationItem.rightBarButtonItem?.tintColor = .systemYellow

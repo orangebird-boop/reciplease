@@ -19,7 +19,7 @@ class RecipeDetailsViewModel {
         guard let foodImage = recipe?.foodImage else {return}
         guard let url = recipe?.url else {return}
         
-        coreDataManager.createRecipe(title: label, ingredients: ingredients, totalTime: Int64(totalTime), image: foodImage, url: url)
+        coreDataManager.createFavorite(title: label, ingredients: ingredients, totalTime: Int64(totalTime), image: foodImage, url: url)
     }
     
     func checkIfRecipeFavorite() -> Bool {
@@ -28,5 +28,7 @@ class RecipeDetailsViewModel {
         let isFavorite = coreDataManager.checkIfRecipeFavorite(name: name, url: url)
         return isFavorite
     }
+    
+    // Shall i create here a deleteFavorite() ? or only in FavoriteDetailsVC ?
     
 }

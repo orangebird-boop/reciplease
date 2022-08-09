@@ -31,7 +31,7 @@ final class CoreDataManager {
     
     // MARK: - Manage Task Entity
     
-    func createRecipe(title: String, ingredients: String, totalTime: Int64, image: String, url: String) {
+    func createFavorite(title: String, ingredients: String, totalTime: Int64, image: String, url: String) {
         let recipe = RecipeEntity(context: context)
         recipe.name = title
         recipe.ingredients = ingredients
