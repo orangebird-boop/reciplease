@@ -55,7 +55,7 @@ final class CoreDataManager {
         request.predicate = NSPredicate(format: "name == %@", name)
         request.predicate = NSPredicate(format: "url == %@", url)
         
-        if let entity = try? context.fetch(request){
+        if let entity = try? context.fetch(request) {
             entity.forEach {context.delete($0)}
         }
         saveContext()

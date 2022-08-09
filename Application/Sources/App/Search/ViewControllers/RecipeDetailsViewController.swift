@@ -7,7 +7,7 @@ class RecipeDetailsViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel: RecipeDetailsViewModel
-    var favortiesModel = Favorites()
+    var favortiesViewModel = FavoritesViewModel()
     var image = UIImageView()
     let label = UILabel()
     var textView = UITextView()
@@ -102,12 +102,14 @@ class RecipeDetailsViewController: UIViewController {
     @objc
     func addToFavourites() {
         guard let recipe = viewModel.recipe else {return}
+        isRecipeFavorite()
         
-        favortiesModel.recipes.append(recipe)
+       
+        favortiesViewModel.recipes.append(recipe)
         
         navigationItem.rightBarButtonItem?.tintColor = .systemYellow
         navigationItem.rightBarButtonItem?.style = .done
-        print(favortiesModel.recipes)
+        print(favortiesViewModel.recipes)
     }
     
     @objc
@@ -119,6 +121,17 @@ class RecipeDetailsViewController: UIViewController {
         guard let recipe = viewModel.recipe else {return}
         guard let url = URL(string: recipe.url) else { return }
         UIApplication.shared.open(url)
+    }
+    
+    func isRecipeFavorite() -> Bool {
+        let recipeIsFavorite = viewModel.checkIfRecipeFavorite()
+        if recipeIsFavorite == true {
+            navigationItem.rightBarButtonItem?.tintColor = .systemYellow
+            return recipeIsFavorite
+        } else {
+            navigationItem.rightBarButtonItem?.tintColor = .label
+            return recipeIsFavorite
+        }
     }
     
 }

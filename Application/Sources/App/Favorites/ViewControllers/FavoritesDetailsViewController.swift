@@ -38,8 +38,8 @@ class FavoritesDetailsViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
-        let buttonImage = UIImage(systemName: "star")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(addToFavourites))
+//        let buttonImage = UIImage(systemName: "star")
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(addToFavourites))
         
         if let foodImageFromURL = viewModel.recipe.foodImage {
             image.loadFrom(URLAddress: foodImageFromURL)
@@ -95,10 +95,6 @@ class FavoritesDetailsViewController: UIViewController {
         ])
     }
     
-    @objc
-    func addToFavourites() {
-        didTapStarButton()
-    }
     @objc
     func getDirections() {
         didTapGetDirectionsButton()

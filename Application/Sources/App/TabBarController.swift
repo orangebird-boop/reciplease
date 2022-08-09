@@ -1,7 +1,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-    let model = Favorites()
+    let model = FavoritesViewModel()
     init() {
         super.init(nibName: nil, bundle: nil)
 

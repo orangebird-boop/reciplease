@@ -3,11 +3,11 @@ import CoreData
 
 class FavoritesViewController: UIViewController, UITableViewDelegate {
 
-    var model = Favorites()
+    var viewModel = FavoritesViewModel()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     
-    init(model: Favorites) {
-        self.model = model
+    init(model: FavoritesViewModel) {
+        self.viewModel = model
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -109,12 +109,12 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
 extension FavoritesViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return model.recipes.count
+      return viewModel.recipes.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-      let recipe = model.recipes[indexPath.row]
+      let recipe = viewModel.recipes[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
       cell.textLabel?.text = recipe.name// (forKeyPath: "name") as? String
     return cell
