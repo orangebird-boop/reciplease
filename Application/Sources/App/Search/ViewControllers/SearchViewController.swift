@@ -101,7 +101,7 @@ extension SearchViewController: SearchViewDelegate {
 extension SearchViewController: SearchViewModelDelegate {
     func didNotFindRecipe(error: SearchViewModelError) {
         
-        let alertViewController = UIAlertController(title: "Error", message: "huston we have a problem", preferredStyle: .alert)
+        let alertViewController = UIAlertController(title: "Error", message: "Huston we have a problem", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertViewController, animated: true, completion: nil)
         
@@ -114,6 +114,12 @@ extension SearchViewController: SearchViewModelDelegate {
     func didFindRecipes() {
         let viewController = SearchResultViewController(viewModel: SearchResultViewModel(recipes: searchViewModel.recipes))
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func didNotUpdateIngredients(error: SearchViewModelError) {
+        let alertViewController = UIAlertController(title: "Error", message: "Sorry, you can't use the same ingredient two times", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertViewController, animated: true, completion: nil)
     }
     
 }

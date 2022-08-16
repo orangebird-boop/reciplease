@@ -6,8 +6,8 @@ struct SearchViewIngredientsDataSourceProvider {
         case first
     }
     
-    typealias DataSource = UITableViewDiffableDataSource<Section, RecipeIngredient>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, RecipeIngredient>
+    typealias DataSource = UITableViewDiffableDataSource<Section, String>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, String>
 
     let tableView: UITableView
     
@@ -16,7 +16,7 @@ struct SearchViewIngredientsDataSourceProvider {
         makeDataSource()
     }
 
-    func applySnapshot(ingredients: [RecipeIngredient], animatingDifferences: Bool = true) {
+    func applySnapshot(ingredients: [String], animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
         
         snapshot.appendSections([.first])

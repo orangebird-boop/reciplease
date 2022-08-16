@@ -25,8 +25,8 @@ class SearchTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with ingredient: RecipeIngredient) {
-        titleLabel.text = ingredient.text
+    func configure(with ingredient: String) {
+        titleLabel.text = ingredient 
     }
     
     func setupViews() {

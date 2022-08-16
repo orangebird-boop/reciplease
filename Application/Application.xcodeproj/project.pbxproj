@@ -62,7 +62,7 @@
 /* Begin PBXFileReference section */
 		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
 		B206DB54284CF30C008C36F2 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
-		B2187E8628997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipleaseDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B2187E8628997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = RecipleaseDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B2187E8E289981F300AB0D43 /* RecipeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecipeEntity+CoreDataClass.swift"; path = "../../../RecipeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B2187E8F289981F300AB0D43 /* RecipeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecipeEntity+CoreDataProperties.swift"; path = "../../../RecipeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B21B93752811660F00F6B36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };

@@ -2,7 +2,7 @@
 //  RecipeEntity+CoreDataProperties.swift
 //  Application
 //
-//  Created by Nora Lilla Matyassi on 07/08/2022.
+//  Created by Nora Lilla Matyassi on 10/08/2022.
 //
 //
 

@@ -6,7 +6,6 @@ class RecipeDetailsViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel: RecipeDetailsViewModel
-    var favortiesViewModel = FavoritesViewModel()
     var image = UIImageView()
     let label = UILabel()
     var textView = UITextView()
@@ -29,8 +28,12 @@ class RecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
+      
         setupViews()
         setupLayouts()
+        
+        viewModel.checkIfRecipeFavorite()
         
     }
     
@@ -42,10 +45,8 @@ class RecipeDetailsViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         
-        guard let recipe = viewModel.recipe else {return}
-        
-        if let foodImageFromURL = recipe.foodImage {
-            image.loadFrom(URLAddress: foodImageFromURL)
+        if let foodImageFromURL = viewModel.recipe.foodImage {
+        image.loadFrom(URLAddress: foodImageFromURL)
         } else {
             image = UIImageView(image: defaultImage)
             image.contentMode = .scaleToFill
@@ -53,12 +54,12 @@ class RecipeDetailsViewController: UIViewController {
         view.addSubview(image)
         view.backgroundColor = .white
         
-        label.text = recipe.name
+        label.text = viewModel.recipe.name
         label.textColor = .black
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         view.addSubview(label)
         
-        let ingredients = recipe.ingredientLines.map { "\($0)" }.joined(separator: "\n- ")
+        let ingredients = viewModel.recipe.ingredientLines.map { "\($0)" }.joined(separator: "\n- ")
         
         textView.text = "- " + String(ingredients)
         textView.font = .preferredFont(forTextStyle: .title2)
@@ -100,14 +101,10 @@ class RecipeDetailsViewController: UIViewController {
     
     @objc
     func addToFavourites() {
-        guard let recipe = viewModel.recipe else {return}
-        isRecipeFavorite()
-        // if recipe is not favorite: viewModel.addToFavorites(), else: delete it from favorites
-        favortiesViewModel.recipes.append(recipe)
+        viewModel.toggelFavoriteStatus(for: viewModel.recipe)
         
-        navigationItem.rightBarButtonItem?.tintColor = .systemYellow
-        navigationItem.rightBarButtonItem?.style = .done
-        print(favortiesViewModel.recipes)
+        
+        //        navigationItem.rightBarButtonItem?.style = .done
     }
     
     @objc
@@ -116,20 +113,22 @@ class RecipeDetailsViewController: UIViewController {
     }
     
     func didTapGetDirectionsButton() {
-        guard let recipe = viewModel.recipe else {return}
-        guard let url = URL(string: recipe.url) else { return }
-        UIApplication.shared.open(url)
-    }
-    
-    func isRecipeFavorite() -> Bool {
-        let recipeIsFavorite = viewModel.checkIfRecipeFavorite()
-        if recipeIsFavorite == true {
-            navigationItem.rightBarButtonItem?.tintColor = .systemYellow
-            return recipeIsFavorite
-        } else {
-            navigationItem.rightBarButtonItem?.tintColor = .label
-            return recipeIsFavorite
+        guard let url = URL(string: viewModel.recipe.url) else { return }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
         }
     }
-    
 }
+
+extension RecipeDetailsViewController: RecipeDetailsViewModelDelegate {
+    func didToggleFavoriteStatusForREcipe(state: RecipeState) {
+        switch state {
+        case .isFavorite:
+            navigationItem.rightBarButtonItem?.tintColor = .systemYellow
+        case .isNotFavorite:
+            navigationItem.rightBarButtonItem?.tintColor = .label
+        }
+    }
+}
+

@@ -47,7 +47,7 @@ final class CoreDataManager {
         request.predicate = NSPredicate(format: "url == %@", url)
         
         guard let numberOfFavorites = try? context.count(for: request) else {return false}
-        return numberOfFavorites == 0 ? false : true
+        return numberOfFavorites != 0 
     }
     
     func deleteFavorite(name: String, url: String) {
