@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 extension UIImageView {
     func loadFrom(URLAddress: String) {
@@ -6,6 +7,7 @@ extension UIImageView {
         guard let url = URL(string: URLAddress) else {
             return
         }
+        kf.setImage(with: url)
         
         DispatchQueue.global(qos: .background).async {
             if let imageData = try? Data(contentsOf: url) {

@@ -101,7 +101,7 @@ class SearchResultTableViewCell: UITableViewCell {
             ingredientsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             ingredientsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Margins.medium),
+            timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Margins.big),
             timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Margins.medium)
             
         ])

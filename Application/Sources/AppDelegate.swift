@@ -1,10 +1,10 @@
 import UIKit
 import Alamofire
 import CoreData
-import SwiftUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
 
     var window: UIWindow?
     var context: Context!

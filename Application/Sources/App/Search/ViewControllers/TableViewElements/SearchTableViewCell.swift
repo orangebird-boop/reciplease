@@ -30,6 +30,7 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     func setupViews() {
+        titleLabel.tintColor = .white
         self.contentView.addSubview(titleLabel)
     }
     

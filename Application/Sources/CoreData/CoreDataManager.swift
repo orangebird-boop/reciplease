@@ -5,6 +5,7 @@ final class CoreDataManager {
     var container: NSPersistentContainer
     var context: NSManagedObjectContext
     init(name: String) {
+        
         container = NSPersistentContainer(name: name)
         container.loadPersistentStores { (_, error) in
             if let error = error as NSError? {
@@ -32,6 +33,7 @@ final class CoreDataManager {
     // MARK: - Manage Task Entity
     
     func createFavorite(title: String, ingredients: String, totalTime: Int64, image: String, url: String) {
+//        let desctription = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: context)
         let recipe = RecipeEntity(context: context)
         recipe.name = title
         recipe.ingredients = ingredients

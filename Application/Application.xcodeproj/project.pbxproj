@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		85741B59305C27E5DA178BA9 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
 		B206DB55284CF30C008C36F2 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206DB54284CF30C008C36F2 /* SearchTableViewCell.swift */; };
-		B2187E8728997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2187E8528997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodeld */; };
-		B2187E90289981F300AB0D43 /* RecipeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2187E8E289981F300AB0D43 /* RecipeEntity+CoreDataClass.swift */; };
-		B2187E91289981F300AB0D43 /* RecipeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2187E8F289981F300AB0D43 /* RecipeEntity+CoreDataProperties.swift */; };
 		B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93752811660F00F6B36A /* SearchViewModel.swift */; };
 		B21B938928156C2100F6B36A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B938828156C2100F6B36A /* SearchService.swift */; };
 		B21EA8EF284BB49F00EB63DF /* FavoritesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21EA8EE284BB49F00EB63DF /* FavoritesDetailsViewController.swift */; };
@@ -24,6 +21,9 @@
 		B252922B287D8FFF0007D07C /* FavouritesDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252922A287D8FFF0007D07C /* FavouritesDetailsViewModel.swift */; };
 		B252923628868C3C0007D07C /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252923528868C3C0007D07C /* RecipeIngredient.swift */; };
 		B252923828868EE50007D07C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252923728868EE50007D07C /* CoreDataManager.swift */; };
+		B26BD96D28AC007000297B6D /* RecipeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BD96C28AC007000297B6D /* RecipeEntity+CoreDataProperties.swift */; };
+		B26BD96F28AC00D200297B6D /* RecipeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BD96E28AC00D200297B6D /* RecipeEntity+CoreDataClass.swift */; };
+		B26BD97228AD669A00297B6D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B26BD97128AD669A00297B6D /* Kingfisher */; };
 		B27AF73428350A2300E16EB7 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27AF73328350A2300E16EB7 /* RecipeDetailsView.swift */; };
 		B29E870B289068F8004DE8CF /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29E870A289068F8004DE8CF /* Context.swift */; };
 		B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF18280ECD92005F680C /* AppDelegate.swift */; };
@@ -35,6 +35,7 @@
 		B2A2DF3A280EDA02005F680C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A2DF39280EDA02005F680C /* FavoritesView.swift */; };
 		B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD0280F00AE0039784E /* SearchView.swift */; };
 		B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD4280F062F0039784E /* EdamamSearchService.swift */; };
+		B2B829A428ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2B829A228ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld */; };
 		B2D3C1692834FD4F00E48122 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3C1682834FD4F00E48122 /* RecipeDetailsViewController.swift */; };
 		B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */; };
 		B2E791B828576179007D2ED4 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E791B728576179007D2ED4 /* SearchDataSource.swift */; };
@@ -62,9 +63,6 @@
 /* Begin PBXFileReference section */
 		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
 		B206DB54284CF30C008C36F2 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
-		B2187E8628997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = RecipleaseDataModel.xcdatamodel; sourceTree = "<group>"; };
-		B2187E8E289981F300AB0D43 /* RecipeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecipeEntity+CoreDataClass.swift"; path = "../../../RecipeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B2187E8F289981F300AB0D43 /* RecipeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecipeEntity+CoreDataProperties.swift"; path = "../../../RecipeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B21B93752811660F00F6B36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B21B938828156C2100F6B36A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		B21EA8EE284BB49F00EB63DF /* FavoritesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDetailsViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +76,8 @@
 		B252922A287D8FFF0007D07C /* FavouritesDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDetailsViewModel.swift; sourceTree = "<group>"; };
 		B252923528868C3C0007D07C /* RecipeIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeIngredient.swift; path = /Users/noralilla/Documents/work/reciplease/Application/Sources/App/Commons/Models/RecipeIngredient.swift; sourceTree = "<absolute>"; };
 		B252923728868EE50007D07C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B26BD96C28AC007000297B6D /* RecipeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RecipeEntity+CoreDataProperties.swift"; path = "../../../RecipeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B26BD96E28AC00D200297B6D /* RecipeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeEntity+CoreDataClass.swift"; path = "../../../RecipeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B27AF73328350A2300E16EB7 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
 		B29E870A289068F8004DE8CF /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		B2A2DF15280ECD92005F680C /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +91,7 @@
 		B2A2DF39280EDA02005F680C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		B2AAADD0280F00AE0039784E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		B2AAADD4280F062F0039784E /* EdamamSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSearchService.swift; sourceTree = "<group>"; };
+		B2B829A328ABFB41007CD224 /* RecipleaseDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipleaseDataModel.xcdatamodel; sourceTree = "<group>"; };
 		B2D3C1682834FD4F00E48122 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewModel.swift; sourceTree = "<group>"; };
 		B2E791B728576179007D2ED4 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B26BD97228AD669A00297B6D /* Kingfisher in Frameworks */,
 				85741B59305C27E5DA178BA9 /* Pods_Application.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,10 +236,10 @@
 		B252922C287DDFE10007D07C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				B2187E8E289981F300AB0D43 /* RecipeEntity+CoreDataClass.swift */,
-				B2187E8F289981F300AB0D43 /* RecipeEntity+CoreDataProperties.swift */,
+				B26BD96E28AC00D200297B6D /* RecipeEntity+CoreDataClass.swift */,
+				B26BD96C28AC007000297B6D /* RecipeEntity+CoreDataProperties.swift */,
 				B252923728868EE50007D07C /* CoreDataManager.swift */,
-				B2187E8528997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodeld */,
+				B2B829A228ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -391,6 +393,9 @@
 			dependencies = (
 			);
 			name = Application;
+			packageProductDependencies = (
+				B26BD97128AD669A00297B6D /* Kingfisher */,
+			);
 			productName = Application;
 			productReference = B2A2DF15280ECD92005F680C /* Application.app */;
 			productType = "com.apple.product-type.application";
@@ -423,6 +428,9 @@
 				Base,
 			);
 			mainGroup = B2A2DF0C280ECD92005F680C;
+			packageReferences = (
+				B26BD97028AD669A00297B6D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = B2A2DF16280ECD92005F680C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -525,7 +533,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2187E90289981F300AB0D43 /* RecipeEntity+CoreDataClass.swift in Sources */,
 				B2FFD12928252C3F001C576A /* SearchResultTableViewCell.swift in Sources */,
 				B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */,
 				B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */,
@@ -537,15 +544,15 @@
 				B2FFD1242823DA90001C576A /* SearchResultViewModel.swift in Sources */,
 				B252922B287D8FFF0007D07C /* FavouritesDetailsViewModel.swift in Sources */,
 				B24FD8352842A639001A4C34 /* Margins.swift in Sources */,
-				B2187E91289981F300AB0D43 /* RecipeEntity+CoreDataProperties.swift in Sources */,
 				B206DB55284CF30C008C36F2 /* SearchTableViewCell.swift in Sources */,
 				B2A2DF3A280EDA02005F680C /* FavoritesView.swift in Sources */,
 				B2A2DF36280ED5B4005F680C /* FavoritesViewController.swift in Sources */,
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
 				B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */,
-				B2187E8728997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodeld in Sources */,
+				B2B829A428ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld in Sources */,
 				B29E870B289068F8004DE8CF /* Context.swift in Sources */,
 				B2377A4E284BA7D2005A607A /* UILabel.swift in Sources */,
+				B26BD96D28AC007000297B6D /* RecipeEntity+CoreDataProperties.swift in Sources */,
 				B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */,
 				B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */,
 				B21EA8EF284BB49F00EB63DF /* FavoritesDetailsViewController.swift in Sources */,
@@ -558,6 +565,7 @@
 				B24FD83128428A0F001A4C34 /* UIImageView.swift in Sources */,
 				B2D3C1692834FD4F00E48122 /* RecipeDetailsViewController.swift in Sources */,
 				EDFFF31E28351A4B00B4B012 /* EdamamRecipe.swift in Sources */,
+				B26BD96F28AC00D200297B6D /* RecipeEntity+CoreDataClass.swift in Sources */,
 				B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */,
 				EDFFF32028351A6800B4B012 /* EdamamIngredient.swift in Sources */,
 				B2F6BAE628528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift in Sources */,
@@ -836,13 +844,32 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		B26BD97028AD669A00297B6D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B26BD97128AD669A00297B6D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B26BD97028AD669A00297B6D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCVersionGroup section */
-		B2187E8528997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodeld */ = {
+		B2B829A228ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B2187E8628997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodel */,
+				B2B829A328ABFB41007CD224 /* RecipleaseDataModel.xcdatamodel */,
 			);
-			currentVersion = B2187E8628997A0E00AB0D43 /* RecipleaseDataModel.xcdatamodel */;
+			currentVersion = B2B829A328ABFB41007CD224 /* RecipleaseDataModel.xcdatamodel */;
 			path = RecipleaseDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

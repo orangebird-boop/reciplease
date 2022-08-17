@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     }
     
     func setupViews() {
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .black
         
         title = "Reciplease"
         
@@ -30,11 +30,11 @@ class SearchViewController: UIViewController {
         
         searchButton.setTitle("Search", for: .normal)
         searchButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        searchButton.backgroundColor = .systemGray
+        searchButton.backgroundColor = .systemGreen
         searchButton.addTarget(self, action: #selector(searchForRecipes), for: .touchUpInside)
         view.addSubview(searchButton)
         
-        ingredientsTableView.backgroundColor = .systemBackground
+        ingredientsTableView.backgroundColor = .black
         ingredientsTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
         ingredientsTableView.delegate = self
         view.addSubview(ingredientsTableView)
@@ -131,16 +131,16 @@ extension SearchViewController: UITableViewDelegate {
             return
         }
     }
-//    
-//    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
-//        }
-//    }
+    
+    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
+        }
+    }
     
     //    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
     //        return .delete

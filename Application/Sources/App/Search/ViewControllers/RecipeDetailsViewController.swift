@@ -11,6 +11,7 @@ class RecipeDetailsViewController: UIViewController {
     var textView = UITextView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
+    var coreDataManager = CoreDataManager(name: "RecipeEntity")
     
     // MARK: - Initialization
     
@@ -103,7 +104,6 @@ class RecipeDetailsViewController: UIViewController {
     func addToFavourites() {
         viewModel.toggelFavoriteStatus(for: viewModel.recipe)
         
-        
         //        navigationItem.rightBarButtonItem?.style = .done
     }
     
@@ -131,4 +131,3 @@ extension RecipeDetailsViewController: RecipeDetailsViewModelDelegate {
         }
     }
 }
-

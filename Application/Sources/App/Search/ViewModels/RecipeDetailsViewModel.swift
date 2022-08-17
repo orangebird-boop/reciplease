@@ -12,11 +12,11 @@ protocol RecipeDetailsViewModelDelegate: AnyObject {
 
 class RecipeDetailsViewModel {
     
-    let coreDataManager = CoreDataManager(name: "RecipeTestEntity")
+    let coreDataManager = CoreDataManager(name: "RecipeEntity")
     var recipe: Recipe
     weak var delegate: RecipeDetailsViewModelDelegate?
     var recipeState: RecipeState {
-        didSet{
+        didSet {
             delegate?.didToggleFavoriteStatusForREcipe(state: recipeState)
         }
         
@@ -43,7 +43,7 @@ class RecipeDetailsViewModel {
         
         guard let totalTime = recipe.totalTime else {return}
         guard let foodImage = recipe.foodImage else {return}
-      
+        
         coreDataManager.createFavorite(title: recipe.name, ingredients: ingredients, totalTime: Int64(totalTime), image: foodImage, url: recipe.url)
     }
     
