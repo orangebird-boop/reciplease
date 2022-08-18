@@ -43,7 +43,7 @@ class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .black
         
         tableView.delegate = self
         view.addSubview(tableView)

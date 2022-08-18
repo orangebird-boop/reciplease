@@ -44,7 +44,7 @@ class RecipeDetailsViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
-        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.tintColor = .black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         
@@ -55,23 +55,24 @@ class RecipeDetailsViewController: UIViewController {
             image.contentMode = .scaleToFill
         }
         view.addSubview(image)
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         label.text = viewModel.recipe.name
-        label.textColor = .black
+        label.textColor = .white
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         view.addSubview(label)
         
         let ingredients = viewModel.recipe.ingredientLines.map { "\($0)" }.joined(separator: "\n- ")
         
         textView.text = "- " + String(ingredients)
+        textView.textColor = .white
         textView.font = .preferredFont(forTextStyle: .title2)
-        textView.backgroundColor = .systemGray
+        textView.backgroundColor = .black
         view.addSubview(textView)
         
         getDirectionsButton.setTitle("Get directions", for: .normal)
         getDirectionsButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        getDirectionsButton.backgroundColor = .systemGray
+        getDirectionsButton.backgroundColor = .systemGreen
         getDirectionsButton.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
         view.addSubview(getDirectionsButton)
     }

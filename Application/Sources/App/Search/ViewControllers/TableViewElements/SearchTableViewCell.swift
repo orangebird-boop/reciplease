@@ -27,7 +27,7 @@ class SearchTableViewCell: UITableViewCell {
     
     
     func configure(with ingredient: String) {
-        titleLabel.text = ingredient 
+        titleLabel.text = "- " + ingredient 
     }
     
     func setupViews() {
