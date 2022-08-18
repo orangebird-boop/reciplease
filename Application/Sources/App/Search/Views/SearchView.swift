@@ -39,7 +39,7 @@ class SearchView: UIView {
         ingredientsTextField.borderStyle = UITextField.BorderStyle.none
         ingredientsTextField.layer.addSublayer(bottomLine)
         
-        ingredientsTextField.text = ""
+        ingredientsTextField.placeholder = "Lemon, Cheese, Sausages..."
         ingredientsTextField.backgroundColor = .systemBackground
         ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .title1)
         ingredientsTextField.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
@@ -51,9 +51,9 @@ class SearchView: UIView {
         addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
         addSubview(addButton)
         
-        label.text = "Ingredients :"
+        label.text = "Your ingredients :"
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.backgroundColor = .systemGray4
+        label.backgroundColor = .white
         addSubview(label)
         
         clearAllButton.setTitle("Clear all", for: .normal)

@@ -29,6 +29,8 @@ class RecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.topItem?.title = "Reciplease"
+        
         viewModel.delegate = self
       
         setupViews()

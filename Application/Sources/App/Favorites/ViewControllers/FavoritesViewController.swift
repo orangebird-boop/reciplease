@@ -22,24 +22,24 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
         return tableView
     }()
     
-//    private lazy var dataSource = makeDataSource()
-//
-//    enum Section {
-//        case first
-//    }
-//
-//    typealias DataSource = UITableViewDiffableDataSource<Section, Recipe>
-//    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>
-//
-//    func applySnapshot(animatingDifferences: Bool = true) {
-//        var snapshot = Snapshot()
-//
-//        snapshot.appendSections([.first])
-//
-//        snapshot.appendItems(viewModel.favoriteRecipes)
-//
-//        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
-//    }
+    private lazy var dataSource = makeDataSource()
+
+    enum Section {
+        case first
+    }
+
+    typealias DataSource = UITableViewDiffableDataSource<Section, Recipe>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Recipe>
+
+    func applySnapshot(animatingDifferences: Bool = true) {
+        var snapshot = Snapshot()
+
+        snapshot.appendSections([.first])
+
+        snapshot.appendItems(viewModel.recipes)
+
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
 
         // should be in view model
         
@@ -56,14 +56,24 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
 //
 //        }
 //    }
-    
+    func setupViews() {
+        view.backgroundColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.topItem?.title = "Reciplease"
+        
+        tableView.delegate = self
+        tableView.backgroundColor = .black
+        view.addSubview(tableView)
+ 
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemGroupedBackground
-        
-        tableView.delegate = self
-        view.addSubview(tableView)
+        setupViews()
+        setupLayouts()
+    }
+    
+    func setupLayouts() {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -73,7 +83,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.medium)
         ])
-//        applySnapshot()
+        applySnapshot()
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -93,18 +103,18 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
 //      }
 //    }
 
-//    func makeDataSource() -> DataSource {
-//        DataSource(tableView: tableView) { tableView, indexPath, model in
-//            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell else {
-//                fatalError("This cell should be registerd")
-//            }
-//
-//            tableViewCell.configure(with: model)
-//
-//            return tableViewCell
-//        }
-//    }
-//
+    func makeDataSource() -> DataSource {
+        DataSource(tableView: tableView) { tableView, indexPath, model in
+            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.identifier, for: indexPath) as? FavoritesTableViewCell else {
+                fatalError("This cell should be registerd")
+            }
+
+            tableViewCell.configure(with: model)
+
+            return tableViewCell
+        }
+    }
+
 }
 extension FavoritesViewController: UITableViewDataSource {
 

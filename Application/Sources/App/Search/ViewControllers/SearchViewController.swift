@@ -21,8 +21,8 @@ class SearchViewController: UIViewController {
     
     func setupViews() {
         view.backgroundColor = .black
-        
-        title = "Reciplease"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.topItem?.title = "Reciplease"
         
         searchView.delegate = self
         searchView.backgroundColor = .white
@@ -45,8 +45,8 @@ class SearchViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             searchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
-            searchView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            searchView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            searchView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            searchView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             searchView.heightAnchor.constraint(equalToConstant: Margins.medium*11),
             
             ingredientsTableView.topAnchor.constraint(equalTo: searchView.bottomAnchor, constant: Margins.medium),
