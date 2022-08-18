@@ -13,6 +13,7 @@
 		B21B938928156C2100F6B36A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B938828156C2100F6B36A /* SearchService.swift */; };
 		B21EA8EF284BB49F00EB63DF /* FavoritesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21EA8EE284BB49F00EB63DF /* FavoritesDetailsViewController.swift */; };
 		B21EA8F2284BB57600EB63DF /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21EA8F1284BB57600EB63DF /* FavoritesViewModel.swift */; };
+		B2238C4428AE639500328940 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2238C4328AE639500328940 /* UITextField.swift */; };
 		B2377A4E284BA7D2005A607A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2377A4D284BA7D2005A607A /* UILabel.swift */; };
 		B24FD83128428A0F001A4C34 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD83028428A0F001A4C34 /* UIImageView.swift */; };
 		B24FD8352842A639001A4C34 /* Margins.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24FD8342842A639001A4C34 /* Margins.swift */; };
@@ -67,6 +68,7 @@
 		B21B938828156C2100F6B36A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		B21EA8EE284BB49F00EB63DF /* FavoritesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDetailsViewController.swift; sourceTree = "<group>"; };
 		B21EA8F1284BB57600EB63DF /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		B2238C4328AE639500328940 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		B2377A4D284BA7D2005A607A /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		B24FD83028428A0F001A4C34 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		B24FD8342842A639001A4C34 /* Margins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margins.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				B24FD83028428A0F001A4C34 /* UIImageView.swift */,
 				B24FD8342842A639001A4C34 /* Margins.swift */,
 				B2377A4D284BA7D2005A607A /* UILabel.swift */,
+				B2238C4328AE639500328940 /* UITextField.swift */,
 			);
 			name = Extensions;
 			path = Sources/App/Commons/Extensions;
@@ -559,6 +562,7 @@
 				B252923828868EE50007D07C /* CoreDataManager.swift in Sources */,
 				B21B938928156C2100F6B36A /* SearchService.swift in Sources */,
 				B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */,
+				B2238C4428AE639500328940 /* UITextField.swift in Sources */,
 				EDFFF32228351B0600B4B012 /* RecipeResponse.swift in Sources */,
 				B2FFD11D281BB9BB001C576A /* SearchResultViewController.swift in Sources */,
 				B252923628868C3C0007D07C /* RecipeIngredient.swift in Sources */,

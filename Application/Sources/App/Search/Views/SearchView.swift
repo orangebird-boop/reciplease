@@ -8,11 +8,13 @@ protocol SearchViewDelegate: AnyObject {
 }
 class SearchView: UIView {
     // MARK: - Properties
-
+    
     var ingredientsTextField = UITextField()
     var addButton = UIButton()
     var clearAllButton = UIButton()
     var label = UILabel()
+    var bottomLine = CALayer()
+    
     weak var delegate: SearchViewDelegate?
     
     override init(frame: CGRect) {
@@ -23,13 +25,20 @@ class SearchView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-// MARK: - Functions
+    // MARK: - Functions
+    
     func setupSearchView() {
         setupView()
         setupLayout()
     }
     
     func setupView() {
+        bottomLine.frame = CGRect(x: 0.0, y: ingredientsTextField.frame.height - 1, width: ingredientsTextField.frame.width, height: 1.0)
+        bottomLine.backgroundColor = UIColor.green.cgColor
+        
+        ingredientsTextField.borderStyle = UITextField.BorderStyle.none
+        ingredientsTextField.layer.addSublayer(bottomLine)
+        
         ingredientsTextField.text = ""
         ingredientsTextField.backgroundColor = .systemBackground
         ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .title1)
@@ -53,7 +62,7 @@ class SearchView: UIView {
         clearAllButton.addTarget(self, action: #selector(clearAll), for: .touchUpInside)
         addSubview(clearAllButton)
     }
-   
+    
     private func setupLayout() {
         [ingredientsTextField, addButton, label, clearAllButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
@@ -68,18 +77,18 @@ class SearchView: UIView {
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
             addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
             addButton.heightAnchor.constraint(equalToConstant: 42),
-
+            
             label.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
             label.trailingAnchor.constraint(equalTo: clearAllButton.leadingAnchor, constant: -Margins.medium),
             label.heightAnchor.constraint(equalToConstant: 42),
-//           label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Margins.medium),
-
+            //           label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Margins.medium),
+            
             clearAllButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
             clearAllButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),
             clearAllButton.heightAnchor.constraint(equalToConstant: 42),
             clearAllButton.widthAnchor.constraint(equalToConstant: 82)
-  
+            
         ])
     }
     
