@@ -4,12 +4,13 @@ enum Section {
     case first
 }
 
-class SearchDataSource: UITableViewDiffableDataSource<Section, RecipeIngredient> {
+class SearchDataSource: UITableViewDiffableDataSource<Section, String> {
     // making editing possible
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             var snapshot = self.snapshot()

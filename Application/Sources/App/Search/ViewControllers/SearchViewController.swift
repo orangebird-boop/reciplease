@@ -40,6 +40,8 @@ class SearchViewController: UIViewController {
         ingredientsTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
         ingredientsTableView.delegate = self
         view.addSubview(ingredientsTableView)
+        
+        dataSourceProvider.dataSource.defaultRowAnimation = .fade
     }
     
     func setupLayout() {
@@ -136,16 +138,20 @@ extension SearchViewController: UITableViewDelegate {
         return true
     }
     
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
         }
     }
     
-    //    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
-    //        return .delete
-    //    }
-    //
+    
+    
+//        private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
+//            return .delete
+//        }
+    
     //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     //        if editingStyle == .delete {
     //            tableView.beginUpdates()

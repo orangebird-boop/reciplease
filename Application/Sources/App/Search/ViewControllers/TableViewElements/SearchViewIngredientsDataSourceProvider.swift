@@ -11,7 +11,7 @@ struct SearchViewIngredientsDataSourceProvider {
 
     let tableView: UITableView
     
-//    var dataSource = SearchDataSource(tableView: tableView, cellProvider: (UITableView, IndexPath, RecipeIngredient))
+//    var dataSource = SearchDataSource(tableView: tableView, cellProvider: (UITableView, IndexPath, String))
     var dataSource: DataSource
     
     init(tableView: UITableView) {
