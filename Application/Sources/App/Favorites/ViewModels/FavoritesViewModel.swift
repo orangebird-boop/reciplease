@@ -3,5 +3,9 @@ import Foundation
 class FavoritesViewModel {
     
     var recipes = [Recipe]()
-    var coreDataManager = CoreDataManager(name: "RecipeEntity")
+    var coreDataManager: CoreDataManager
+    
+    init(coreDataManager: CoreDataManager = .shared) {
+        self.coreDataManager = coreDataManager
+    }
 }

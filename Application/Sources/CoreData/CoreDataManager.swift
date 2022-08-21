@@ -1,12 +1,18 @@
 import CoreData
 
 final class CoreDataManager {
+    
+    private let dataModelFilename = "RecipleaseDataModel"
+    
+    static let shared = CoreDataManager()
+    
     // MARK: - Core Data stack
-    var container: NSPersistentContainer
-    var context: NSManagedObjectContext
-    init(name: String) {
+    private var container: NSPersistentContainer
+    private var context: NSManagedObjectContext
+    
+    private init() {
+        container = NSPersistentContainer(name: dataModelFilename)
         
-        container = NSPersistentContainer(name: name)
         container.loadPersistentStores { (_, error) in
             if let error = error as NSError? {
            
@@ -33,8 +39,11 @@ final class CoreDataManager {
     // MARK: - Manage Task Entity
     
     func createFavorite(title: String, ingredients: String, totalTime: Int64, image: String, url: String) {
-//        let desctription = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: context)
-        let recipe = RecipeEntity(context: context)
+        guard let description = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: context) else {
+            fatalError("Failed to retrieve entity description")
+        }
+        
+        let recipe = RecipeEntity(entity: description, insertInto: context)
         recipe.name = title
         recipe.ingredients = ingredients
         recipe.totalTime = totalTime

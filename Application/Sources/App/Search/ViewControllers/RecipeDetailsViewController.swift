@@ -11,8 +11,7 @@ class RecipeDetailsViewController: UIViewController {
     var textView = UITextView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
-    var coreDataManager = CoreDataManager(name: "RecipeEntity")
-    
+
     // MARK: - Initialization
     
     init(viewModel: RecipeDetailsViewModel) {
@@ -41,10 +40,9 @@ class RecipeDetailsViewController: UIViewController {
     }
     
     func setupViews() {
-        
-        view.backgroundColor = .systemBackground
-        
-        navigationController?.navigationBar.tintColor = .black
+        view.backgroundColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.topItem?.title = "Reciplease"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         
@@ -130,7 +128,7 @@ extension RecipeDetailsViewController: RecipeDetailsViewModelDelegate {
         case .isFavorite:
             navigationItem.rightBarButtonItem?.tintColor = .systemYellow
         case .isNotFavorite:
-            navigationItem.rightBarButtonItem?.tintColor = .label
+            navigationItem.rightBarButtonItem?.tintColor = .white
         }
     }
 }

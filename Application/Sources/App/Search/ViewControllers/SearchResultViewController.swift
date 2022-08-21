@@ -42,8 +42,9 @@ class SearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.topItem?.title = "Reciplease"
         
         tableView.delegate = self
         view.addSubview(tableView)

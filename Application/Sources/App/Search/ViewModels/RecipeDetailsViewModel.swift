@@ -12,7 +12,7 @@ protocol RecipeDetailsViewModelDelegate: AnyObject {
 
 class RecipeDetailsViewModel {
     
-    let coreDataManager = CoreDataManager(name: "RecipeEntity")
+    let coreDataManager: CoreDataManager
     var recipe: Recipe
     weak var delegate: RecipeDetailsViewModelDelegate?
     var recipeState: RecipeState {
@@ -21,8 +21,9 @@ class RecipeDetailsViewModel {
         }
         
     }
-    init(recipe: Recipe) {
+    init(recipe: Recipe, coreDataManager: CoreDataManager = .shared) {
         self.recipe = recipe
+        self.coreDataManager = coreDataManager
         
         recipeState = .isNotFavorite
     }

@@ -17,13 +17,13 @@ class TabBarController: UITabBarController {
         
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
-        
-        let favouritesViewController = FavoritesViewController(model: model)
-        favouritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
-            
+ 
+        let favoritesViewController = FavoritesViewController(model: model)
+        favoritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
+    
         setViewControllers([
            UINavigationController(rootViewController: searchViewController),
-           UINavigationController(rootViewController: favouritesViewController)],
+           UINavigationController(rootViewController: favoritesViewController)],
                            animated: true)
     }
 }

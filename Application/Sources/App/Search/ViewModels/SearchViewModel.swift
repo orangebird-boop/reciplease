@@ -48,7 +48,10 @@ class SearchViewModel {
     }
     
     func searchRecipes() {
-        
+        guard !ingredients.isEmpty else {
+            // TODO: desactiver la boutton search
+            return
+        }
         searchService.getRecipes(ingredients: ingredients, page: 0) { [weak self] result in
             guard let self = self else {return}
             

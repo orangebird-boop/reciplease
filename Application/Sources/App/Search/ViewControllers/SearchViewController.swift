@@ -17,6 +17,8 @@ class SearchViewController: UIViewController {
         
         setupViews()
         setupLayout()
+        
+        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func setupViews() {
@@ -59,7 +61,6 @@ class SearchViewController: UIViewController {
             searchButton.heightAnchor.constraint(equalToConstant: 42),
             searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.small)
         ])
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     @objc
@@ -74,7 +75,6 @@ extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
         searchViewModel.ingredients.removeAll()
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func didTapAddButton() {

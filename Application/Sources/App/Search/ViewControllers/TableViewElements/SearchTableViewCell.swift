@@ -25,12 +25,13 @@ class SearchTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func configure(with ingredient: String) {
         titleLabel.text = "- " + ingredient 
     }
     
     func setupViews() {
+        backgroundColor = .clear
+        
         titleLabel.tintColor = .black
         titleLabel.backgroundColor = .black
         self.contentView.addSubview(titleLabel)
