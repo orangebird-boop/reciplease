@@ -7,7 +7,7 @@ enum RecipeState {
 }
 
 protocol RecipeDetailsViewModelDelegate: AnyObject {
-    func didToggleFavoriteStatusForREcipe(state: RecipeState)
+    func didToggleFavoriteStatusForRecipe(state: RecipeState)
 }
 
 class RecipeDetailsViewModel {
@@ -15,9 +15,9 @@ class RecipeDetailsViewModel {
     let coreDataManager: CoreDataManager
     var recipe: Recipe
     weak var delegate: RecipeDetailsViewModelDelegate?
-    var recipeState: RecipeState {
+    var recipeState: RecipeState = .isNotFavorite {
         didSet {
-            delegate?.didToggleFavoriteStatusForREcipe(state: recipeState)
+            delegate?.didToggleFavoriteStatusForRecipe(state: recipeState)
         }
         
     }

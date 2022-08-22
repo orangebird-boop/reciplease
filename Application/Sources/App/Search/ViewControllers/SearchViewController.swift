@@ -31,8 +31,10 @@ class SearchViewController: UIViewController {
         view.addSubview(searchView)
         
         searchButton.setTitle("Search", for: .normal)
+        searchButton.isEnabled = false
+        searchButton.isOpaque = true
         searchButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        searchButton.backgroundColor = .systemGreen
+        searchButton.backgroundColor = .systemGray
         searchButton.addTarget(self, action: #selector(searchForRecipes), for: .touchUpInside)
         view.addSubview(searchButton)
         
@@ -40,8 +42,6 @@ class SearchViewController: UIViewController {
         ingredientsTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
         ingredientsTableView.delegate = self
         view.addSubview(ingredientsTableView)
-        
-        dataSourceProvider.dataSource.defaultRowAnimation = .fade
     }
     
     func setupLayout() {
@@ -69,6 +69,21 @@ class SearchViewController: UIViewController {
     func searchForRecipes() {
         didTapSearchButton()
     }
+    
+    func disableSearchButton() {
+        if !searchViewModel.ingredients.isEmpty {
+            searchButton.isEnabled = true
+            searchButton.backgroundColor = .systemGreen
+        } else {
+            return
+        }
+    }
+    
+//    @objc
+//    func userDidSwipe(_ sender: UISwipeGestureRecognizer) {
+//        var frame = SearchTableViewCell()
+//
+//    }
 }
 
 // MARK: - SearchViewDelegate
@@ -84,7 +99,7 @@ extension SearchViewController: SearchViewDelegate {
         guard let ingredient = searchView.ingredientsTextField.text, !ingredient.isEmpty else {return}
         
         searchViewModel.add(ingredient: ingredient)
-        
+        disableSearchButton()
         searchView.ingredientsTextField.text = ""
         dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
@@ -97,6 +112,12 @@ extension SearchViewController: SearchViewDelegate {
     func didTapTextField() {
         searchView.ingredientsTextField.text = ""
     }
+    
+//    func didSwipeLeft() {
+//
+//    }
+    
+    
 }
 
 extension SearchViewController: SearchViewModelDelegate {
@@ -127,40 +148,25 @@ extension SearchViewController: SearchViewModelDelegate {
 
 extension SearchViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
-//            return
-//        }
-//    }
-//    
-//    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-//    
-//    
-//    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
-//        }
-//    }
-//    
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
+            return
+        }
+    }
+
+    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
+//            searchViewModel.deleteIngredient(index: indexPath)
+        }
+    }
+
 //        private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
 //            return .delete
 //        }
     
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            tableView.beginUpdates()
-    //
-    //            let index = indexPath.first!
-    //            searchViewModel.deleteIngredient(index: index)
-    //
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //
-    //            tableView.endUpdates()
-    //        }
-    //    }
 }

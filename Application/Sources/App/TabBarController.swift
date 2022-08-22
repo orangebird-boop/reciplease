@@ -13,7 +13,7 @@ class TabBarController: UITabBarController {
     }
     
     func setupViews() {
-        tabBar.tintColor = .white
+//        tabBar.tintColor = .white
         
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)

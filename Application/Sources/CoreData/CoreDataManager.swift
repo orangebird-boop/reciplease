@@ -36,7 +36,6 @@ final class CoreDataManager {
 //        }
 //    }
    
-    
     private static let dataModelFilename = "RecipleaseDataModel"
     static let shared = CoreDataManager()
     

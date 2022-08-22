@@ -32,7 +32,7 @@ class RecipeDetailsViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = "Reciplease"
         
         viewModel.delegate = self
-      
+        
         setupViews()
         setupLayouts()
         
@@ -48,7 +48,7 @@ class RecipeDetailsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         
         if let foodImageFromURL = viewModel.recipe.foodImage {
-        image.loadFrom(URLAddress: foodImageFromURL)
+            image.loadFrom(URLAddress: foodImageFromURL)
         } else {
             image = UIImageView(image: defaultImage)
             image.contentMode = .scaleToFill
@@ -106,7 +106,6 @@ class RecipeDetailsViewController: UIViewController {
     func addToFavourites() {
         viewModel.toggelFavoriteStatus(for: viewModel.recipe)
         
-        //        navigationItem.rightBarButtonItem?.style = .done
     }
     
     @objc
@@ -124,7 +123,8 @@ class RecipeDetailsViewController: UIViewController {
 }
 
 extension RecipeDetailsViewController: RecipeDetailsViewModelDelegate {
-    func didToggleFavoriteStatusForREcipe(state: RecipeState) {
+    
+    func didToggleFavoriteStatusForRecipe(state: RecipeState) {
         switch state {
         case .isFavorite:
             navigationItem.rightBarButtonItem?.tintColor = .systemYellow
@@ -133,3 +133,4 @@ extension RecipeDetailsViewController: RecipeDetailsViewModelDelegate {
         }
     }
 }
+
