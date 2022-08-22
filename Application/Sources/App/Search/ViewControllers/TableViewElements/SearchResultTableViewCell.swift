@@ -55,7 +55,7 @@ class SearchResultTableViewCell: UITableViewCell {
         
         guard let preparationTime = recipe.totalTime else {return}
         timeLabel.text = "\(String(describing: preparationTime)) min"
-        //        timeLabel.text!.addImageWith(name: "clock", behindText: false)
+        
         
         if let foodImageFromUrl = recipe.foodImage {
             foodImageView.loadFrom(URLAddress: foodImageFromUrl)
