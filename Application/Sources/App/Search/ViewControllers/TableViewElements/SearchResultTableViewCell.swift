@@ -4,6 +4,7 @@ class SearchResultTableViewCell: UITableViewCell {
     
     static let identifier = "SearchResultTableViewCell"
     var foodImageView = UIImageView()
+    let opaqueLayer = UIView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let gradientLayer = CAGradientLayer()
     
@@ -61,37 +62,44 @@ class SearchResultTableViewCell: UITableViewCell {
         } else {
             foodImageView.image = defaultImage
         }
+        
+        foodImageView.contentMode = .scaleAspectFill
     }
     
     func setupViews() {
-
-        let foodImage = UIImageView(frame: .zero)
-        self.contentView.addSubview(foodImage)
-        self.foodImageView = foodImage
+        foodImageView.contentMode = .scaleAspectFill
+        foodImageView.clipsToBounds = true
+        contentView.addSubview(foodImageView)
         
-        self.contentView.addSubview(titleLabel)
-        self.titleLabel = titleLabel
+        opaqueLayer.backgroundColor = .black.withAlphaComponent(1/4)
+        contentView.addSubview(opaqueLayer)
         
-        self.contentView.addSubview(timeLabel)
-        self.timeLabel = timeLabel
+        contentView.addSubview(titleLabel)
+        
+        contentView.addSubview(timeLabel)
  
-        self.contentView.addSubview(ingredientsLabel)
-        self.ingredientsLabel = ingredientsLabel
+        contentView.addSubview(ingredientsLabel)
         
-        gradientLayer.colors = [UIColor.clear, UIColor.black]
-             gradientLayer.locations = [0.6, 1.0]
-             gradientLayer.frame = self.bounds
-             self.layer.insertSublayer(gradientLayer, below: self.foodImageView.layer)
+//        gradientLayer.colors = [UIColor.clear, UIColor.black]
+//             gradientLayer.locations = [0.6, 1.0]
+//             gradientLayer.frame = self.bounds
+//             self.layer.insertSublayer(gradientLayer, below: self.foodImageView.layer)
         
     }
     
     func setupLayout() {
-        [foodImageView, titleLabel, ingredientsLabel, timeLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        [foodImageView, opaqueLayer, titleLabel, ingredientsLabel, timeLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
-            foodImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            foodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            foodImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             foodImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            foodImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            foodImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            
+            opaqueLayer.topAnchor.constraint(equalTo: contentView.topAnchor),
+            opaqueLayer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            opaqueLayer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            opaqueLayer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

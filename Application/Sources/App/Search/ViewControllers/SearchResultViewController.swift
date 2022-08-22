@@ -73,9 +73,11 @@ class SearchResultViewController: UIViewController {
 }
 
 extension SearchResultViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 260.0 // Choose your custom row height
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let recipe = dataSource.itemIdentifier(for: indexPath) else {
             return
@@ -83,7 +85,8 @@ extension SearchResultViewController: UITableViewDelegate {
         
         let viewController = RecipeDetailsViewController(viewModel: RecipeDetailsViewModel(recipe: recipe))
         
-                navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
+        
         tableView.deselectRow(at: indexPath, animated: true )
     }
 }

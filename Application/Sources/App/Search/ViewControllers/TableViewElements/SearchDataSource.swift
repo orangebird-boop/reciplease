@@ -4,9 +4,9 @@ enum Section {
     case first
 }
 
-class SearchDataSource: UITableViewDiffableDataSource<Section, RecipeIngredient> {
-    // making editing possible
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+class SearchDataSource: UITableViewDiffableDataSource<Section, String> {
+
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     

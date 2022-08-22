@@ -48,6 +48,10 @@ class SearchViewModel {
     }
     
     func searchRecipes() {
+        guard !ingredients.isEmpty else {
+            // TODO: Return message to user
+            return
+        }
         
         searchService.getRecipes(ingredients: ingredients, page: 0) { [weak self] result in
             guard let self = self else {return}

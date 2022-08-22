@@ -30,7 +30,11 @@ class SearchTableViewCell: UITableViewCell {
         titleLabel.text = "- " + ingredient 
     }
     
+    
+    
     func setupViews() {
+        backgroundColor = .clear
+        
         titleLabel.tintColor = .black
         titleLabel.backgroundColor = .black
         self.contentView.addSubview(titleLabel)

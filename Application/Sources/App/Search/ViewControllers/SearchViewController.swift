@@ -17,6 +17,8 @@ class SearchViewController: UIViewController {
         
         setupViews()
         setupLayout()
+        
+        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func setupViews() {
@@ -59,7 +61,6 @@ class SearchViewController: UIViewController {
             searchButton.heightAnchor.constraint(equalToConstant: 42),
             searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.small)
         ])
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     @objc
@@ -71,6 +72,7 @@ class SearchViewController: UIViewController {
 // MARK: - SearchViewDelegate
 
 extension SearchViewController: SearchViewDelegate {
+
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
         searchViewModel.ingredients.removeAll()
@@ -83,14 +85,11 @@ extension SearchViewController: SearchViewDelegate {
         searchViewModel.add(ingredient: ingredient)
         
         searchView.ingredientsTextField.text = ""
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func didTapClearButton() {
         searchViewModel.ingredients.removeAll()
         searchView.ingredientsTextField.text = ""
-        
-        dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func didTapTextField() {
@@ -126,21 +125,21 @@ extension SearchViewController: SearchViewModelDelegate {
 
 extension SearchViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
-            return
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
+//            return
+//        }
+//    }
+//
+//    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
     
-    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
+//        }
+//    }
     
     //    private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
     //        return .delete
