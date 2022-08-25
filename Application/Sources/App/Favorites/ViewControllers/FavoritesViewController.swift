@@ -6,7 +6,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
     var viewModel = FavoritesViewModel()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     
-    init(model: FavoritesViewModel) {
+    init(model: FavoritesViewModel ) {
         self.viewModel = model
         
         super.init(nibName: nil, bundle: nil)
@@ -41,21 +41,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 
-        // should be in view model
-        
-//        snapshot.appendItems(viewModel.recipes)
-        
-//    func fetchFavourites() {
-//        do {
-//            self.items = try context.fetch(RecipeEntity.fetchRequest())
-//
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        } catch {
-//
-//        }
-//    }
     func setupViews() {
         view.backgroundColor = .black
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]

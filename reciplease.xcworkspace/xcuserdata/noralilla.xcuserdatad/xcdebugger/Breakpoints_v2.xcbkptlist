@@ -94,10 +94,87 @@
             filePath = "Application/Sources/App/Search/ViewModels/RecipeDetailsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "RecipeDetailsViewModel"
-            landmarkType = "3">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "recipeState"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "36D0AD07-B05A-4DCC-A26F-BA3E71473D87 - 7aebce4c70c3e8c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Application.RecipeDetailsViewModel.recipeState.getter : Application.RecipeState"
+                  moduleName = "Application"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/noralilla/Documents/work/reciplease/Application/Sources/App/Search/ViewModels/RecipeDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "36D0AD07-B05A-4DCC-A26F-BA3E71473D87 - b03aee9ef49f7cce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Application.RecipeDetailsViewModel.recipeState.setter : Application.RecipeState"
+                  moduleName = "Application"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/noralilla/Documents/work/reciplease/Application/Sources/App/Search/ViewModels/RecipeDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "36D0AD07-B05A-4DCC-A26F-BA3E71473D87 - 4f37ad2329cc3ddf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Application.RecipeDetailsViewModel.recipeState.modify : Application.RecipeState"
+                  moduleName = "Application"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/noralilla/Documents/work/reciplease/Application/Sources/App/Search/ViewModels/RecipeDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "36D0AD07-B05A-4DCC-A26F-BA3E71473D87 - a0af72b50330074f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Application.RecipeDetailsViewModel.recipeState.modify : Application.RecipeState with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Application"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/noralilla/Documents/work/reciplease/Application/Sources/App/Search/ViewModels/RecipeDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  uuid = "36D0AD07-B05A-4DCC-A26F-BA3E71473D87 - a701f5a345c2d2a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Application.RecipeDetailsViewModel.init(recipe: Application.Recipe, coreDataManager: Application.CoreDataManager) -&gt; Application.RecipeDetailsViewModel"
+                  moduleName = "Application"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/noralilla/Documents/work/reciplease/Application/Sources/App/Search/ViewModels/RecipeDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "91">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
