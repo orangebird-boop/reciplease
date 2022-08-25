@@ -2,10 +2,10 @@ import UIKit
 
 class SearchResultViewController: UIViewController {
     
-    let viewModel: SearchResultViewModel
+    let viewModel: RecipesViewModelProtocol
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     
-    init(viewModel: SearchResultViewModel) {
+    init(viewModel: RecipesViewModelProtocol) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -35,7 +35,7 @@ class SearchResultViewController: UIViewController {
         
         snapshot.appendSections([.first])
         
-        snapshot.appendItems(viewModel.recipes)
+        snapshot.appendItems(viewModel.getRecipes())
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }

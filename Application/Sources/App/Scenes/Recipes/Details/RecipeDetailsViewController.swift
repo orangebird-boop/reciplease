@@ -1,21 +1,22 @@
 import UIKit
 import CoreData
 
-class FavoritesDetailsViewController: UIViewController {
+class RecipeDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
-    let viewModel: FavouritesDetailsViewModel
+    let viewModel: RecipeDetailsViewModel
     var image = UIImageView()
     let label = UILabel()
     var textView = UITextView()
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
-    
+    var coreDataManager: CoreDataManager
     // MARK: - Initialization
     
-    init(viewModel: FavouritesDetailsViewModel) {
+    init(viewModel: RecipeDetailsViewModel, coreDataManager: CoreDataManager = .shared) {
         self.viewModel = viewModel
+        self.coreDataManager = coreDataManager
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -25,21 +26,26 @@ class FavoritesDetailsViewController: UIViewController {
     }
     
     // MARK: - Functions
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.topItem?.title = "Reciplease"
+        
+        viewModel.delegate = self
         
         setupViews()
         setupLayouts()
         
+        viewModel.checkIfRecipeFavorite()
+        
     }
-        
+    
     func setupViews() {
+        view.backgroundColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.topItem?.title = "Reciplease"
         
-        view.backgroundColor = .systemBackground
-        
-//        let buttonImage = UIImage(systemName: "star")
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(addToFavourites))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         
         if let foodImageFromURL = viewModel.recipe.foodImage {
             image.loadFrom(URLAddress: foodImageFromURL)
@@ -48,23 +54,24 @@ class FavoritesDetailsViewController: UIViewController {
             image.contentMode = .scaleToFill
         }
         view.addSubview(image)
-        view.backgroundColor = .yellow
+        view.backgroundColor = .black
         
         label.text = viewModel.recipe.name
-        label.textColor = .black
+        label.textColor = .white
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         view.addSubview(label)
         
         let ingredients = viewModel.recipe.ingredientLines.map { "\($0)" }.joined(separator: "\n- ")
         
         textView.text = "- " + String(ingredients)
+        textView.textColor = .white
         textView.font = .preferredFont(forTextStyle: .title2)
-        textView.backgroundColor = .systemGray
+        textView.backgroundColor = .black
         view.addSubview(textView)
         
         getDirectionsButton.setTitle("Get directions", for: .normal)
         getDirectionsButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        getDirectionsButton.backgroundColor = .systemGray
+        getDirectionsButton.backgroundColor = .systemGreen
         getDirectionsButton.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
         view.addSubview(getDirectionsButton)
     }
@@ -96,16 +103,32 @@ class FavoritesDetailsViewController: UIViewController {
     }
     
     @objc
+    func addToFavourites() {
+        viewModel.toggelFavoriteStatus(for: viewModel.recipe)
+    }
+    
+    @objc
     func getDirections() {
         didTapGetDirectionsButton()
     }
     
     func didTapGetDirectionsButton() {
         guard let url = URL(string: viewModel.recipe.url) else { return }
-        UIApplication.shared.open(url)
-    }
-    
-    func didTapStarButton() {
         
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+}
+
+extension RecipeDetailsViewController: RecipeDetailsViewModelDelegate {
+    
+    func didToggleFavoriteStatusForRecipe(state: RecipeState) {
+        switch state {
+        case .isFavorite:
+            navigationItem.rightBarButtonItem?.tintColor = .systemYellow
+        case .isNotFavorite:
+            navigationItem.rightBarButtonItem?.tintColor = .white
+        }
     }
 }

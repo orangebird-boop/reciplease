@@ -5,7 +5,6 @@ struct SearchViewIngredientsDataSourceProvider {
 
     let tableView: UITableView
     
-//    var dataSource = SearchDataSource(tableView: tableView, cellProvider: (UITableView, IndexPath, String))
     var dataSource: SearchDataSource
     
     init(tableView: UITableView) {

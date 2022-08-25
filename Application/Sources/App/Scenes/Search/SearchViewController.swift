@@ -1,20 +1,34 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+
     // MARK: - Properties
+
     var searchViewModel = SearchViewModel()
     let searchView = SearchView()
     let ingredientsTableView = UITableView()
     var searchButton = UIButton()
     
     private lazy var dataSourceProvider = SearchViewIngredientsDataSourceProvider(tableView: ingredientsTableView)
-    
+	
+	init(searchViewModel: SearchViewModel = SearchViewModel()) {
+		self.searchViewModel = searchViewModel
+		
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
     // MARK: - Life Cycles
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchViewModel.delegate = self
-        
+		dataSourceProvider.dataSource.delegate = self
+		
         setupViews()
         setupLayout()
         
@@ -40,7 +54,6 @@ class SearchViewController: UIViewController {
         
         ingredientsTableView.backgroundColor = .black
         ingredientsTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
-        ingredientsTableView.delegate = self
         view.addSubview(ingredientsTableView)
     }
     
@@ -78,12 +91,6 @@ class SearchViewController: UIViewController {
             return
         }
     }
-    
-//    @objc
-//    func userDidSwipe(_ sender: UISwipeGestureRecognizer) {
-//        var frame = SearchTableViewCell()
-//
-//    }
 }
 
 // MARK: - SearchViewDelegate
@@ -112,12 +119,6 @@ extension SearchViewController: SearchViewDelegate {
     func didTapTextField() {
         searchView.ingredientsTextField.text = ""
     }
-    
-//    func didSwipeLeft() {
-//
-//    }
-    
-    
 }
 
 extension SearchViewController: SearchViewModelDelegate {
@@ -134,7 +135,7 @@ extension SearchViewController: SearchViewModelDelegate {
     }
     
     func didFindRecipes() {
-        let viewController = SearchResultViewController(viewModel: SearchResultViewModel(recipes: searchViewModel.recipes))
+        let viewController = SearchResultViewController(viewModel: RecipesViewModel(recipes: searchViewModel.recipes))
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -143,30 +144,11 @@ extension SearchViewController: SearchViewModelDelegate {
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertViewController, animated: true, completion: nil)
     }
-    
 }
 
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
-            return
-        }
-    }
+extension SearchViewController: SearchDataSourceDelegate {
 
-    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
-//            searchViewModel.deleteIngredient(index: indexPath)
-        }
-    }
-
-//        private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
-//            return .delete
-//        }
-    
+	func didDelete(ingredient: String) {
+		searchViewModel.delete(ingredient: ingredient)
+	}
 }
