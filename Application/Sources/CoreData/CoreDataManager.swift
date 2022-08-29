@@ -36,7 +36,7 @@ final class CoreDataManager {
     
     // MARK: - Manage Task Entity
     
-    func createFavorite(title: String, ingredients: String, totalTime: Int64, image: String, url: String,completionHandler: @escaping (Bool) -> Void) {
+    func createFavorite(title: String, ingredients: String, totalTime: Int64, image: String, url: String, completionHandler: @escaping (Bool) -> Void) {
         guard let description = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: Self.context) else {
             fatalError("Failed to retrieve entity description")
         }

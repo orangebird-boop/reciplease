@@ -1,11 +1,11 @@
 import UIKit
 
-class SearchResultViewController: UIViewController {
+class RecipeViewController: UIViewController {
     
-    let viewModel: SearchResultViewModel
+    let viewModel: RecipesViewModelProtocol
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     
-    init(viewModel: SearchResultViewModel) {
+    init(viewModel: RecipesViewModelProtocol) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -17,7 +17,7 @@ class SearchResultViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
+        tableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.identifier)
         return tableView
     }()
     
@@ -35,7 +35,7 @@ class SearchResultViewController: UIViewController {
         
         snapshot.appendSections([.first])
         
-        snapshot.appendItems(viewModel.recipes)
+        snapshot.appendItems(viewModel.getRecipes())
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
@@ -62,7 +62,7 @@ class SearchResultViewController: UIViewController {
     
     func makeDataSource() -> DataSource {
         DataSource(tableView: tableView) { tableView, indexPath, model in
-            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.identifier, for: indexPath) as? SearchResultTableViewCell else {
+            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.identifier, for: indexPath) as? RecipeTableViewCell else {
                 fatalError("This cell should be registerd")
             }
             
@@ -73,7 +73,7 @@ class SearchResultViewController: UIViewController {
     }
 }
 
-extension SearchResultViewController: UITableViewDelegate {
+extension RecipeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 260.0 // Choose your custom row height

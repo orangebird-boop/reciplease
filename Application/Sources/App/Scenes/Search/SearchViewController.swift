@@ -124,7 +124,7 @@ extension SearchViewController: SearchViewModelDelegate {
     }
     
     func didFindRecipes() {
-        let viewController = SearchResultViewController(viewModel: SearchResultViewModel(recipes: searchViewModel.recipes))
+        let viewController = RecipeViewController(viewModel: RecipesViewModel(recipes: searchViewModel.recipes))
         navigationController?.pushViewController(viewController, animated: true)
     }
     
