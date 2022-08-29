@@ -9,6 +9,6 @@ struct RecipesViewModel: RecipesViewModelProtocol {
     }
     
     func getRecipes() -> [Recipe] {
-        return []
+        recipes
     }
 }

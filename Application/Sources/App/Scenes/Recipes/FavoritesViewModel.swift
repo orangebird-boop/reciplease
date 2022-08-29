@@ -2,7 +2,7 @@ import Foundation
 
 struct FavoritesViewModel: RecipesViewModelProtocol {
     
-    let coreDataManager : CoreDataManager
+    let coreDataManager: CoreDataManager
     private let recipes: [Recipe]
     
     init(coreDataManager: CoreDataManager = .shared) {
@@ -13,6 +13,6 @@ struct FavoritesViewModel: RecipesViewModelProtocol {
     }
     
     func getRecipes() -> [Recipe] {
-        return []
+        recipes
     }
 }

@@ -82,7 +82,6 @@ class SearchView: UIView {
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Margins.medium),
             label.trailingAnchor.constraint(equalTo: clearAllButton.leadingAnchor, constant: -Margins.medium),
             label.heightAnchor.constraint(equalToConstant: 42),
-            //           label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Margins.medium),
             
             clearAllButton.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: Margins.medium),
             clearAllButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Margins.medium),

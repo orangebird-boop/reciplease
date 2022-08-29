@@ -1,7 +1,5 @@
 import UIKit
 
-
-
 class SearchViewIngredientsDataSourceProvider {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, String>
 

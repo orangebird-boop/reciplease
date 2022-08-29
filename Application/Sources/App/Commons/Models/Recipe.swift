@@ -1,6 +1,7 @@
 import Foundation
 
 struct Recipe: Decodable {
+    
     let name: String
     let foodImage: String?
     let url: String
@@ -10,5 +11,5 @@ struct Recipe: Decodable {
 }
 
 extension Recipe: Hashable {
-    
+
 }
