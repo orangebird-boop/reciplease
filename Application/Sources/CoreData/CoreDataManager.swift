@@ -52,6 +52,19 @@ final class CoreDataManager {
         completionHandler(true)
     }
     
+    func getFavorites() -> [Recipe] {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        
+        do {
+            let entities = try Self.context.fetch(request)
+            
+            return entities.map { $0.toGenericModel() }
+            
+        } catch {
+            fatalError("userfriendly message")
+        }
+    }
+    
     func checkIfRecipeFavorite(name: String, url: String) -> Bool {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         request.predicate = NSPredicate(format: "url == %@", url)
