@@ -33,7 +33,11 @@ class RecipeDetailsViewModel {
     func toggelFavoriteStatus(for recipe: Recipe) {
         switch recipeState {
         case .isFavorite:
-            coreDataManager.deleteFavorite(name: recipe.name, url: recipe.url)
+            coreDataManager.deleteFavorite(name: recipe.name, url: recipe.url) { hasSucceeded in
+                if hasSucceeded {
+                    self.recipeState = .isNotFavorite
+                }
+            }
         case .isNotFavorite:
             addToFavorites(recipe: recipe)
         }
@@ -45,7 +49,12 @@ class RecipeDetailsViewModel {
         guard let totalTime = recipe.totalTime else {return}
         guard let foodImage = recipe.foodImage else {return}
         
-        coreDataManager.createFavorite(title: recipe.name, ingredients: ingredients, totalTime: Int64(totalTime), image: foodImage, url: recipe.url)
+        coreDataManager.createFavorite(title: recipe.name, ingredients: ingredients, totalTime: Int64(totalTime), image: foodImage, url: recipe.url) { hasSucceeded in
+            if hasSucceeded {
+                self.recipeState = .isFavorite
+                
+            }
+        }
     }
     
     func checkIfRecipeFavorite() {

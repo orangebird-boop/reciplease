@@ -31,8 +31,8 @@ class SearchViewModel {
         self.searchService = searchService
     }
     
-    func deleteIngredient(index: Int) {
-        ingredients.remove(at: index)
+    func delete(ingredient: String) {
+        ingredients.removeAll { $0 == ingredient }
         
         delegate?.didUpgradeIngredients()
     }

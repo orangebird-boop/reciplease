@@ -1,11 +1,11 @@
 import UIKit
 
-struct SearchViewIngredientsDataSourceProvider {
+
+
+class SearchViewIngredientsDataSourceProvider {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, String>
 
     let tableView: UITableView
-    
-//    var dataSource = SearchDataSource(tableView: tableView, cellProvider: (UITableView, IndexPath, String))
     var dataSource: SearchDataSource
     
     init(tableView: UITableView) {
@@ -34,5 +34,4 @@ struct SearchViewIngredientsDataSourceProvider {
             return tableViewCell
         }
     }
-    
 }

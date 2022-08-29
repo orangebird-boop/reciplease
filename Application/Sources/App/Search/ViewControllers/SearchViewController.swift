@@ -2,6 +2,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     // MARK: - Properties
+    
     var searchViewModel = SearchViewModel()
     let searchView = SearchView()
     let ingredientsTableView = UITableView()
@@ -14,6 +15,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         searchViewModel.delegate = self
+        dataSourceProvider.dataSource.delegate = self
         
         setupViews()
         setupLayout()
@@ -32,7 +34,6 @@ class SearchViewController: UIViewController {
         
         searchButton.setTitle("Search", for: .normal)
         searchButton.isEnabled = false
-        searchButton.isOpaque = true
         searchButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         searchButton.backgroundColor = .systemGray
         searchButton.addTarget(self, action: #selector(searchForRecipes), for: .touchUpInside)
@@ -40,7 +41,6 @@ class SearchViewController: UIViewController {
         
         ingredientsTableView.backgroundColor = .black
         ingredientsTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
-        ingredientsTableView.delegate = self
         view.addSubview(ingredientsTableView)
     }
     
@@ -71,19 +71,15 @@ class SearchViewController: UIViewController {
     }
     
     func disableSearchButton() {
+        // TODO: modify function to correctly toggle
         if !searchViewModel.ingredients.isEmpty {
             searchButton.isEnabled = true
             searchButton.backgroundColor = .systemGreen
         } else {
-            return
+            searchButton.isEnabled = false
+            searchButton.backgroundColor = .systemGray
         }
     }
-    
-//    @objc
-//    func userDidSwipe(_ sender: UISwipeGestureRecognizer) {
-//        var frame = SearchTableViewCell()
-//
-//    }
 }
 
 // MARK: - SearchViewDelegate
@@ -112,12 +108,6 @@ extension SearchViewController: SearchViewDelegate {
     func didTapTextField() {
         searchView.ingredientsTextField.text = ""
     }
-    
-//    func didSwipeLeft() {
-//
-//    }
-    
-    
 }
 
 extension SearchViewController: SearchViewModelDelegate {
@@ -146,27 +136,9 @@ extension SearchViewController: SearchViewModelDelegate {
     
 }
 
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard dataSourceProvider.dataSource.itemIdentifier(for: indexPath) != nil else {
-            return
-        }
-    }
+extension SearchViewController: SearchDataSourceDelegate {
 
-    private func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+    func didDelete(ingredient: String) {
+        searchViewModel.delete(ingredient: ingredient)
     }
-
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
-//            searchViewModel.deleteIngredient(index: indexPath)
-        }
-    }
-
-//        private func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) -> UITableViewCell.EditingStyle {
-//            return .delete
-//        }
-    
 }
