@@ -49,7 +49,7 @@ class RecipeDetailsViewModel {
         guard let totalTime = recipe.totalTime else {return}
         guard let foodImage = recipe.foodImage else {return}
         
-        coreDataManager.createFavorite(title: recipe.name, ingredients: ingredients, totalTime: Int64(totalTime), image: foodImage, url: recipe.url) { hasSucceeded in
+        coreDataManager.createFavorite(title: recipe.name, ingredients: ingredients, totalTime: Int32(totalTime), image: foodImage, url: recipe.url) { hasSucceeded in
             if hasSucceeded {
                 self.recipeState = .isFavorite
                 

@@ -1,10 +1,4 @@
-//
-//  RecipeEntity+CoreDataProperties.swift
-//  Application
-//
-//  Created by Nora Lilla Matyassi on 16/08/2022.
-//
-//
+
 
 import Foundation
 import CoreData
@@ -16,11 +10,11 @@ extension RecipeEntity {
         return NSFetchRequest<RecipeEntity>(entityName: "RecipeEntity")
     }
 
-    @NSManaged public var foodImage: String?
-    @NSManaged public var ingredients: String?
-    @NSManaged public var name: String?
-    @NSManaged public var totalTime: Int64
-    @NSManaged public var url: String?
+    @NSManaged public var recipeFoodImage: String?
+    @NSManaged public var recipeIngredients: String?
+    @NSManaged public var recipeName: String?
+    @NSManaged public var recipeTotalTime: Int32
+    @NSManaged public var recipeUrl: String?
 
 }
 

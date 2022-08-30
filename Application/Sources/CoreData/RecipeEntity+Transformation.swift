@@ -3,7 +3,7 @@ import Foundation
 extension RecipeEntity {
     func toGenericModel() -> Recipe {
         
-        return Recipe( name: "", foodImage: foodImage, url: "", ingredientLines: [], totalTime: 0)
+        return Recipe( name: "recipeName", foodImage: recipeFoodImage, url: "recipeUrl!", ingredientLines: [], totalTime: 56)
     }
     
 //    func toGenericModel() -> Recipe {
@@ -11,6 +11,6 @@ extension RecipeEntity {
 //
 //        let time = Int(exactly: totalTime)
 //
-//        return Recipe(name: name, foodImage: foodImage, url: url, ingredientLines: ingredientArray, totalTime: time)
+//        return Recipe(name: recipeName, foodImage: recipeFoodImage, url: recipeUrl!, ingredientLines: recipeIngredients, totalTime: recipeTotalTime)
 //    }
 }
