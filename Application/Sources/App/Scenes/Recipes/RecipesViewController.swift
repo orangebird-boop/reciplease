@@ -1,6 +1,6 @@
 import UIKit
 
-class RecipeViewController: UIViewController {
+class RecipesViewController: UIViewController {
     
     let viewModel: RecipesViewModelProtocol
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
@@ -17,7 +17,7 @@ class RecipeViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.identifier)
+        tableView.register(RecipesTableViewCell.self, forCellReuseIdentifier: RecipesTableViewCell.identifier)
         return tableView
     }()
     
@@ -62,7 +62,7 @@ class RecipeViewController: UIViewController {
     
     func makeDataSource() -> DataSource {
         DataSource(tableView: tableView) { tableView, indexPath, model in
-            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.identifier, for: indexPath) as? RecipeTableViewCell else {
+            guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: RecipesTableViewCell.identifier, for: indexPath) as? RecipesTableViewCell else {
                 fatalError("This cell should be registerd")
             }
             
@@ -73,7 +73,7 @@ class RecipeViewController: UIViewController {
     }
 }
 
-extension RecipeViewController: UITableViewDelegate {
+extension RecipesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 260.0 // Choose your custom row height

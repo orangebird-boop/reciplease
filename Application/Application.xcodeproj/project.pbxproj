@@ -42,8 +42,8 @@
 		B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61CF528107A09005F4B0D /* Recipe.swift */; };
 		B2F6BAE628528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */; };
 		B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD10E2816A132001C576A /* EdamamResponse.swift */; };
-		B2FFD11D281BB9BB001C576A /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* RecipeViewController.swift */; };
-		B2FFD12928252C3F001C576A /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD12828252C3F001C576A /* RecipeTableViewCell.swift */; };
+		B2FFD11D281BB9BB001C576A /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* RecipesViewController.swift */; };
+		B2FFD12928252C3F001C576A /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD12828252C3F001C576A /* RecipesTableViewCell.swift */; };
 		EDFFF31E28351A4B00B4B012 /* EdamamRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */; };
 		EDFFF32028351A6800B4B012 /* EdamamIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */; };
 		EDFFF32228351B0600B4B012 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF32128351B0600B4B012 /* RecipeResponse.swift */; };
@@ -109,8 +109,8 @@
 		B2F61CF528107A09005F4B0D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewIngredientsDataSourceProvider.swift; sourceTree = "<group>"; };
 		B2FFD10E2816A132001C576A /* EdamamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamResponse.swift; sourceTree = "<group>"; };
-		B2FFD11C281BB9BB001C576A /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
-		B2FFD12828252C3F001C576A /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		B2FFD11C281BB9BB001C576A /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		B2FFD12828252C3F001C576A /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
 		D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamRecipe.swift; sourceTree = "<group>"; };
 		EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamIngredient.swift; sourceTree = "<group>"; };
@@ -308,8 +308,8 @@
 				B2CBD3FC28BCECAB00629211 /* FavoritesViewModel.swift */,
 				B2CBD3FA28BCEBF700629211 /* RecipesViewModel.swift */,
 				B2CBD3F828BCEB8000629211 /* RecipesViewModelProtocol.swift */,
-				B2FFD12828252C3F001C576A /* RecipeTableViewCell.swift */,
-				B2FFD11C281BB9BB001C576A /* RecipeViewController.swift */,
+				B2FFD12828252C3F001C576A /* RecipesTableViewCell.swift */,
+				B2FFD11C281BB9BB001C576A /* RecipesViewController.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -504,7 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2FFD12928252C3F001C576A /* RecipeTableViewCell.swift in Sources */,
+				B2FFD12928252C3F001C576A /* RecipesTableViewCell.swift in Sources */,
 				B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */,
 				B2AAADD1280F00AE0039784E /* SearchView.swift in Sources */,
 				B2CBD3FB28BCEBF700629211 /* RecipesViewModel.swift in Sources */,
@@ -528,7 +528,7 @@
 				B2238C4428AE639500328940 /* UITextField.swift in Sources */,
 				EDFFF32228351B0600B4B012 /* RecipeResponse.swift in Sources */,
 				B2CBD3FD28BCECAB00629211 /* FavoritesViewModel.swift in Sources */,
-				B2FFD11D281BB9BB001C576A /* RecipeViewController.swift in Sources */,
+				B2FFD11D281BB9BB001C576A /* RecipesViewController.swift in Sources */,
 				B252923628868C3C0007D07C /* RecipeIngredient.swift in Sources */,
 				B24FD83128428A0F001A4C34 /* UIImageView.swift in Sources */,
 				B2D3C1692834FD4F00E48122 /* RecipeDetailsViewController.swift in Sources */,

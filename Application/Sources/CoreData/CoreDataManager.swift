@@ -67,7 +67,7 @@ final class CoreDataManager {
     
     func checkIfRecipeFavorite(name: String, url: String) -> Bool {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "url == %@", url)
+        request.predicate = NSPredicate(format: "recipeUrl == %@", url)
         
         guard let numberOfFavorites = try? Self.context.count(for: request) else {return false}
         return numberOfFavorites != 0 
@@ -75,7 +75,7 @@ final class CoreDataManager {
     
     func deleteFavorite(name: String, url: String, completionHandler: @escaping (Bool) -> Void) {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "url == %@", url)
+        request.predicate = NSPredicate(format: "recipeUrl == %@", url)
 
         do {
             let entity = try Self.context.fetch(request)

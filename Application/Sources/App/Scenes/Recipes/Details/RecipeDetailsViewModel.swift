@@ -44,7 +44,7 @@ class RecipeDetailsViewModel {
     }
     
     func addToFavorites(recipe: Recipe) {
-        let ingredients = recipe.ingredientLines.joined(separator: "\n" + "- ")
+        let ingredients = recipe.ingredientLines.joined(separator: "\n- ")
         
         guard let totalTime = recipe.totalTime else {return}
         guard let foodImage = recipe.foodImage else {return}

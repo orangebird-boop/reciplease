@@ -1,6 +1,6 @@
 import UIKit
 
-class RecipeTableViewCell: UITableViewCell {
+class RecipesTableViewCell: UITableViewCell {
     
     static let identifier = "SearchResultTableViewCell"
     var foodImageView = UIImageView()

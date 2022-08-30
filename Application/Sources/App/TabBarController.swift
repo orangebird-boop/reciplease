@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
 
-        let favoritesViewController = RecipeViewController(viewModel: FavoritesViewModel())
+        let favoritesViewController = RecipesViewController(viewModel: FavoritesViewModel())
         favoritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
     
         setViewControllers([
