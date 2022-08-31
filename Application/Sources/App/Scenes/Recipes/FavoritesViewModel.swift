@@ -1,18 +1,17 @@
 import Foundation
 
-struct FavoritesViewModel: RecipesViewModelProtocol {
+class FavoritesViewModel: RecipesViewModelProtocol {
     
     let coreDataManager: CoreDataManager
-    private let recipes: [Recipe]
+    private (set) var recipes: [Recipe] = []
     
     init(coreDataManager: CoreDataManager = .shared) {
         self.coreDataManager = coreDataManager
-        
+    }
+
+    func getRecipes() -> [Recipe] {
         recipes = self.coreDataManager.getFavorites()
         
-    }
-    
-    func getRecipes() -> [Recipe] {
-        recipes
+        return recipes
     }
 }

@@ -4,7 +4,6 @@ import SwiftUI
 protocol SearchViewDelegate: AnyObject {
     func didTapAddButton()
     func didTapClearButton()
-    func didTapTextField()
 }
 class SearchView: UIView {
     // MARK: - Properties
@@ -42,12 +41,13 @@ class SearchView: UIView {
         ingredientsTextField.placeholder = "Lemon, Cheese, Sausages..."
         ingredientsTextField.backgroundColor = .systemBackground
         ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .title1)
-        ingredientsTextField.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
+        ingredientsTextField.addTarget(self, action: #selector(didUseTextField), for: .touchUpInside)
         addSubview(ingredientsTextField)
         
         addButton.setTitle("Add", for: .normal)
         addButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         addButton.backgroundColor = .systemGray
+        addButton.isEnabled = false
         addButton.addTarget(self, action: #selector(addIngredient), for: .touchUpInside)
         addSubview(addButton)
         
@@ -102,7 +102,8 @@ class SearchView: UIView {
     }
     
     @objc
-    func clearTextField() {
-        delegate?.didTapTextField()
+    func didUseTextField(){
+        
     }
 }
+

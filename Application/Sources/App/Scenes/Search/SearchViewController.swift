@@ -19,6 +19,10 @@ class SearchViewController: UIViewController {
         
         setupViews()
         setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
@@ -70,7 +74,7 @@ class SearchViewController: UIViewController {
         didTapSearchButton()
     }
     
-    func disableSearchButton() {
+    func toggleSearchButton() {
         // TODO: modify function to correctly toggle
         if !searchViewModel.ingredients.isEmpty {
             searchButton.isEnabled = true
@@ -89,23 +93,20 @@ extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
         searchViewModel.ingredients.removeAll()
+        toggleSearchButton()
     }
     
     func didTapAddButton() {
         guard let ingredient = searchView.ingredientsTextField.text, !ingredient.isEmpty else {return}
         
         searchViewModel.add(ingredient: ingredient)
-        disableSearchButton()
         searchView.ingredientsTextField.text = ""
+        toggleSearchButton()
         dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
     func didTapClearButton() {
         searchViewModel.ingredients.removeAll()
-        searchView.ingredientsTextField.text = ""
-    }
-    
-    func didTapTextField() {
         searchView.ingredientsTextField.text = ""
     }
 }
