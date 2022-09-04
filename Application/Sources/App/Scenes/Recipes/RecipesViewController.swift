@@ -4,7 +4,7 @@ class RecipesViewController: UIViewController {
     
     let viewModel: RecipesViewModelProtocol
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
-    
+    let loadMoreButton = UIButton(frame: CGRect(x: 0, y: 0, width: 45, height: 25))
     init(viewModel: RecipesViewModelProtocol) {
         self.viewModel = viewModel
         
@@ -46,17 +46,13 @@ class RecipesViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.topItem?.title = "Reciplease"
         
+        
         tableView.delegate = self
         view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.medium)
-        ])
+        tableView.addSubview(loadMoreButton)
         
     }
     
@@ -64,6 +60,20 @@ class RecipesViewController: UIViewController {
         super.viewWillAppear(animated)
         
         applySnapshot()
+    }
+    
+    func setupLayout() {
+        [tableView, loadMoreButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.medium),
+            
+            loadMoreButton.widthAnchor.constraint(equalTo: tableView.widthAnchor),
+            loadMoreButton.heightAnchor.constraint(equalToConstant: 45)
+        ])
     }
     
     func makeDataSource() -> DataSource {
@@ -94,5 +104,15 @@ extension RecipesViewController: UITableViewDelegate {
         
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true )
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex)-1
+        
+//        if indexPath.section == lastSectionIndex && indexPath.row == lastRowIndex && viewModel.countRecipes() < RecipeResponse.count {
+//            
+//        }
     }
 }

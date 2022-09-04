@@ -75,7 +75,7 @@ class SearchViewController: UIViewController {
     }
     
     func toggleSearchButton() {
-        // TODO: modify function to correctly toggle
+ 
         if !searchViewModel.ingredients.isEmpty {
             searchButton.isEnabled = true
             searchButton.backgroundColor = .systemGreen

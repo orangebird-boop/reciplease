@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B206DB55284CF30C008C36F2 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B206DB54284CF30C008C36F2 /* SearchTableViewCell.swift */; };
+		B210F38828C52F7500AE7C68 /* EdamamHitLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210F38728C52F7500AE7C68 /* EdamamHitLinks.swift */; };
+		B210F38A28C54ED000AE7C68 /* RecipeHitLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210F38928C54ED000AE7C68 /* RecipeHitLinks.swift */; };
+		B210F38C28C551F000AE7C68 /* EdamamNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210F38B28C551F000AE7C68 /* EdamamNext.swift */; };
+		B210F38E28C5526E00AE7C68 /* RecipeNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B210F38D28C5526E00AE7C68 /* RecipeNext.swift */; };
 		B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B93752811660F00F6B36A /* SearchViewModel.swift */; };
 		B21B938928156C2100F6B36A /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21B938828156C2100F6B36A /* SearchService.swift */; };
 		B21E7F3928BE5829007F0467 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B21E7F3828BE5829007F0467 /* Kingfisher */; };
@@ -76,6 +80,10 @@
 /* Begin PBXFileReference section */
 		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
 		B206DB54284CF30C008C36F2 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		B210F38728C52F7500AE7C68 /* EdamamHitLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamHitLinks.swift; sourceTree = "<group>"; };
+		B210F38928C54ED000AE7C68 /* RecipeHitLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHitLinks.swift; sourceTree = "<group>"; };
+		B210F38B28C551F000AE7C68 /* EdamamNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamNext.swift; sourceTree = "<group>"; };
+		B210F38D28C5526E00AE7C68 /* RecipeNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeNext.swift; sourceTree = "<group>"; };
 		B21B93752811660F00F6B36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		B21B938828156C2100F6B36A /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		B2238C4328AE639500328940 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -163,6 +171,8 @@
 				B2FFD10E2816A132001C576A /* EdamamResponse.swift */,
 				EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */,
 				EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */,
+				B210F38728C52F7500AE7C68 /* EdamamHitLinks.swift */,
+				B210F38B28C551F000AE7C68 /* EdamamNext.swift */,
 			);
 			path = Edamam;
 			sourceTree = "<group>";
@@ -275,6 +285,8 @@
 				B252923528868C3C0007D07C /* RecipeIngredient.swift */,
 				B2F61CF528107A09005F4B0D /* Recipe.swift */,
 				EDFFF32128351B0600B4B012 /* RecipeResponse.swift */,
+				B210F38928C54ED000AE7C68 /* RecipeHitLinks.swift */,
+				B210F38D28C5526E00AE7C68 /* RecipeNext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -513,6 +525,7 @@
 				B2E791B828576179007D2ED4 /* SearchDataSource.swift in Sources */,
 				B24FD8352842A639001A4C34 /* Margins.swift in Sources */,
 				B206DB55284CF30C008C36F2 /* SearchTableViewCell.swift in Sources */,
+				B210F38828C52F7500AE7C68 /* EdamamHitLinks.swift in Sources */,
 				B2CBD3FF28BD555C00629211 /* RecipeEntity+CoreDataProperties.swift in Sources */,
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
 				B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */,
@@ -522,7 +535,9 @@
 				B2377A4E284BA7D2005A607A /* UILabel.swift in Sources */,
 				B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */,
 				B21B93762811660F00F6B36A /* SearchViewModel.swift in Sources */,
+				B210F38C28C551F000AE7C68 /* EdamamNext.swift in Sources */,
 				B252923828868EE50007D07C /* CoreDataManager.swift in Sources */,
+				B210F38A28C54ED000AE7C68 /* RecipeHitLinks.swift in Sources */,
 				B21B938928156C2100F6B36A /* SearchService.swift in Sources */,
 				B2A2DF1D280ECD92005F680C /* TabBarController.swift in Sources */,
 				B2238C4428AE639500328940 /* UITextField.swift in Sources */,
@@ -536,6 +551,7 @@
 				B26BD96F28AC00D200297B6D /* RecipeEntity+CoreDataClass.swift in Sources */,
 				B2A2DF19280ECD92005F680C /* AppDelegate.swift in Sources */,
 				EDFFF32028351A6800B4B012 /* EdamamIngredient.swift in Sources */,
+				B210F38E28C5526E00AE7C68 /* RecipeNext.swift in Sources */,
 				B2F6BAE628528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

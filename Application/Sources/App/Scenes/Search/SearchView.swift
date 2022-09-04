@@ -102,8 +102,7 @@ class SearchView: UIView {
     }
     
     @objc
-    func didUseTextField(){
+    func didUseTextField() {
         
     }
 }
-
