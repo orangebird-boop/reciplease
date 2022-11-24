@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
         
         setupViews()
         setupLayout()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +75,17 @@ class SearchViewController: UIViewController {
         didTapSearchButton()
     }
     
+    func toggleAddButton() {
+ 
+        if searchView.ingredientsTextField.hasText {
+            searchView.addButton.isEnabled = true
+            searchView.addButton.backgroundColor = .systemGreen
+        } else {
+            searchView.addButton.isEnabled = false
+            searchView.addButton.backgroundColor = .systemGray
+        }
+    }
+
     func toggleSearchButton() {
  
         if !searchViewModel.ingredients.isEmpty {
@@ -108,6 +120,10 @@ extension SearchViewController: SearchViewDelegate {
     func didTapClearButton() {
         searchViewModel.ingredients.removeAll()
         searchView.ingredientsTextField.text = ""
+    }
+    
+    func didUseTextField() {
+      toggleAddButton()
     }
 }
 

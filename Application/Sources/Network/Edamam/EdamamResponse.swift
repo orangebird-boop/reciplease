@@ -16,7 +16,7 @@ extension EdamamResponse {
 // MARK: - Hit
 struct Hit: Decodable {
     let recipe: EdamamRecipe?
-    let links: HitLinks
+    let links: EdamamHitLinks
     
     enum CodingKeys: String, CodingKey {
            case recipe

@@ -46,7 +46,6 @@ class RecipesViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationController?.navigationBar.topItem?.title = "Reciplease"
         
-        
         tableView.delegate = self
         view.addSubview(tableView)
         
@@ -106,13 +105,13 @@ extension RecipesViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true )
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        let lastSectionIndex = tableView.numberOfSections - 1
-        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex)-1
-        
-//        if indexPath.section == lastSectionIndex && indexPath.row == lastRowIndex && viewModel.countRecipes() < RecipeResponse.count {
-//            
-//        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        
+//        let lastSectionIndex = tableView.numberOfSections - 1
+//        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex)-1
+//        
+////        if indexPath.section == lastSectionIndex && indexPath.row == lastRowIndex && viewModel.countRecipes() < RecipeResponse.count {
+////            
+////        }
+//    }
 }

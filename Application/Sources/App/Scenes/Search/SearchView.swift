@@ -4,6 +4,7 @@ import SwiftUI
 protocol SearchViewDelegate: AnyObject {
     func didTapAddButton()
     func didTapClearButton()
+    func didUseTextField()
 }
 class SearchView: UIView {
     // MARK: - Properties
@@ -103,6 +104,6 @@ class SearchView: UIView {
     
     @objc
     func didUseTextField() {
-        
+        delegate?.didUseTextField()
     }
 }

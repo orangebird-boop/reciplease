@@ -7,3 +7,8 @@ struct RecipeResponse: Decodable {
     let recipes: [Recipe]
     let count: Int
 }
+
+struct RecipeHit: Decodable {
+    let recipe: Recipe
+    let links: RecipeHitLinks
+}
