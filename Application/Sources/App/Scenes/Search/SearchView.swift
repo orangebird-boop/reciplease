@@ -4,7 +4,7 @@ import SwiftUI
 protocol SearchViewDelegate: AnyObject {
     func didTapAddButton()
     func didTapClearButton()
-    func didUseTextField()
+    
 }
 class SearchView: UIView {
     // MARK: - Properties
@@ -42,7 +42,7 @@ class SearchView: UIView {
         ingredientsTextField.placeholder = "Lemon, Cheese, Sausages..."
         ingredientsTextField.backgroundColor = .systemBackground
         ingredientsTextField.font = UIFont.preferredFont(forTextStyle: .title1)
-        ingredientsTextField.addTarget(self, action: #selector(didUseTextField), for: .touchUpInside)
+        ingredientsTextField.addTarget(self, action: #selector(didChangeTextFieldValue), for: .editingChanged)
         addSubview(ingredientsTextField)
         
         addButton.setTitle("Add", for: .normal)
@@ -101,9 +101,22 @@ class SearchView: UIView {
     func clearAll() {
         delegate?.didTapClearButton()
     }
-    
+        
     @objc
-    func didUseTextField() {
-        delegate?.didUseTextField()
+    func didChangeTextFieldValue() {
+        toggleAddButton(value: ingredientsTextField.text ?? "")
+    }
+    
+    func toggleAddButton(value: String) {
+ 
+        if !value.isEmpty {
+            addButton.isEnabled = true
+            addButton.backgroundColor = .systemGreen
+        } else {
+            addButton.isEnabled = false
+            addButton.backgroundColor = .systemGray
+        }
     }
 }
+
+
