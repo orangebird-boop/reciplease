@@ -14,7 +14,7 @@ enum SearchViewModelError: LocalizedError {
     }
 }
 protocol SearchViewModelDelegate: AnyObject {
-    func didUpgradeIngredients()
+    func didUpdateIngredients()
     func didNotUpdateIngredients(error: SearchViewModelError)
     func didFindRecipes()
     func didNotFindRecipe(error: SearchViewModelError)
@@ -34,7 +34,7 @@ class SearchViewModel {
     func delete(ingredient: String) {
         ingredients.removeAll { $0 == ingredient }
         
-        delegate?.didUpgradeIngredients()
+        delegate?.didUpdateIngredients()
     }
     
     func add(ingredient: String) {
@@ -43,8 +43,13 @@ class SearchViewModel {
             delegate?.didNotUpdateIngredients(error: .failedToUpdateIngredients)
         } else {
             ingredients.append(ingredient)
-            delegate?.didUpgradeIngredients()
+            delegate?.didUpdateIngredients()
         }
+    }
+    
+    func clearAll() {
+        ingredients.removeAll()
+        delegate?.didUpdateIngredients()
     }
     
     func searchRecipes() {
@@ -57,7 +62,8 @@ class SearchViewModel {
             
             switch result {
             case.success(let recipeResponse):
-
+                
+                self.clearAll()
                 self.recipes = recipeResponse.recipes
                 self.delegate?.didFindRecipes()
                 

@@ -93,7 +93,7 @@ extension SearchViewController: SearchViewDelegate {
     
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
-        searchViewModel.ingredients.removeAll()
+        
         toggleSearchButton()
     }
     
@@ -107,8 +107,7 @@ extension SearchViewController: SearchViewDelegate {
     }
     
     func didTapClearButton() {
-        searchViewModel.ingredients.removeAll()
-        searchView.ingredientsTextField.text = ""
+        searchViewModel.clearAll()
     }
 }
 
@@ -121,7 +120,7 @@ extension SearchViewController: SearchViewModelDelegate {
         
     }
     
-    func didUpgradeIngredients() {
+    func didUpdateIngredients() {
         dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
