@@ -7,17 +7,13 @@
 import Foundation
 
 // MARK: - Next
-struct EdamamNext: Decodable {
-    let href: String
-    let title: Title
-}
 
 enum Title: String, Codable {
     case nextPage = "Next page"
     
 }
 
-extension EdamamNext {
+extension EdamamLink {
 
     func toGenericModel() -> RecipeNext {
      

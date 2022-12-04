@@ -1,14 +1,25 @@
 import Foundation
 
-struct RecipeResponse: Decodable {
+struct RecipeResponse {
 
     // MARK: - Properties
 
     let recipes: [Recipe]
     let count: Int
+	let nextLink: Link?
 }
 
-struct RecipeHit: Decodable {
+struct Link {
+	var href: String
+}
+
+struct RecipeHit {
+	
+	enum CodingKeys: String, CodingKey {
+		case recipe
+		case links = "_links"
+	}
+	
     let recipe: Recipe
-    let links: RecipeHitLinks
+    let link: Link
 }
