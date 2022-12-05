@@ -1,15 +1,15 @@
 import Foundation
 
 // MARK: - HitLinks
-struct EdamamHitLinks: Decodable {
-    let linksSelf: EdamamNext
+struct EdamamNextLinks: Decodable {
+    let next: EdamamLink
 }
 
-extension EdamamHitLinks {
+extension EdamamNextLinks {
 
     func toGenericModel() -> RecipeHitLinks {
      
-        RecipeHitLinks(linksSelf: RecipeNext.init(href: linksSelf.href, title: RecipeTitle.nextPage))
+        RecipeHitLinks(next: RecipeNext.init(href: next.href, title: RecipeTitle.nextPage))
         
     }
 }
