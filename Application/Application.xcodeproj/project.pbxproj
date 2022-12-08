@@ -213,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				B2CBD3F428BCE05E00629211 /* Scenes */,
-				B2A2DF1C280ECD92005F680C /* TabBarController.swift */,
 				B2529232287DE2790007D07C /* Commons */,
 			);
 			path = App;
@@ -316,6 +315,7 @@
 		B2CBD3F628BCE07100629211 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				B2A2DF1C280ECD92005F680C /* TabBarController.swift */,
 				B2CBD3F728BCE07B00629211 /* Details */,
 				B2CBD3FC28BCECAB00629211 /* FavoritesViewModel.swift */,
 				B2CBD3FA28BCEBF700629211 /* RecipesViewModel.swift */,

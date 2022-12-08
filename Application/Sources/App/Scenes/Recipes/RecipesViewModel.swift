@@ -18,7 +18,5 @@ struct RecipesViewModel: RecipesViewModelProtocol {
         return numberOfRecipes
     }
     
-//    func allRecipes() -> Int {
-//        
-//    }
+
 }
