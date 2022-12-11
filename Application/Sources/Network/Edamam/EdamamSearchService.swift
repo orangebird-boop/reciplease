@@ -24,7 +24,7 @@ class EdamamSearchService {
         
     }
     
-    func getRecipes(nextSet: EdamamNext,completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
+    func getRecipes(nextSet: EdamamNext, completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
         let request = AF.request(nextSet.href)
         
         request.responseJSON { networkResponse in

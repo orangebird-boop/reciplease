@@ -25,6 +25,8 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        enableSearchButton()
+        
         dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
@@ -75,7 +77,7 @@ class SearchViewController: UIViewController {
         didTapSearchButton()
     }
 
-    func toggleSearchButton() {
+    func enableSearchButton() {
  
         if !searchViewModel.ingredients.isEmpty {
             searchButton.isEnabled = true
@@ -84,6 +86,13 @@ class SearchViewController: UIViewController {
             searchButton.isEnabled = false
             searchButton.backgroundColor = .systemGray
         }
+    }
+    
+    func toggleSearchButton(isEnabled: Bool) {
+ 
+        searchButton.isEnabled = isEnabled
+        searchButton.backgroundColor = isEnabled ? .systemGreen : .systemGray
+        
     }
 }
 
@@ -94,7 +103,7 @@ extension SearchViewController: SearchViewDelegate {
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
         
-        toggleSearchButton()
+        toggleSearchButton(isEnabled: false)
     }
     
     func didTapAddButton() {
@@ -102,7 +111,7 @@ extension SearchViewController: SearchViewDelegate {
         
         searchViewModel.add(ingredient: ingredient)
         searchView.ingredientsTextField.text = ""
-        toggleSearchButton()
+        enableSearchButton()
         dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)
     }
     
@@ -113,6 +122,7 @@ extension SearchViewController: SearchViewDelegate {
 
 extension SearchViewController: SearchViewModelDelegate {
     func didNotFindRecipe(error: SearchViewModelError) {
+        toggleSearchButton(isEnabled: true)
         
         let alertViewController = UIAlertController(title: "Error", message: "Huston we have a problem", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -125,6 +135,7 @@ extension SearchViewController: SearchViewModelDelegate {
     }
     
     func didFindRecipes() {
+        toggleSearchButton(isEnabled: true)
         let viewController = RecipesViewController(viewModel: RecipesViewModel(recipes: searchViewModel.recipes))
         navigationController?.pushViewController(viewController, animated: true)
     }

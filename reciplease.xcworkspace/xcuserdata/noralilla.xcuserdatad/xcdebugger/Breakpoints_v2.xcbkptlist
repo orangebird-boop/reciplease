@@ -469,9 +469,9 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "toggleSearchButton()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "enableSearchButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -485,8 +485,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "didTapAddButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -501,9 +501,9 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "toggleSearchButton()"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "enableSearchButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -517,8 +517,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "didTapSearchButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -533,8 +533,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "didTapAddButton()"
             landmarkType = "7">
          </BreakpointContent>

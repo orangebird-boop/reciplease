@@ -19,6 +19,7 @@ class RecipesViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = .clear
         tableView.register(RecipesTableViewCell.self, forCellReuseIdentifier: RecipesTableViewCell.identifier)
         return tableView
     }()
@@ -119,5 +120,4 @@ extension RecipesViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true )
     }
     
-
 }
