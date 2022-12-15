@@ -25,6 +25,7 @@ class SearchViewModel {
     let searchService: EdamamSearchService
     var ingredients: [String] = []
     private (set) var recipes: [Recipe] = []
+    private (set) var nextUrl: String?
     weak var delegate: SearchViewModelDelegate?
     
     init(searchService: EdamamSearchService = EdamamSearchService()) {
@@ -65,6 +66,7 @@ class SearchViewModel {
                 
                 self.clearAll()
                 self.recipes = recipeResponse.recipes
+                self.nextUrl = recipeResponse.nextLink?.href
                 self.delegate?.didFindRecipes()
                 
             case.failure(let error):

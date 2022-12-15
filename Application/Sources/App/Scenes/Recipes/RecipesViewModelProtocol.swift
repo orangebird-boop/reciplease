@@ -2,5 +2,11 @@ import Foundation
 
 protocol RecipesViewModelProtocol {
     func getRecipes() -> [Recipe]
-    func countRecipes() -> Int
+    func loadMoreRecipes()
+}
+
+extension RecipesViewModelProtocol {
+    func loadMoreRecipes() {
+        // noop
+    }
 }

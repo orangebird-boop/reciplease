@@ -136,7 +136,7 @@ extension SearchViewController: SearchViewModelDelegate {
     
     func didFindRecipes() {
         toggleSearchButton(isEnabled: true)
-        let viewController = RecipesViewController(viewModel: RecipesViewModel(recipes: searchViewModel.recipes))
+        let viewController = RecipesViewController(viewModel: RecipesViewModel(recipes: searchViewModel.recipes, nextURL: searchViewModel.nextUrl))
         navigationController?.pushViewController(viewController, animated: true)
     }
     

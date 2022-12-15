@@ -47,9 +47,9 @@ class EdamamSearchService {
     }
     
     func getRecipes(ingredients: [String], page: Int, completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
-        //check optional string for next page
+        // check optional string for next page
         // if it has, use it for url
-        //else nothing happens
+        // else nothing happens
         guard let url = buildUrl(for: ingredients) else {
             completionHandler(.failure(.invalidURL))
             

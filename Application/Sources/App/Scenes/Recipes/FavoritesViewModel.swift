@@ -14,9 +14,4 @@ class FavoritesViewModel: RecipesViewModelProtocol {
         
         return recipes
     }
-    
-    func countRecipes() -> Int {
-        let numberOfRecipes = recipes.count
-        return numberOfRecipes
-    }
 }

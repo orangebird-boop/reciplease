@@ -57,7 +57,7 @@ class RecipesViewController: UIViewController {
         loadMoreButton.setTitle("Load more recipes", for: .normal)
         loadMoreButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         loadMoreButton.backgroundColor = .systemGreen
-  //      loadMoreButton.addTarget(self, action: #selector(loadMoreRecipes()), for: .touchUpInside)
+        loadMoreButton.addTarget(self, action: #selector(loadMoreRecipes), for: .touchUpInside)
         view.addSubview(loadMoreButton)
         
         setupLayout()
@@ -97,8 +97,9 @@ class RecipesViewController: UIViewController {
         }
     }
     
-    @objc func loadMoreRecipes() {
-        viewModel.getRecipes()
+    @objc
+    func loadMoreRecipes() {
+        viewModel.loadMoreRecipes()
         return
     }
 }
