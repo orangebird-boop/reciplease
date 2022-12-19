@@ -2,6 +2,8 @@ import Foundation
 
 class FavoritesViewModel: RecipesViewModelProtocol {
     
+    weak var delegate: RecipesViewModelDelegate?
+    
     let coreDataManager: CoreDataManager
     private (set) var recipes: [Recipe] = []
     

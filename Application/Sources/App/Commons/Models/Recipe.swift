@@ -7,12 +7,17 @@ struct Recipe: Decodable {
     let url: String
     let ingredientLines: [String]
     let totalTime: Int?
-    let nextURL: RecipeNext
-    
 }
 
 extension Recipe: Hashable {
- 
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(url)
+    }
     
-
+    static func == (lhs: Recipe, rhs: Recipe) -> Bool {
+        (lhs.name, lhs.url) == (rhs.name, rhs.url)
+    }
 }
+
+

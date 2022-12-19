@@ -100,8 +100,20 @@ class RecipesViewController: UIViewController {
     @objc
     func loadMoreRecipes() {
         viewModel.loadMoreRecipes()
-        return
     }
+}
+
+extension RecipesViewController: RecipesViewModelDelegate{
+    
+    func didFindRecipes() {
+        // TODO: Update snapchot cacher le bouton
+    }
+    
+    func noMoreRecipesToLoad() {
+        loadMoreButton.isEnabled = false
+    }
+    
+    
 }
 
 extension RecipesViewController: UITableViewDelegate {
