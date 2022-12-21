@@ -63,6 +63,9 @@ class RecipesViewController: UIViewController {
         view.addSubview(loadMoreButton)
         
         setupLayout()
+        
+        self.isAccessibilityElement = true
+        applyAccessibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +106,13 @@ class RecipesViewController: UIViewController {
  
         loadMoreButton.isEnabled = isEnabled
         loadMoreButton.backgroundColor = isEnabled ? .systemGreen : .systemGray
+        
+    }
+    
+    private func applyAccessibility() {
+        self.tableView.accessibilityLabel = "text field"
+        
+        self.loadMoreButton.accessibilityLabel = "load more recipes"
         
     }
     
