@@ -20,6 +20,9 @@ class SearchViewController: UIViewController {
         setupViews()
         setupLayout()
         
+        self.isAccessibilityElement = true
+        applyAccessibility()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +80,17 @@ class SearchViewController: UIViewController {
         didTapSearchButton()
     }
 
+    private func applyAccessibility() {
+        self.searchView.ingredientsTextField.accessibilityLabel = "text field"
+        self.searchView.ingredientsTextField.accessibilityHint = "type your ingredient here"
+        
+        self.searchView.addButton.accessibilityLabel = "add ingredient"
+        
+        self.searchView.clearAllButton.accessibilityLabel = "clear all ingredients"
+        
+        self.searchView.label.accessibilityLabel = "your ingredients"
+    }
+    
     func enableSearchButton() {
  
         if !searchViewModel.ingredients.isEmpty {
