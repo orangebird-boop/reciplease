@@ -41,6 +41,8 @@ class RecipesTableViewCell: UITableViewCell {
         setupViews()
         setupLayout()
         
+        self.isAccessibilityElement = true
+        applyAccessibility()
     }
     
     required init?(coder: NSCoder) {
@@ -106,5 +108,17 @@ class RecipesTableViewCell: UITableViewCell {
             timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Margins.medium)
             
         ])
+    }
+    
+    override var accessibilityElements: [Any]? {
+        set{}
+        get {
+            return [
+                self.titleLabel as Any]
+        }
+    }
+    
+    func applyAccessibility() {
+        self.titleLabel.accessibilityLabel = recipe?.name
     }
 }
