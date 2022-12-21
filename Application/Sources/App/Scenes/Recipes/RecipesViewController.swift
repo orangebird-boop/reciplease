@@ -2,7 +2,7 @@ import UIKit
 
 class RecipesViewController: UIViewController {
     
-    let viewModel: RecipesViewModelProtocol
+    var viewModel: RecipesViewModelProtocol
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
 
     let loadMoreButton = UIButton()
@@ -11,6 +11,8 @@ class RecipesViewController: UIViewController {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
+        
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -96,6 +98,13 @@ class RecipesViewController: UIViewController {
             return tableViewCell
         }
     }
+      
+    func toggleLoadMoreButton(isEnabled: Bool) {
+ 
+        loadMoreButton.isEnabled = isEnabled
+        loadMoreButton.backgroundColor = isEnabled ? .systemGreen : .systemGray
+        
+    }
     
     @objc
     func loadMoreRecipes() {
@@ -103,16 +112,16 @@ class RecipesViewController: UIViewController {
     }
 }
 
-extension RecipesViewController: RecipesViewModelDelegate{
+extension RecipesViewController: RecipesViewModelDelegate {
     
     func didFindRecipes() {
-        // TODO: Update snapchot cacher le bouton
+        applySnapshot()
     }
     
     func noMoreRecipesToLoad() {
         loadMoreButton.isEnabled = false
-    }
-    
+        loadMoreButton.backgroundColor = .systemGray
+}
     
 }
 

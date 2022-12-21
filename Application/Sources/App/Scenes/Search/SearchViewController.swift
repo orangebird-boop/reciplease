@@ -108,7 +108,7 @@ extension SearchViewController: SearchViewDelegate {
     
     func didTapAddButton() {
         guard let ingredient = searchView.ingredientsTextField.text, !ingredient.isEmpty else {return}
-        
+        searchView.toggleAddButton(value: "")
         searchViewModel.add(ingredient: ingredient)
         searchView.ingredientsTextField.text = ""
         enableSearchButton()

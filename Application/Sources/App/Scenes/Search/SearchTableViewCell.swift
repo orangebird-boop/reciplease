@@ -11,8 +11,7 @@ class SearchTableViewCell: UITableViewCell {
         
         return label
     }()
-    
-    //    private var recipeIngredients: RecipeIngredients?
+ 
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)

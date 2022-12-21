@@ -28,7 +28,6 @@ class RecipesViewModel: RecipesViewModelProtocol {
             switch result {
             case.success(let recipeResponse):
                 
-           
                 self.recipes +=  recipeResponse.recipes
                 self.nextURL = recipeResponse.nextLink?.href
                 self.delegate?.didFindRecipes()

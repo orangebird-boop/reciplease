@@ -19,5 +19,3 @@ extension Recipe: Hashable {
         (lhs.name, lhs.url) == (rhs.name, rhs.url)
     }
 }
-
-

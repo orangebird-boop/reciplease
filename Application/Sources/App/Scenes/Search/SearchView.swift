@@ -118,5 +118,3 @@ class SearchView: UIView {
         }
     }
 }
-
-
