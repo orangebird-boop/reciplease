@@ -7,23 +7,16 @@ struct EdamamResponse: Decodable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case from
-        case to
-        case count
         case hits
         case nextLink = "_links"
     }
     
-    let from, to, count: Int
     let hits: [Hit]
     let nextLink: EdamamLink?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.from = try container.decode(Int.self, forKey: .from)
-        self.to = try container.decode(Int.self, forKey: .to)
-        self.count = try container.decode(Int.self, forKey: .count)
         self.hits = try container.decode([Hit].self, forKey: .hits)
         
         let linksContainer = try container.nestedContainer(keyedBy: NestedLinksCodingKey.self, forKey: .nextLink)
@@ -39,7 +32,6 @@ extension EdamamResponse {
 
     func toGenericModel() -> RecipeResponse {
         RecipeResponse(recipes: hits.compactMap { $0.recipe }.map { $0.toGenericModel() },
-                       count: count,
                        nextLink: nextLink?.toGenericModel())
     }
 }

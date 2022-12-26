@@ -30,6 +30,8 @@ class SearchView: UIView {
     func setupSearchView() {
         setupView()
         setupLayout()
+        self.isAccessibilityElement = true
+        applyAccessibility()
     }
     
     func setupView() {
@@ -90,6 +92,14 @@ class SearchView: UIView {
             clearAllButton.widthAnchor.constraint(equalToConstant: 82)
             
         ])
+    }
+    
+    private func applyAccessibility() {
+        ingredientsTextField.accessibilityLabel = "text field"
+        ingredientsTextField.accessibilityHint = "type your ingredient here"
+        addButton.accessibilityLabel = "add ingredient"
+        clearAllButton.accessibilityLabel = "clear all ingredients"
+        label.accessibilityLabel = "your ingredients"
     }
     
     @objc

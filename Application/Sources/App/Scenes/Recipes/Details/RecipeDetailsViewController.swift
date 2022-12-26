@@ -40,10 +40,16 @@ class RecipeDetailsViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.checkIfRecipeFavorite()
+    }
+    
     func setupViews() {
         view.backgroundColor = .black
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.topItem?.title = "Reciplease"
+        navigationController?.navigationBar.topItem?.title = "Recipes"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(addToFavourites))
         

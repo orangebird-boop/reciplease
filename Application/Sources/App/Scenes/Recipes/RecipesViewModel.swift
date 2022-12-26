@@ -32,7 +32,7 @@ class RecipesViewModel: RecipesViewModelProtocol {
                 self.nextURL = recipeResponse.nextLink?.href
                 self.delegate?.didFindRecipes()
                 
-            case.failure(_):
+            case.failure:
                 self.delegate?.noMoreRecipesToLoad()
             }
         }

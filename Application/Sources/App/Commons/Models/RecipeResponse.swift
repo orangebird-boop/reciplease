@@ -4,7 +4,6 @@ struct RecipeResponse {
 
     // MARK: - Properties
     let recipes: [Recipe]
-    let count: Int
     let nextLink: Link?
 }
 

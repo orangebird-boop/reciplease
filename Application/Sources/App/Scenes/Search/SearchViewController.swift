@@ -81,14 +81,7 @@ class SearchViewController: UIViewController {
     }
 
     private func applyAccessibility() {
-        self.searchView.ingredientsTextField.accessibilityLabel = "text field"
-        self.searchView.ingredientsTextField.accessibilityHint = "type your ingredient here"
-        
-        self.searchView.addButton.accessibilityLabel = "add ingredient"
-        
-        self.searchView.clearAllButton.accessibilityLabel = "clear all ingredients"
-        
-        self.searchView.label.accessibilityLabel = "your ingredients"
+        searchButton.accessibilityLabel = "Search for recipes"
     }
     
     func enableSearchButton() {
@@ -110,13 +103,12 @@ class SearchViewController: UIViewController {
     }
 }
 
-// MARK: - SearchViewDelegate
+// MARK: - Delegates
 
 extension SearchViewController: SearchViewDelegate {
     
     func didTapSearchButton() {
         searchViewModel.searchRecipes()
-        
         toggleSearchButton(isEnabled: false)
     }
     

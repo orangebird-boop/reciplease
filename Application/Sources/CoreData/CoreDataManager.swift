@@ -1,6 +1,9 @@
 import CoreData
 
 final class CoreDataManager {
+    
+    
+    // MARK: - Properties
    
     private static let dataModelFilename = "RecipleaseDataModel"
     static let shared = CoreDataManager()
@@ -21,6 +24,8 @@ final class CoreDataManager {
       static var context: NSManagedObjectContext = {
           container.viewContext
       }()
+    
+    // MARK: - Functions
 
       func saveContext() {
           if Self.context.hasChanges {

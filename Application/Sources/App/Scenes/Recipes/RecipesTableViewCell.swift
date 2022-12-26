@@ -110,15 +110,7 @@ class RecipesTableViewCell: UITableViewCell {
         ])
     }
     
-    override var accessibilityElements: [Any]? {
-        set{}
-        get {
-            return [
-                self.titleLabel as Any]
-        }
-    }
-    
     func applyAccessibility() {
-        self.titleLabel.accessibilityLabel = recipe?.name
+        accessibilityLabel = recipe?.name
     }
 }

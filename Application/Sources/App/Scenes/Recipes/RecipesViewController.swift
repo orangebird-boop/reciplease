@@ -47,9 +47,11 @@ class RecipesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Recipes"
         view.backgroundColor = .black
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.topItem?.title = "Reciplease"
+//         
         
         tableView.delegate = self
         view.addSubview(tableView)
@@ -110,14 +112,15 @@ class RecipesViewController: UIViewController {
     }
     
     private func applyAccessibility() {
-        self.tableView.accessibilityLabel = "text field"
+        tableView.accessibilityLabel = "text field"
         
-        self.loadMoreButton.accessibilityLabel = "load more recipes"
+        loadMoreButton.accessibilityLabel = "load more recipes"
         
     }
     
     @objc
     func loadMoreRecipes() {
+        toggleLoadMoreButton(isEnabled: false)
         viewModel.loadMoreRecipes()
     }
 }
@@ -125,12 +128,12 @@ class RecipesViewController: UIViewController {
 extension RecipesViewController: RecipesViewModelDelegate {
     
     func didFindRecipes() {
+        toggleLoadMoreButton(isEnabled: true)
         applySnapshot()
     }
     
     func noMoreRecipesToLoad() {
-        loadMoreButton.isEnabled = false
-        loadMoreButton.backgroundColor = .systemGray
+        toggleLoadMoreButton(isEnabled: false)
 }
     
 }
@@ -138,7 +141,7 @@ extension RecipesViewController: RecipesViewModelDelegate {
 extension RecipesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 260.0 // Choose your custom row height
+        return 260.0 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
