@@ -2,16 +2,22 @@ import Foundation
 
 class RecipesViewModel: RecipesViewModelProtocol {
     
+    // MARK: - Properties
+    
     let searchService: EdamamSearchService
     private var recipes: [Recipe]
     private var nextURL: String?
     weak var delegate: RecipesViewModelDelegate?
+    
+    // MARK: - Initialization
     
     init(searchService: EdamamSearchService = .init(), recipes: [Recipe], nextURL: String? = nil) {
         self.searchService = searchService
         self.recipes = recipes
         self.nextURL = nextURL
     }
+    
+    // MARK: - Functions
     
     func getRecipes() -> [Recipe] {
         recipes

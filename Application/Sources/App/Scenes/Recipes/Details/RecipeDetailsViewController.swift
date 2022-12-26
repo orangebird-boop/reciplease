@@ -12,6 +12,7 @@ class RecipeDetailsViewController: UIViewController {
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
     var coreDataManager: CoreDataManager
+    
     // MARK: - Initialization
     
     init(viewModel: RecipeDetailsViewModel, coreDataManager: CoreDataManager = .shared) {
@@ -25,7 +26,8 @@ class RecipeDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Functions
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -127,6 +129,8 @@ class RecipeDetailsViewController: UIViewController {
         }
     }
 }
+
+// MARK: - Extentions
 
 extension RecipeDetailsViewController: RecipeDetailsViewModelDelegate {
     

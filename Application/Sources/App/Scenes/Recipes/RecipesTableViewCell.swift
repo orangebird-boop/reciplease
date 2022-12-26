@@ -1,6 +1,8 @@
 import UIKit
 
 class RecipesTableViewCell: UITableViewCell {
+
+    // MARK: - Properties
     
     static let identifier = "SearchResultTableViewCell"
     var foodImageView = UIImageView()
@@ -35,6 +37,8 @@ class RecipesTableViewCell: UITableViewCell {
     
     private var recipe: Recipe?
     
+    // MARK: - Initialization
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         
@@ -48,6 +52,8 @@ class RecipesTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Functions
     
     func configure(with recipe: Recipe) {
         self.recipe = recipe

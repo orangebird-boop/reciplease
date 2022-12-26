@@ -4,28 +4,28 @@ class TabBarController: UITabBarController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-
+        
         setupViews()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setupViews() {
-//        tabBar.tintColor = .white
+        //        tabBar.tintColor = .white
         
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
         navigationController?.navigationBar.topItem?.title = "Search"
-
+        
         let favoritesViewController = RecipesViewController(viewModel: FavoritesViewModel())
         favoritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
         navigationController?.navigationBar.topItem?.title = "Favourites"
         
         setViewControllers([
-           UINavigationController(rootViewController: searchViewController),
-           UINavigationController(rootViewController: favoritesViewController)],
+            UINavigationController(rootViewController: searchViewController),
+            UINavigationController(rootViewController: favoritesViewController)],
                            animated: true)
     }
 }

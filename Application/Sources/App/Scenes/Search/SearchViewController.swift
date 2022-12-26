@@ -103,7 +103,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-// MARK: - Delegates
+// MARK: - Extentions
 
 extension SearchViewController: SearchViewDelegate {
     
