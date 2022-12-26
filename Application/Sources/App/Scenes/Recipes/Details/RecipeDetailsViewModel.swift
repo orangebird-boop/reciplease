@@ -28,8 +28,6 @@ class RecipeDetailsViewModel {
         recipeState = .isNotFavorite
     }
     
-    // ajouter aux favorites
-    
     func toggelFavoriteStatus(for recipe: Recipe) {
         switch recipeState {
         case .isFavorite:
