@@ -12,6 +12,7 @@ class RecipeDetailsViewController: UIViewController {
     let defaultImage = UIImage(named: "defaultForkKnifeSpoon")
     let getDirectionsButton = UIButton()
     var coreDataManager: CoreDataManager
+   
     
     // MARK: - Initialization
     
@@ -40,6 +41,8 @@ class RecipeDetailsViewController: UIViewController {
         
         viewModel.checkIfRecipeFavorite()
         
+        self.isAccessibilityElement = true
+        applyAccessibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,6 +130,16 @@ class RecipeDetailsViewController: UIViewController {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
+    }
+    
+    private func applyAccessibility() {
+        let ingredients = viewModel.recipe.ingredientLines.map { "\($0)" }.joined(separator: " ")
+        
+        label.accessibilityLabel = viewModel.recipe.name
+        getDirectionsButton.accessibilityLabel = "get directions"
+        textView.accessibilityLabel = ingredients
+        
+        
     }
 }
 

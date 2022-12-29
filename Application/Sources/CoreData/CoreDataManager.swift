@@ -2,7 +2,6 @@ import CoreData
 
 final class CoreDataManager {
     
-    
     // MARK: - Properties
    
     private static let dataModelFilename = "RecipleaseDataModel"
