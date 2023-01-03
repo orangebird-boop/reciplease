@@ -79,13 +79,20 @@ class SearchViewController: UIViewController {
     func searchForRecipes() {
         didTapSearchButton()
     }
-
+    
     private func applyAccessibility() {
+        
+        searchView.ingredientsTextField.accessibilityLabel = "text field"
+        searchView.ingredientsTextField.accessibilityHint = "type your ingredient here"
+        searchView.addButton.accessibilityLabel = "add ingredient"
+        searchView.clearAllButton.accessibilityLabel = "clear all ingredients"
+        searchView.label.accessibilityLabel = "your ingredients"
+        
         searchButton.accessibilityLabel = "Search for recipes"
     }
     
     func enableSearchButton() {
- 
+        
         if !searchViewModel.ingredients.isEmpty {
             searchButton.isEnabled = true
             searchButton.backgroundColor = .systemGreen
@@ -96,7 +103,7 @@ class SearchViewController: UIViewController {
     }
     
     func toggleSearchButton(isEnabled: Bool) {
- 
+        
         searchButton.isEnabled = isEnabled
         searchButton.backgroundColor = isEnabled ? .systemGreen : .systemGray
         
@@ -127,6 +134,12 @@ extension SearchViewController: SearchViewDelegate {
 }
 
 extension SearchViewController: SearchViewModelDelegate {
+    func noMatch() {
+        let alertViewController = UIAlertController(title: "Error", message: "No recipes found, check your ingredients", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertViewController, animated: true, completion: nil)
+    }
+    
     func didNotFindRecipe(error: SearchViewModelError) {
         toggleSearchButton(isEnabled: true)
         
@@ -155,7 +168,7 @@ extension SearchViewController: SearchViewModelDelegate {
 }
 
 extension SearchViewController: SearchDataSourceDelegate {
-
+    
     func didDelete(ingredient: String) {
         searchViewModel.delete(ingredient: ingredient)
     }

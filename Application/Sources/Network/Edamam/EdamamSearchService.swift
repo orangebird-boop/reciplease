@@ -20,12 +20,10 @@ class EdamamSearchService {
         return urlComponents?.url?.absoluteString
     }
     
-    func urlNextPage(url: String) {
-        
-    }
-    
     func getRecipes(nextSet: String, completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
         let request = AF.request(nextSet)
+        
+//        AF.sessionConfiguration.protocolClasses = []
         
         request.responseJSON { networkResponse in
             guard let data = networkResponse.data else {
@@ -47,9 +45,7 @@ class EdamamSearchService {
     }
     
     func getRecipes(ingredients: [String], page: Int, completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
-        // check optional string for next page
-        // if it has, use it for url
-        // else nothing happens
+       
         guard let url = buildUrl(for: ingredients) else {
             completionHandler(.failure(.invalidURL))
             
@@ -68,7 +64,7 @@ class EdamamSearchService {
 
                 // Model transformation
                 let recipeResponse = response.toGenericModel()
-
+                print(recipeResponse)
                 completionHandler(.success(recipeResponse))
             } catch {
                 dump(error)

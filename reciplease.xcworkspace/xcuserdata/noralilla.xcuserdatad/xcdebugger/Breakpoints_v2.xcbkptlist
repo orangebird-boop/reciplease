@@ -469,8 +469,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "enableSearchButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -485,8 +485,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "didTapAddButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -501,8 +501,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "enableSearchButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -517,8 +517,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "didTapSearchButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -533,8 +533,8 @@
             filePath = "Application/Sources/App/Scenes/Search/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "didTapAddButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -552,6 +552,22 @@
             startingLineNumber = "136"
             endingLineNumber = "136"
             landmarkName = "noMoreRecipesToLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9CBE5F12-098E-4AF0-84B5-DB0D22B0F1F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Application/Tests/Network/Edamam/EdamamResponseTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "test_shouldTransformEdamamResponseToGenericModel()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

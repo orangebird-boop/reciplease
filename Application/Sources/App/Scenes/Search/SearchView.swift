@@ -31,7 +31,7 @@ class SearchView: UIView {
         setupView()
         setupLayout()
         self.isAccessibilityElement = true
-        applyAccessibility()
+//        applyAccessibility()
     }
     
     func setupView() {
@@ -94,13 +94,13 @@ class SearchView: UIView {
         ])
     }
     
-    private func applyAccessibility() {
-        ingredientsTextField.accessibilityLabel = "text field"
-        ingredientsTextField.accessibilityHint = "type your ingredient here"
-        addButton.accessibilityLabel = "add ingredient"
-        clearAllButton.accessibilityLabel = "clear all ingredients"
-        label.accessibilityLabel = "your ingredients"
-    }
+//    private func applyAccessibility() {
+//        ingredientsTextField.accessibilityLabel = "text field"
+//        ingredientsTextField.accessibilityHint = "type your ingredient here"
+//        addButton.accessibilityLabel = "add ingredient"
+//        clearAllButton.accessibilityLabel = "clear all ingredients"
+//        label.accessibilityLabel = "your ingredients"
+//    }
     
     @objc
     func addIngredient() {

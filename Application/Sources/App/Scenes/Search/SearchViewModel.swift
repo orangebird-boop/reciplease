@@ -4,14 +4,12 @@ enum SearchViewModelError: LocalizedError {
     case failedToRetrieveRecipes
     case defaultError
     case failedToUpdateIngredients
-//    case ingredientError
     
     var helpAnchor: String? {
         switch self {
         case .failedToRetrieveRecipes: return "Failed to retrive recipes"
         case .defaultError: return "An error occured, please contact our support team on the following adresse: support@reciplease.com"
         case .failedToUpdateIngredients: return "This ingredient is already in your list"
-//        case .ingredientError: return "Failed to retrive recipes, an ingredient is not valid"
         }
     }
 }
@@ -67,6 +65,11 @@ class SearchViewModel {
             switch result {
             case.success(let recipeResponse):
                 
+                guard !recipeResponse.recipes.isEmpty else {
+                    self.delegate?.noMatch()
+                    return
+                }
+                
                 self.clearAll()
                 self.recipes = recipeResponse.recipes
                 self.nextUrl = recipeResponse.nextLink?.href
@@ -80,10 +83,6 @@ class SearchViewModel {
 
                 case .invalidData, .invalidResponse, .invalidJSONStructure:
                     self.delegate?.didNotFindRecipe(error: .defaultError)
-                
-                default:
-                    self.delegate?.noMatch()
-                
                 }
             }
         }
