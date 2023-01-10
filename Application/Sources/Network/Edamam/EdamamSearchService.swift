@@ -23,7 +23,7 @@ class EdamamSearchService {
     func getRecipes(nextSet: String, completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
         let request = AF.request(nextSet)
         
-//        AF.sessionConfiguration.protocolClasses = []
+        AF.sessionConfiguration.protocolClasses = []
         
         request.responseJSON { networkResponse in
             guard let data = networkResponse.data else {

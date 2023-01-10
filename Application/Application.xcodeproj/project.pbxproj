@@ -43,6 +43,8 @@
 		B2E44603293E1DD40048C100 /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E44602293E1DD40048C100 /* RecipeIngredient.swift */; };
 		B2E626CE2964C59E0000BC78 /* RecipesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626CD2964C59D0000BC78 /* RecipesViewModelTests.swift */; };
 		B2E626D02964C73D0000BC78 /* FakeJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = B2E626CF2964C73D0000BC78 /* FakeJSON.json */; };
+		B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */; };
+		B2E626D7296B2C390000BC78 /* EdamamSearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */; };
 		B2E791B828576179007D2ED4 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E791B728576179007D2ED4 /* SearchDataSource.swift */; };
 		B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61CF528107A09005F4B0D /* Recipe.swift */; };
 		B2F6BAE628528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */; };
@@ -116,6 +118,8 @@
 		B2E44602293E1DD40048C100 /* RecipeIngredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeIngredient.swift; sourceTree = "<group>"; };
 		B2E626CD2964C59D0000BC78 /* RecipesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModelTests.swift; sourceTree = "<group>"; };
 		B2E626CF2964C73D0000BC78 /* FakeJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = FakeJSON.json; path = ../../../../FakeJSON.json; sourceTree = "<group>"; };
+		B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
+		B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSearchServiceTest.swift; sourceTree = "<group>"; };
 		B2E791B728576179007D2ED4 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		B2F61CF528107A09005F4B0D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewIngredientsDataSourceProvider.swift; sourceTree = "<group>"; };
@@ -179,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E626CF2964C73D0000BC78 /* FakeJSON.json */,
-				B2145A2029646D5000C4857E /* EdamamResponseTest.swift */,
+				B2E626D3296B2B1D0000BC78 /* Edamam */,
 			);
 			path = Edamam;
 			sourceTree = "<group>";
@@ -369,6 +373,7 @@
 		B2E626CA2964C5360000BC78 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -387,6 +392,15 @@
 			children = (
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		B2E626D3296B2B1D0000BC78 /* Edamam */ = {
+			isa = PBXGroup;
+			children = (
+				B2145A2029646D5000C4857E /* EdamamResponseTest.swift */,
+				B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */,
+			);
+			name = Edamam;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +578,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E626D7296B2C390000BC78 /* EdamamSearchServiceTest.swift in Sources */,
+				B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */,
 				B2E626CE2964C59E0000BC78 /* RecipesViewModelTests.swift in Sources */,
 				B2145A2129646D5000C4857E /* EdamamResponseTest.swift in Sources */,
 			);
