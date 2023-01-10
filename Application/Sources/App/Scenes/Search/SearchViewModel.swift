@@ -59,7 +59,7 @@ class SearchViewModel {
             
             return
         }
-        searchService.getRecipes(ingredients: ingredients, page: 0) { [weak self] result in
+        searchService.getRecipes(ingredients: ingredients) { [weak self] result in
             guard let self = self else {return}
             
             switch result {

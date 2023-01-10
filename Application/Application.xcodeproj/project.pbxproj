@@ -42,7 +42,6 @@
 		B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */; };
 		B2E44603293E1DD40048C100 /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E44602293E1DD40048C100 /* RecipeIngredient.swift */; };
 		B2E626CE2964C59E0000BC78 /* RecipesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626CD2964C59D0000BC78 /* RecipesViewModelTests.swift */; };
-		B2E626D02964C73D0000BC78 /* FakeJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = B2E626CF2964C73D0000BC78 /* FakeJSON.json */; };
 		B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */; };
 		B2E626D7296B2C390000BC78 /* EdamamSearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */; };
 		B2E791B828576179007D2ED4 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E791B728576179007D2ED4 /* SearchDataSource.swift */; };
@@ -51,6 +50,9 @@
 		B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD10E2816A132001C576A /* EdamamResponse.swift */; };
 		B2FFD11D281BB9BB001C576A /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* RecipesViewController.swift */; };
 		B2FFD12928252C3F001C576A /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD12828252C3F001C576A /* RecipesTableViewCell.swift */; };
+		B4DC585A4A4995543A7E6D94 /* Pods_ApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B3D2A824B397C424B36546 /* Pods_ApplicationTests.framework */; };
+		EDB318AD296D9CB100FA566B /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB318AB296D9C9E00FA566B /* MockURLProtocol.swift */; };
+		EDB318AF296DA32200FA566B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB318AE296DA32200FA566B /* NetworkService.swift */; };
 		EDFFF31E28351A4B00B4B012 /* EdamamRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */; };
 		EDFFF32028351A6800B4B012 /* EdamamIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */; };
 		EDFFF32228351B0600B4B012 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFFF32128351B0600B4B012 /* RecipeResponse.swift */; };
@@ -82,6 +84,8 @@
 
 /* Begin PBXFileReference section */
 		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
+		262DD8F9781311201FB607D7 /* Pods-ApplicationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplicationTests.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-ApplicationTests/Pods-ApplicationTests.release.xcconfig"; sourceTree = "<group>"; };
+		44010B1ABE084CC8CC2F6A20 /* Pods-ApplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApplicationTests.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-ApplicationTests/Pods-ApplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B206DB54284CF30C008C36F2 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		B210F38728C52F7500AE7C68 /* EdamamHitLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamHitLinks.swift; sourceTree = "<group>"; };
 		B210F38928C54ED000AE7C68 /* RecipeHitLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHitLinks.swift; sourceTree = "<group>"; };
@@ -117,7 +121,6 @@
 		B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewModel.swift; sourceTree = "<group>"; };
 		B2E44602293E1DD40048C100 /* RecipeIngredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeIngredient.swift; sourceTree = "<group>"; };
 		B2E626CD2964C59D0000BC78 /* RecipesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModelTests.swift; sourceTree = "<group>"; };
-		B2E626CF2964C73D0000BC78 /* FakeJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = FakeJSON.json; path = ../../../../FakeJSON.json; sourceTree = "<group>"; };
 		B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
 		B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSearchServiceTest.swift; sourceTree = "<group>"; };
 		B2E791B728576179007D2ED4 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
@@ -127,6 +130,9 @@
 		B2FFD11C281BB9BB001C576A /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		B2FFD12828252C3F001C576A /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
 		D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2B3D2A824B397C424B36546 /* Pods_ApplicationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ApplicationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB318AB296D9C9E00FA566B /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		EDB318AE296DA32200FA566B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		EDFFF31D28351A4B00B4B012 /* EdamamRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamRecipe.swift; sourceTree = "<group>"; };
 		EDFFF31F28351A6800B4B012 /* EdamamIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamIngredient.swift; sourceTree = "<group>"; };
 		EDFFF32128351B0600B4B012 /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4DC585A4A4995543A7E6D94 /* Pods_ApplicationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */,
+				E2B3D2A824B397C424B36546 /* Pods_ApplicationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,6 +175,8 @@
 			children = (
 				F3CB7CD4D0927AFC810E2D6A /* Pods-Application.debug.xcconfig */,
 				073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */,
+				44010B1ABE084CC8CC2F6A20 /* Pods-ApplicationTests.debug.xcconfig */,
+				262DD8F9781311201FB607D7 /* Pods-ApplicationTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -175,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				B2145A1F29646CE900C4857E /* Edamam */,
+				EDB318AB296D9C9E00FA566B /* MockURLProtocol.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -182,7 +193,6 @@
 		B2145A1F29646CE900C4857E /* Edamam */ = {
 			isa = PBXGroup;
 			children = (
-				B2E626CF2964C73D0000BC78 /* FakeJSON.json */,
 				B2E626D3296B2B1D0000BC78 /* Edamam */,
 			);
 			path = Edamam;
@@ -248,6 +258,7 @@
 			children = (
 				B21B938728156BAF00F6B36A /* Edamam */,
 				B21B938828156C2100F6B36A /* SearchService.swift */,
+				EDB318AE296DA32200FA566B /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -381,17 +392,9 @@
 		B2E626CB2964C5410000BC78 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				B2E626CC2964C56F0000BC78 /* Details */,
 				B2E626CD2964C59D0000BC78 /* RecipesViewModelTests.swift */,
 			);
 			path = Recipes;
-			sourceTree = "<group>";
-		};
-		B2E626CC2964C56F0000BC78 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		B2E626D3296B2B1D0000BC78 /* Edamam */ = {
@@ -410,6 +413,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B24FD84128452C31001A4C34 /* Build configuration list for PBXNativeTarget "ApplicationTests" */;
 			buildPhases = (
+				F057708FAB1A50878D57E0CB /* [CP] Check Pods Manifest.lock */,
 				B24FD83728452C30001A4C34 /* Sources */,
 				B24FD83828452C30001A4C34 /* Frameworks */,
 				B24FD83928452C30001A4C34 /* Resources */,
@@ -496,7 +500,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E626D02964C73D0000BC78 /* FakeJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +574,28 @@
 			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
 			showEnvVarsInLog = 0;
 		};
+		F057708FAB1A50878D57E0CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ApplicationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -580,6 +605,7 @@
 			files = (
 				B2E626D7296B2C390000BC78 /* EdamamSearchServiceTest.swift in Sources */,
 				B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */,
+				EDB318AD296D9CB100FA566B /* MockURLProtocol.swift in Sources */,
 				B2E626CE2964C59E0000BC78 /* RecipesViewModelTests.swift in Sources */,
 				B2145A2129646D5000C4857E /* EdamamResponseTest.swift in Sources */,
 			);
@@ -600,6 +626,7 @@
 				B210F38828C52F7500AE7C68 /* EdamamHitLinks.swift in Sources */,
 				B2CBD3FF28BD555C00629211 /* RecipeEntity+CoreDataProperties.swift in Sources */,
 				B2A2DF32280ED520005F680C /* SearchViewController.swift in Sources */,
+				EDB318AF296DA32200FA566B /* NetworkService.swift in Sources */,
 				B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */,
 				B2B829A428ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld in Sources */,
 				B2CBD3F328BCDF3600629211 /* RecipeEntity+Transformation.swift in Sources */,
@@ -652,6 +679,7 @@
 /* Begin XCBuildConfiguration section */
 		B24FD84228452C31001A4C34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44010B1ABE084CC8CC2F6A20 /* Pods-ApplicationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -670,6 +698,7 @@
 		};
 		B24FD84328452C31001A4C34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 262DD8F9781311201FB607D7 /* Pods-ApplicationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

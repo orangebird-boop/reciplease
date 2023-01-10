@@ -3,4 +3,196 @@
    uuid = "29C4CF40-47D4-40EE-9EB0-BDFA9760E5B3"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8A82544-7638-43D1-9954-515B59F7C8B6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Application/Sources/Network/Edamam/EdamamSearchService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getRecipes(ingredients:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC0C9AE0-2BB2-47CC-93A9-5317908FBDCB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Application/Sources/Network/Edamam/EdamamSearchService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "getRecipes(ingredients:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1CF1AF1-6A3C-42A6-8EC4-ABCCC8DA71FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Application/Tests/Network/Edamam/EdamamSearchServiceTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "testShouldReturnJSONPayloadWhenRequestingRecipe()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E1CF1AF1-6A3C-42A6-8EC4-ABCCC8DA71FA - fb7abb7f51f28596"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Application.RecipeResponse, Application.SearchServiceError&gt;) -&gt; () in ApplicationTests.EdamamSearchServiceTest.testShouldReturnJSONPayloadWhenRequestingRecipe() -&gt; ()"
+                  moduleName = "ApplicationTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drivet/Developer/git/Personal/OpenClassrooms/NMatyassi/reciplease/Application/Tests/Network/Edamam/EdamamSearchServiceTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "E1CF1AF1-6A3C-42A6-8EC4-ABCCC8DA71FA - fb7abb7f51f28454"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Application.RecipeResponse, Application.SearchServiceError&gt;) -&gt; () in ApplicationTests.EdamamSearchServiceTest.testShouldReturnJSONPayloadWhenRequestingRecipe() -&gt; ()"
+                  moduleName = "ApplicationTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drivet/Developer/git/Personal/OpenClassrooms/NMatyassi/reciplease/Application/Tests/Network/Edamam/EdamamSearchServiceTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "E1CF1AF1-6A3C-42A6-8EC4-ABCCC8DA71FA - fb7abb7f51f2848e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Application.RecipeResponse, Application.SearchServiceError&gt;) -&gt; () in ApplicationTests.EdamamSearchServiceTest.testShouldReturnJSONPayloadWhenRequestingRecipe() -&gt; ()"
+                  moduleName = "ApplicationTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drivet/Developer/git/Personal/OpenClassrooms/NMatyassi/reciplease/Application/Tests/Network/Edamam/EdamamSearchServiceTest.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE301D14-9D3A-43B5-95D0-12C1647A2CD5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Application/Tests/Network/MockURLProtocol.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "startLoading()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "BE301D14-9D3A-43B5-95D0-12C1647A2CD5 - 58737f8b66469c5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ApplicationTests.MockURLProtocol.startLoading() -&gt; ()"
+                  moduleName = "ApplicationTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drivet/Developer/git/Personal/OpenClassrooms/NMatyassi/reciplease/Application/Tests/Network/MockURLProtocol.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "BE301D14-9D3A-43B5-95D0-12C1647A2CD5 - 58737f8b66469dc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ApplicationTests.MockURLProtocol.startLoading() -&gt; ()"
+                  moduleName = "ApplicationTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drivet/Developer/git/Personal/OpenClassrooms/NMatyassi/reciplease/Application/Tests/Network/MockURLProtocol.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "BE301D14-9D3A-43B5-95D0-12C1647A2CD5 - 58737f8b66469ece"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ApplicationTests.MockURLProtocol.startLoading() -&gt; ()"
+                  moduleName = "ApplicationTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drivet/Developer/git/Personal/OpenClassrooms/NMatyassi/reciplease/Application/Tests/Network/MockURLProtocol.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FF021E2D-4D8A-4081-B26E-97B8CB5782F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Application/Tests/Network/MockURLProtocol.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "canInit(with:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5685E36C-A0C0-4C3E-981E-F3BCFA0B3444"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Application/Tests/Network/MockURLProtocol.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "canInit(with:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
