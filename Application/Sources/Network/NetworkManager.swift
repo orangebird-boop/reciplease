@@ -1,6 +1,6 @@
 import Foundation
 
-enum ServiceError: Error {
+enum NetxorkManagerError: Error {
     case unknown
     case invalidURL
     case emptyData
@@ -29,11 +29,11 @@ enum ServiceError: Error {
     }
 }
 
-protocol NetworkServiceProtocol {
-    func get<T>(request: URLRequest, completionHandler: @escaping (Result<T, ServiceError>) -> Void) where T: Decodable
+protocol NetworkManagerProtocol {
+    func get<T>(request: URLRequest, completionHandler: @escaping (Result<T, NetxorkManagerError>) -> Void) where T: Decodable
 }
 
-struct NetworkService: NetworkServiceProtocol {
+struct NetworkManager: NetworkManagerProtocol {
 
     private let urlSession: URLSession
 
@@ -41,7 +41,7 @@ struct NetworkService: NetworkServiceProtocol {
         self.urlSession = urlSession
     }
 
-    func get<T>(request: URLRequest, completionHandler: @escaping (Result<T, ServiceError>) -> Void) where T: Decodable {
+    func get<T>(request: URLRequest, completionHandler: @escaping (Result<T, NetxorkManagerError>) -> Void) where T: Decodable {
         urlSession
             .dataTask(with: request) { data, response, error in
                 if error != nil {

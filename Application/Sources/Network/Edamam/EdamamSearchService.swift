@@ -5,9 +5,9 @@ class EdamamSearchService {
     
     typealias ServiceResponse = RecipeResponse
     
-    private var networkService: NetworkService
+    private var networkService: NetworkManager
     
-    init(networkService: NetworkService = .init()) {
+    init(networkService: NetworkManager = .init()) {
         self.networkService = networkService
     }
     
@@ -32,7 +32,7 @@ class EdamamSearchService {
             return
         }
         
-        networkService.get(request: URLRequest(url: url)) { (result: Result<EdamamResponse, ServiceError>) in
+        networkService.get(request: URLRequest(url: url)) { (result: Result<EdamamResponse, NetxorkManagerError>) in
             switch result {
             case .success(let response):
                 // Model transformation
@@ -52,7 +52,7 @@ class EdamamSearchService {
             return
         }
         
-        networkService.get(request: URLRequest(url: urlll)) { (result: Result<EdamamResponse, ServiceError>) in
+        networkService.get(request: URLRequest(url: urlll)) { (result: Result<EdamamResponse, NetxorkManagerError>) in
             switch result {
             case .success(let response):
                 // Model transformation
