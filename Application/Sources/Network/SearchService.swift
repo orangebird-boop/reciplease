@@ -1,6 +1,6 @@
 import Foundation
 
-enum SearchServiceError: Error {
+enum SearchServiceError: Error, Equatable {
     case invalidURL
     case networkError
     case invalidData

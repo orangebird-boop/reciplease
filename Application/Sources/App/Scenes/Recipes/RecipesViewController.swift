@@ -129,13 +129,17 @@ class RecipesViewController: UIViewController {
 extension RecipesViewController: RecipesViewModelDelegate {
     
     func didFindRecipes() {
-        toggleLoadMoreButton(isEnabled: true)
-        applySnapshot()
-    }
+            DispatchQueue.main.async {
+                self.toggleLoadMoreButton(isEnabled: true)
+                self.applySnapshot()
+            }
+        }
     
     func noMoreRecipesToLoad() {
-        toggleLoadMoreButton(isEnabled: false)
-}
+        DispatchQueue.main.async {
+            self.toggleLoadMoreButton(isEnabled: false)
+        }
+    }
     
 }
 

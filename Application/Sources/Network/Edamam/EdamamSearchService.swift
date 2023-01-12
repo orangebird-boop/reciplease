@@ -1,6 +1,5 @@
 import Foundation
 
-
 class EdamamSearchService {
     
     typealias ServiceResponse = RecipeResponse
@@ -32,7 +31,7 @@ class EdamamSearchService {
             return
         }
         
-        networkService.get(request: URLRequest(url: url)) { (result: Result<EdamamResponse, NetxorkManagerError>) in
+        networkService.get(request: URLRequest(url: url)) { (result: Result<EdamamResponse, NetworkManager.NetworkManagerError>) in
             switch result {
             case .success(let response):
                 // Model transformation
@@ -47,12 +46,12 @@ class EdamamSearchService {
     }
     
     func getRecipes(ingredients: [String], completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
-        guard let urlll = URL(string: buildUrl(for: ingredients)!) else {
+        guard let url = URL(string: buildUrl(for: ingredients)!) else {
             completionHandler(.failure(.invalidURL))
             return
         }
         
-        networkService.get(request: URLRequest(url: urlll)) { (result: Result<EdamamResponse, NetxorkManagerError>) in
+        networkService.get(request: URLRequest(url: url)) { (result: Result<EdamamResponse, NetworkManager.NetworkManagerError>) in
             switch result {
             case .success(let response):
                 // Model transformation

@@ -154,10 +154,14 @@ extension SearchViewController: SearchViewModelDelegate {
     }
     
     func didFindRecipes() {
-        toggleSearchButton(isEnabled: true)
-        let viewController = RecipesViewController(viewModel: RecipesViewModel(recipes: searchViewModel.recipes, nextURL: searchViewModel.nextUrl))
-        navigationController?.pushViewController(viewController, animated: true)
+        DispatchQueue.main.async {
+            self.toggleSearchButton(isEnabled: true)
+            let viewController = RecipesViewController(viewModel: RecipesViewModel(recipes: self.searchViewModel.recipes, nextURL: self.searchViewModel.nextUrl))
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
+        
+        
     
     func didNotUpdateIngredients(error: SearchViewModelError) {
         let alertViewController = UIAlertController(title: "Error", message: "Sorry, you can't use the same ingredient two times", preferredStyle: .alert)

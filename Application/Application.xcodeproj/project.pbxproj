@@ -46,6 +46,7 @@
 		B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */; };
 		B2E626D7296B2C390000BC78 /* EdamamSearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */; };
 		B2E626DB296F73490000BC78 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626DA296F73490000BC78 /* NetworkManager.swift */; };
+		B2E626DD297018560000BC78 /* StubNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626DC297018560000BC78 /* StubNetworkManager.swift */; };
 		B2E791B828576179007D2ED4 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E791B728576179007D2ED4 /* SearchDataSource.swift */; };
 		B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61CF528107A09005F4B0D /* Recipe.swift */; };
 		B2F6BAE628528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */; };
@@ -122,6 +123,7 @@
 		B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
 		B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSearchServiceTest.swift; sourceTree = "<group>"; };
 		B2E626DA296F73490000BC78 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B2E626DC297018560000BC78 /* StubNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubNetworkManager.swift; sourceTree = "<group>"; };
 		B2E791B728576179007D2ED4 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		B2F61CF528107A09005F4B0D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewIngredientsDataSourceProvider.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B2145A1F29646CE900C4857E /* Edamam */,
+				B2E626DC297018560000BC78 /* StubNetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E626D7296B2C390000BC78 /* EdamamSearchServiceTest.swift in Sources */,
+				B2E626DD297018560000BC78 /* StubNetworkManager.swift in Sources */,
 				B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */,
 				B2E626CE2964C59E0000BC78 /* RecipesViewModelTests.swift in Sources */,
 				B2145A2129646D5000C4857E /* EdamamResponseTest.swift in Sources */,
