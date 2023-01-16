@@ -4,4 +4,5 @@ disabled_rules:
 line_length: 200
 
 excluded:
-  Pods
+- Pods
+- Tests

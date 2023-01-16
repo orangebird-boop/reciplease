@@ -42,7 +42,6 @@
 		B2D3C16B2835016100E48122 /* RecipeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */; };
 		B2E44603293E1DD40048C100 /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E44602293E1DD40048C100 /* RecipeIngredient.swift */; };
 		B2E626CE2964C59E0000BC78 /* RecipesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626CD2964C59D0000BC78 /* RecipesViewModelTests.swift */; };
-		B2E626D02964C73D0000BC78 /* FakeJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = B2E626CF2964C73D0000BC78 /* FakeJSON.json */; };
 		B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */; };
 		B2E626D7296B2C390000BC78 /* EdamamSearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */; };
 		B2E626DB296F73490000BC78 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E626DA296F73490000BC78 /* NetworkManager.swift */; };
@@ -119,7 +118,6 @@
 		B2D3C16A2835016100E48122 /* RecipeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewModel.swift; sourceTree = "<group>"; };
 		B2E44602293E1DD40048C100 /* RecipeIngredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeIngredient.swift; sourceTree = "<group>"; };
 		B2E626CD2964C59D0000BC78 /* RecipesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModelTests.swift; sourceTree = "<group>"; };
-		B2E626CF2964C73D0000BC78 /* FakeJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = FakeJSON.json; path = ../../../../FakeJSON.json; sourceTree = "<group>"; };
 		B2E626D1296B2A5F0000BC78 /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
 		B2E626D6296B2C390000BC78 /* EdamamSearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSearchServiceTest.swift; sourceTree = "<group>"; };
 		B2E626DA296F73490000BC78 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 		B2145A1F29646CE900C4857E /* Edamam */ = {
 			isa = PBXGroup;
 			children = (
-				B2E626CF2964C73D0000BC78 /* FakeJSON.json */,
 				B2E626D3296B2B1D0000BC78 /* Edamam */,
 			);
 			path = Edamam;
@@ -502,7 +499,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E626D02964C73D0000BC78 /* FakeJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

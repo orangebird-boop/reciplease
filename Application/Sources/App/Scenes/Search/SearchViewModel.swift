@@ -77,11 +77,11 @@ class SearchViewModel {
                 
             case.failure(let error):
                 switch error {
-
-                case .invalidURL, .networkError:
+                case SearchServiceError.networkError:
+                    self.delegate?.didNotFindRecipe(error: .defaultError)
+                case SearchServiceError.invalidData:
                     self.delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
-
-                case .invalidData, .invalidResponse, .invalidJSONStructure:
+                default:
                     self.delegate?.didNotFindRecipe(error: .defaultError)
                 }
             }
