@@ -13,7 +13,6 @@ class RecipeDetailsViewController: UIViewController {
     let getDirectionsButton = UIButton()
     var coreDataManager: CoreDataManager
    
-    
     // MARK: - Initialization
     
     init(viewModel: RecipeDetailsViewModel, coreDataManager: CoreDataManager = .shared) {
@@ -139,8 +138,7 @@ class RecipeDetailsViewController: UIViewController {
         getDirectionsButton.accessibilityLabel = "get directions"
         textView.accessibilityLabel = ingredients
         
-        
-    }
+        }
 }
 
 // MARK: - Extentions

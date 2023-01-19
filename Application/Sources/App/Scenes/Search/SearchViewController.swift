@@ -162,7 +162,6 @@ extension SearchViewController: SearchViewModelDelegate {
     }
         
         
-    
     func didNotUpdateIngredients(error: SearchViewModelError) {
         let alertViewController = UIAlertController(title: "Error", message: "Sorry, you can't use the same ingredient two times", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

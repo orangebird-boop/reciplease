@@ -13,7 +13,7 @@ final class EdamamSearchServiceTest: XCTestCase {
          "title":"string"
       },
       "next":{
-         "href":"string",
+         "href": "string",
          "title":"string"
       }
    },
@@ -59,6 +59,19 @@ final class EdamamSearchServiceTest: XCTestCase {
         service = EdamamSearchService(networkService: stubNetworkManager)
     }
     
+    func test_ShouldReturnResponseFromNetworkCallNextSet() {
+        stubNetworkManager.stubData = try! JSONDecoder().decode(EdamamResponse.self, from: defaultResponse.data(using: .utf8)!)
+        
+        service.getRecipes(nextSet: "string") { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure:
+                XCTFail("It shouldn't fail")
+            }
+        }
+    }
+    
     func test_ShouldReturnResponseFromNetworkCall() {
         stubNetworkManager.stubData = try! JSONDecoder().decode(EdamamResponse.self, from: defaultResponse.data(using: .utf8)!)
         
@@ -86,7 +99,7 @@ final class EdamamSearchServiceTest: XCTestCase {
     }
     
     func test_ShouldReturnnetworkError() {
-        stubNetworkManager.stubError = NetworkManagerError.serverError
+        stubNetworkManager.stubError = NetworkManagerError.emptyData
         
         service.getRecipes(ingredients: []) { result in
             switch result {

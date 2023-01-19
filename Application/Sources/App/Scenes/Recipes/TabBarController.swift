@@ -13,11 +13,16 @@ class TabBarController: UITabBarController {
     }
     
     func setupViews() {
-        //        tabBar.tintColor = .white
+        
+        UINavigationBar.appearance().backgroundColor = .black
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .black
+        tabBar.standardAppearance = appearance
         
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
         navigationController?.navigationBar.topItem?.title = "Search"
+        
         
         let favoritesViewController = RecipesViewController(viewModel: FavoritesViewModel())
         favoritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
@@ -27,6 +32,14 @@ class TabBarController: UITabBarController {
             UINavigationController(rootViewController: searchViewController),
             UINavigationController(rootViewController: favoritesViewController)],
                            animated: true)
+    }
+    
+    private func setTabBarItemColors(_ itemAppearance: UITabBarItemAppearance) {
+        itemAppearance.normal.iconColor = .lightGray
+        itemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        
+        itemAppearance.selected.iconColor = .green
+        itemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.green]
     }
 }
 

@@ -50,7 +50,7 @@ class RecipesViewController: UIViewController {
         
         title = "Recipes"
         view.backgroundColor = .black
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+ //       navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         tableView.delegate = self
         view.addSubview(tableView)
