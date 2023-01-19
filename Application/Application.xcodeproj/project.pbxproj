@@ -32,7 +32,6 @@
 		B2AAADD5280F062F0039784E /* EdamamSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AAADD4280F062F0039784E /* EdamamSearchService.swift */; };
 		B2B829A428ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2B829A228ABFB41007CD224 /* RecipleaseDataModel.xcdatamodeld */; };
 		B2CBD3EF28B8F03300629211 /* Pods_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; };
-		B2CBD3F028B8F03300629211 /* Pods_Application.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8A9F8DC7277BF474DB947E3 /* Pods_Application.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2CBD3F328BCDF3600629211 /* RecipeEntity+Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CBD3F228BCDF3600629211 /* RecipeEntity+Transformation.swift */; };
 		B2CBD3F928BCEB8000629211 /* RecipesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CBD3F828BCEB8000629211 /* RecipesViewModelProtocol.swift */; };
 		B2CBD3FB28BCEBF700629211 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CBD3FA28BCEBF700629211 /* RecipesViewModel.swift */; };
@@ -67,20 +66,6 @@
 			remoteInfo = Application;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		B2CBD3F128B8F03300629211 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B2CBD3F028B8F03300629211 /* Pods_Application.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		073266915E7DAB79F9B6BA25 /* Pods-Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Application.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-Application/Pods-Application.release.xcconfig"; sourceTree = "<group>"; };
@@ -440,7 +425,6 @@
 				B2A2DF12280ECD92005F680C /* Frameworks */,
 				B2A2DF13280ECD92005F680C /* Resources */,
 				1B4572BEB33CF77F717277CC /* [CP] Embed Pods Frameworks */,
-				B2CBD3F128B8F03300629211 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
