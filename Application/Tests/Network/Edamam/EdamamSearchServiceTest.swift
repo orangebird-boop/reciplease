@@ -93,12 +93,25 @@ final class EdamamSearchServiceTest: XCTestCase {
             case .success:
                 XCTFail("It should not fail")
             case .failure(let error):
-                XCTAssertEqual(error as! SearchServiceError, SearchServiceError.networkError)
+                XCTAssertEqual(error , SearchServiceError.invalidURL)
             }
         }
     }
     
-    func test_ShouldReturnnetworkError() {
+    func test_ShouldReturnErrorNetworkError() {
+        stubNetworkManager.stubError = NetworkManagerError.redirection
+        
+        service.getRecipes(ingredients: []) { result in
+            switch result {
+            case .success:
+                XCTFail("It should not fail")
+            case .failure(let error):
+                XCTAssertEqual(error , SearchServiceError.networkError)
+            }
+        }
+    }
+    
+    func test_ShouldReturnErrorInvalidData() {
         stubNetworkManager.stubError = NetworkManagerError.emptyData
         
         service.getRecipes(ingredients: []) { result in
@@ -106,7 +119,7 @@ final class EdamamSearchServiceTest: XCTestCase {
             case .success:
                 XCTFail("It should not fail")
             case .failure(let error):
-                XCTAssertEqual(error as! SearchServiceError, SearchServiceError.networkError)
+                XCTAssertEqual(error, SearchServiceError.invalidData)
             }
         }
     }

@@ -3,6 +3,7 @@ import Foundation
 enum SearchServiceError: Error, Equatable {
     case networkError
     case invalidData
+    case invalidURL
 
     var errorDescription: String? {
         switch self {
@@ -10,12 +11,14 @@ enum SearchServiceError: Error, Equatable {
             return "Network error"
         case .invalidData:
             return "Invalid Data"
+        case .invalidURL:
+            return "Invalid URL"
         }
     }
 }
 
 protocol SearchService {
-    associatedtype ServiceResponse: Decodable
+    associatedtype ServiceResponse
     
-    func getRecipes(page: Int, completionHandler: @escaping (Result<ServiceResponse, SearchServiceError>) -> Void)
+    func getRecipes(ingredients: [String], completionHandler: @escaping (Result<ServiceResponse, SearchServiceError>) -> Void)
 }

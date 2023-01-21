@@ -1,9 +1,9 @@
 import Foundation
 
-class EdamamSearchService {
-    
+class EdamamSearchService: SearchService {
+
     typealias ServiceResponse = RecipeResponse
-    
+
     private var networkService: NetworkManager
     
     init(networkService: NetworkManager = .init()) {
@@ -25,9 +25,9 @@ class EdamamSearchService {
             return urlComponents?.url?.absoluteString
         }
     
-    func getRecipes(nextSet: String, completionHandler: @escaping (Result<RecipeResponse, Error>) -> Void) {
+    func getRecipes(nextSet: String, completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
         guard let url = URL(string: nextSet) else {
-            completionHandler(.failure(SearchServiceError.networkError))
+            completionHandler(.failure(.invalidURL))
             return
         }
         
@@ -39,15 +39,15 @@ class EdamamSearchService {
                 
                 completionHandler(.success(recipeResponse))
                 
-            case .failure:
-                completionHandler(.failure(SearchServiceError.networkError))
+            case .failure(let error):
+                completionHandler(.failure(self.handle(error: error)))
             }
         }
     }
     
-    func getRecipes(ingredients: [String], completionHandler: @escaping (Result<RecipeResponse, Error>) -> Void) {
+    func getRecipes(ingredients: [String], completionHandler: @escaping (Result<RecipeResponse, SearchServiceError>) -> Void) {
         guard let rawURL = buildUrl(for: ingredients), let url = URL(string: rawURL) else {
-            completionHandler(.failure(self.handle(error: .invalidURL)))
+            completionHandler(.failure(.invalidURL))
             return
         }
         
@@ -59,17 +59,23 @@ class EdamamSearchService {
                 
                 completionHandler(.success(recipeResponse))
                 
-            case .failure:
-                completionHandler(.failure(self.handle(error: .serverError)))
+            case .failure(let error):
+                completionHandler(.failure(self.handle(error: error)))
             }
         }
     }
     
-    func handle(error: NetworkManagerError) -> SearchServiceError {
-        switch error {
+    func handle(error: Error) -> SearchServiceError {
+        guard let networkError = error as? NetworkManagerError else {
+            return .networkError
+        }
+    
+        switch networkError {
+        case .invalidURL:
+            return.invalidURL
         case .emptyData, .failedToDeserialize:
             return .invalidData
-        case .redirection, .httpClientError, .serverError, .unknown, .invalidURL:
+        case .redirection, .httpClientError, .serverError, .unknown:
             return .networkError
         }
     }
