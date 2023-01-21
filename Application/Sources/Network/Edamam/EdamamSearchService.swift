@@ -57,6 +57,7 @@ class EdamamSearchService: SearchService {
                 // Model transformation
                 let recipeResponse = response.toGenericModel()
                 
+                
                 completionHandler(.success(recipeResponse))
                 
             case .failure(let error):

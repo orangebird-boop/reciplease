@@ -4,9 +4,9 @@ import XCTest
 final class EdamamNextTest: XCTestCase {
     
     let defaultResponse = """
- {
-  "href": "https://www.google.com",
-   }
+     {
+           "href": "https://www.google.com"
+ }
  
  """
 
