@@ -75,6 +75,7 @@ class SearchViewModel {
                 self.nextUrl = recipeResponse.nextLink?.href
                 self.delegate?.didFindRecipes()
                 
+                
             case.failure(let error):
                 switch error {
                 case SearchServiceError.networkError:

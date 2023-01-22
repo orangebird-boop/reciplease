@@ -4,7 +4,6 @@ struct EdamamRecipe: Decodable, Hashable {
     let label: String
     let image: String?
     let url: String
-    let yield: Double?
     let ingredientLines: [String]
     let totalTime: Int?
 
