@@ -1,10 +1,10 @@
 import CoreData
 
-final class CoreDataManager {
+class CoreDataManager {
     
     // MARK: - Properties
    
-    private static let dataModelFilename = "RecipleaseDataModel"
+    static let dataModelFilename = "RecipleaseDataModel"
     static let shared = CoreDataManager()
     
       static var container: NSPersistentContainer = {
