@@ -2,7 +2,7 @@ import XCTest
 @testable import Application
 
 final class RecipesViewModelTest: XCTestCase {
-    let viewModel = RecipesViewModel()
+    let viewModel = RecipesViewModel(recipes: [])
     
     var service: EdamamSearchService!
     var stubNetworkManager: StubNetworkManager!
@@ -17,6 +17,7 @@ final class RecipesViewModelTest: XCTestCase {
 }
 
 class RecipesViewModelObserver: RecipesViewModelDelegate {
+    
     var foundRecipes = false
     var noMoreToLoad = false
     

@@ -1,7 +1,7 @@
 import Foundation
 
 struct EdamamResponse: Decodable {
-    
+  
     enum NestedLinksCodingKey: String, CodingKey {
         case next
     }
@@ -13,6 +13,11 @@ struct EdamamResponse: Decodable {
     
     let hits: [Hit]
     let nextLink: EdamamLink?
+    
+    init(hits: [Hit], nextLink: EdamamLink? = nil) {
+        self.hits = hits
+        self.nextLink = nextLink
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -38,6 +43,9 @@ extension EdamamResponse {
 
 // MARK: - Hit
 struct Hit: Decodable {
+  
+    
+    
     
     enum NestedLinksCodingKey: String, CodingKey {
         case recipeLink = "self"
@@ -50,6 +58,11 @@ struct Hit: Decodable {
     
     let recipe: EdamamRecipe?
     let link: EdamamLink
+    
+    init(recipe: EdamamRecipe? = nil, link: EdamamLink) {
+        self.recipe = recipe
+        self.link = link
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
