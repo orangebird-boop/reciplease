@@ -3,8 +3,11 @@ import CoreData
 class CoreDataManager {
     
     // MARK: - Properties
-   
+    #if TEST
+    static let dataModelFilename = "RecipleaseDataModelTest"
+    #else
     static let dataModelFilename = "RecipleaseDataModel"
+    #endif
     static let shared = CoreDataManager()
     
       static var container: NSPersistentContainer = {
@@ -93,5 +96,20 @@ class CoreDataManager {
         saveContext()
         
         completionHandler(true)
+    }
+    
+    func deleteAllFavorites() {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+
+        do {
+            let entity = try Self.context.fetch(request)
+            
+            entity.forEach { Self.context.delete($0) }
+            
+        } catch {
+            fatalError("userfriendly message")
+        }
+        
+        saveContext()
     }
 }

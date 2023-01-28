@@ -6,7 +6,15 @@ final class SearchViewModelTest: XCTestCase {
     var service: EdamamSearchService!
     var stubNetworkManager: StubNetworkManager!
     var observer: SearchViewModelObserver!
-    //    let model = Recipe.init(name: "PPAP", foodImage: nil, url: "https://www.google.com", ingredientLines: ["pen", "apple", "pinapple"], totalTime: nil)
+
+    
+    override func setUpWithError() throws {
+
+    }
+
+    override func tearDownWithError() throws {
+
+    }
     
     override func setUp() {
         stubNetworkManager = StubNetworkManager()
@@ -17,7 +25,7 @@ final class SearchViewModelTest: XCTestCase {
         viewModel.delegate = observer
     }
     
-    func testDeletesIngredients() {
+    func test_ShouldDeletesIngredients() {
         viewModel.ingredients = ["pen", "apple", "pinapple"]
         viewModel.delegate = observer
         viewModel.delete(ingredient: "apple")
@@ -26,7 +34,7 @@ final class SearchViewModelTest: XCTestCase {
         
     }
     
-    func testAddIngredient(){
+    func test_ShouldAddIngredient(){
         viewModel.delegate = observer
         viewModel.ingredients = ["pen", "apple", "pinapple"]
         viewModel.add(ingredient: "applepen")
@@ -34,7 +42,7 @@ final class SearchViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.ingredients, ["pen", "apple", "pinapple", "applepen"])
     }
     
-    func testClearAll(){
+    func test_ShouldClearAll(){
         viewModel.delegate = observer
         viewModel.ingredients = ["pen", "apple", "pinapple"]
         viewModel.clearAll()
@@ -42,7 +50,7 @@ final class SearchViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.ingredients, [])
     }
     
-    func testSearchRecipes(){
+    func test_ShouldSearchRecipes(){
         viewModel.delegate = observer
         
         let response = EdamamResponse(hits: [Hit(recipe: EdamamRecipe(label: "", image: "", url: "", ingredientLines: [], totalTime: 1), link: EdamamLink(href: ""))] )
@@ -57,19 +65,52 @@ final class SearchViewModelTest: XCTestCase {
             }
         }
     }
+    
+    func test_ShouldUpdateIngredients() {
+        viewModel.delegate = observer
+       
+        let response = EdamamResponse(hits: [Hit(recipe: EdamamRecipe(label: "", image: "", url: "", ingredientLines: [], totalTime: 1), link: EdamamLink(href: ""))] )
+        viewModel.add(ingredient: "apple")
+        
+        stubNetworkManager.stubData = response
+        service.getRecipes(ingredients: []) { result in
+            switch result {
+            case .success(_):
+                XCTAssertTrue(self.observer.updateIngredients)
+            case .failure:
+                XCTFail("It shouldn't fail")
+            }
+        }
+    }
+    
+//    func test_ShouldNotUpdateIngredients() {
+//        viewModel.delegate = observer
+//
+//        viewModel.ingredients = ["apple"]
+//        viewModel.add(ingredient: "apple")
+//
+//
+//        XCTAssertTrue(self.observer.didNotUpdate)
+//
+//    }
 }
 
 class SearchViewModelObserver: SearchViewModelDelegate {
+    
     var updateIngredients = false
     var findRecipes = false
     var foundNoMatch = false
+//    var didNotUpdate = false
     
     func didUpdateIngredients() {
         updateIngredients = true
     }
     
+
+    
     func didNotUpdateIngredients(error: Application.SearchViewModelError) {
         didNotUpdateIngredients(error: error)
+//        didNotUpdate = true
     }
     
     func didFindRecipes() {
