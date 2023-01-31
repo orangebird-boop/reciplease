@@ -53,6 +53,7 @@
 		B2F005F0297DCA4A00EE1C95 /* EdamamIngredientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F005EF297DCA4A00EE1C95 /* EdamamIngredientTest.swift */; };
 		B2F61CF628107A09005F4B0D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F61CF528107A09005F4B0D /* Recipe.swift */; };
 		B2F6BAE628528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */; };
+		B2FB2846298935B800C55DA6 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB2845298935B800C55DA6 /* CoreDataManagerTest.swift */; };
 		B2FFD10F2816A132001C576A /* EdamamResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD10E2816A132001C576A /* EdamamResponse.swift */; };
 		B2FFD11D281BB9BB001C576A /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD11C281BB9BB001C576A /* RecipesViewController.swift */; };
 		B2FFD12928252C3F001C576A /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FFD12828252C3F001C576A /* RecipesTableViewCell.swift */; };
@@ -133,6 +134,7 @@
 		B2F005EF297DCA4A00EE1C95 /* EdamamIngredientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamIngredientTest.swift; sourceTree = "<group>"; };
 		B2F61CF528107A09005F4B0D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		B2F6BAE528528DBF00467E5D /* SearchViewIngredientsDataSourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewIngredientsDataSourceProvider.swift; sourceTree = "<group>"; };
+		B2FB2845298935B800C55DA6 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		B2FFD10E2816A132001C576A /* EdamamResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamResponse.swift; sourceTree = "<group>"; };
 		B2FFD11C281BB9BB001C576A /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		B2FFD12828252C3F001C576A /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 		B2E626C92964C5200000BC78 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B2FB28442989356800C55DA6 /* CoreDataTask */,
 				B2E626CB2964C5410000BC78 /* Recipes */,
 				B2E626CA2964C5360000BC78 /* Search */,
 			);
@@ -406,6 +409,14 @@
 				B2E626DE297951DD0000BC78 /* EdamamNextTest.swift */,
 			);
 			name = Edamam;
+			sourceTree = "<group>";
+		};
+		B2FB28442989356800C55DA6 /* CoreDataTask */ = {
+			isa = PBXGroup;
+			children = (
+				B2FB2845298935B800C55DA6 /* CoreDataManagerTest.swift */,
+			);
+			path = CoreDataTask;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +534,7 @@
 				B2E626D2296B2A5F0000BC78 /* SearchViewModelTest.swift in Sources */,
 				B2E626CE2964C59E0000BC78 /* RecipesViewModelTest.swift in Sources */,
 				B2145A2129646D5000C4857E /* EdamamResponseTest.swift in Sources */,
+				B2FB2846298935B800C55DA6 /* CoreDataManagerTest.swift in Sources */,
 				B2B2F91B297C8D0400654D32 /* EdamamNextLinksTest.swift in Sources */,
 				B2B2F91D297C918D00654D32 /* EdamamRecipeTest.swift in Sources */,
 				B2E626DF297951DD0000BC78 /* EdamamNextTest.swift in Sources */,

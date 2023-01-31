@@ -24,13 +24,5 @@ final class FavoritesViewModelTest: XCTestCase {
         
         XCTAssertEqual(favorites.count, 1)
     }
-//
-//    func test_shouldDeleteAllFavorites() {
-//        let favorites = viewModel.getRecipes()
-//
-//        viewModel.coreDataManager.deleteAllFavorites()
-//
-//        XCTAssertEqual(favorites.count, 0)
-//    }
-//
+
 }
