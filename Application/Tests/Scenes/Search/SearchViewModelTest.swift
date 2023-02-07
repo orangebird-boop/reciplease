@@ -42,6 +42,15 @@ final class SearchViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.ingredients, ["pen", "apple", "pinapple", "applepen"])
     }
     
+    func test_ShouldNotAddDuplicatedIngredient() {
+        viewModel.delegate = observer
+        viewModel.ingredients = ["pen", "apple", "pinapple"]
+        viewModel.add(ingredient: "pen")
+        
+        XCTAssertEqual(viewModel.ingredients.count, 3)
+        XCTAssertEqual(observer.didNotUpdateError, .failedToUpdateIngredients)
+    }
+    
     func test_ShouldClearAll(){
         viewModel.delegate = observer
         viewModel.ingredients = ["pen", "apple", "pinapple"]
@@ -83,33 +92,23 @@ final class SearchViewModelTest: XCTestCase {
         }
     }
     
-//    func test_ShouldNotUpdateIngredients() {
-//        viewModel.delegate = observer
-//
-//        let response = EdamamResponse(hits: [Hit(recipe: EdamamRecipe(label: "", image: "", url: "", ingredientLines: [], totalTime: 1), link: EdamamLink(href: ""))] )
-//
-//
-//        stubNetworkManager.stubData = response
-//        viewModel.add(ingredient: "apple")
-//
-//        service.getRecipes(ingredients: ["apple"]) { result in
-//            switch result {
-//            case .success(_):
-//                XCTAssertTrue(self.observer.updateIngredients)
-//            case .failure(_):
-//                XCTAssertEqual(observer.didNotUpdateIngredients(error: SearchViewModelError.failedToUpdateIngredients), true, "This ingredient is already in your list")
-////                XCTAssertEqual(error, self.observer.didNotUpdateIngredients(error: SearchViewModelError.failedToUpdateIngredients))
-//            }
-//        }
-//    }
+    func test_ShouldReturnDidNotFindRecipe() {
+        viewModel.delegate = observer
+        
+        stubNetworkManager.stubError = NetworkManagerError.emptyData
+        viewModel.ingredients = ["pen", "apple", "pinapple"]
+        viewModel.searchRecipes()
+        
+        XCTAssertEqual(observer.didNotFindRecipesError, .failedToRetrieveRecipes)
+    }
 }
 
 class SearchViewModelObserver: SearchViewModelDelegate {
     
     var updateIngredients = false
     var findRecipes = false
-    var foundNoMatch = false
-//    var didNotUpdate = false
+    var didNotUpdateError: Application.SearchViewModelError? = nil
+    var didNotFindRecipesError: Application.SearchViewModelError? = nil
     
     func didUpdateIngredients() {
         updateIngredients = true
@@ -118,8 +117,8 @@ class SearchViewModelObserver: SearchViewModelDelegate {
 
     
     func didNotUpdateIngredients(error: Application.SearchViewModelError) {
-        didNotUpdateIngredients(error: SearchViewModelError.failedToUpdateIngredients)
-//        didNotUpdate = true
+        didNotUpdateError = error
+
     }
     
     func didFindRecipes() {
@@ -127,10 +126,8 @@ class SearchViewModelObserver: SearchViewModelDelegate {
     }
     
     func didNotFindRecipe(error: Application.SearchViewModelError) {
-        didNotUpdateIngredients(error: SearchViewModelError.failedToRetrieveRecipes)
+        didNotFindRecipesError = error
     }
     
-    func noMatch() {
-        foundNoMatch = true
-    }
+  
 }

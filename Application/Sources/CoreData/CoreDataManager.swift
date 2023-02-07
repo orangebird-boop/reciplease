@@ -43,7 +43,7 @@ class CoreDataManager {
     
     // MARK: - Manage Task Entity
     
-    func createFavorite(title: String, ingredients: String, totalTime: Int32, image: String, url: String, completionHandler: @escaping (Bool) -> Void) {
+    func createFavorite(title: String, ingredients: String, totalTime: Int32, image: String, url: String, completionHandler: ((Bool) -> Void)? = nil) {
         guard let description = NSEntityDescription.entity(forEntityName: "RecipeEntity", in: Self.context) else {
             fatalError("Failed to retrieve entity description")
         }
@@ -56,7 +56,7 @@ class CoreDataManager {
         recipe.recipeUrl = url
         saveContext()
         
-        completionHandler(true)
+        completionHandler?(true)
     }
     
     func getFavorites() -> [Recipe] {
@@ -80,7 +80,7 @@ class CoreDataManager {
         return numberOfFavorites != 0 
     }
     
-    func deleteFavorite(name: String, url: String, completionHandler: @escaping (Bool) -> Void) {
+    func deleteFavorite(name: String, url: String, completionHandler: ((Bool) -> Void)? = nil) {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
         request.predicate = NSPredicate(format: "recipeUrl == %@", url)
 
@@ -95,7 +95,7 @@ class CoreDataManager {
         
         saveContext()
         
-        completionHandler(true)
+        completionHandler?(true)
     }
     
     func deleteAllFavorites() {

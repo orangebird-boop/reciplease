@@ -9,9 +9,7 @@ final class CoreDataManagerTest: XCTestCase {
     override func setUp() {
         coreDataManager = CoreDataManager()
         
-        coreDataManager.createFavorite(title: "Title", ingredients: "apple", totalTime: 1, image: "image", url: "http://www.google.com") {_ in
-        }
-        
+        coreDataManager.createFavorite(title: "Title", ingredients: "apple", totalTime: 1, image: "image", url: "http://www.google.com")
     }
     
     override func tearDown() {
@@ -21,7 +19,7 @@ final class CoreDataManagerTest: XCTestCase {
     func test_ShouldCreateFavorite() {
         coreDataManager.saveContext()
         
-        let recipeIsFavorite = coreDataManager.checkIfRecipeFavorite(name: "Title", url: "http://www.google.com")
+        _ = coreDataManager.checkIfRecipeFavorite(name: "Title", url: "http://www.google.com")
       
         XCTAssertEqual(coreDataManager.getFavorites().count, 1)
     }
@@ -31,11 +29,9 @@ final class CoreDataManagerTest: XCTestCase {
     }
     
     func test_deleteFavorite(){
-        coreDataManager.createFavorite(title: "Title2", ingredients: "apple, pen", totalTime: 2, image: "image", url: "http://www.facebook.com") {_ in
-        }
+        coreDataManager.createFavorite(title: "Title2", ingredients: "apple, pen", totalTime: 2, image: "image", url: "http://www.facebook.com")
         coreDataManager.saveContext()
-        coreDataManager.deleteFavorite(name: "Title2", url: "http://www.facebook.com") {_ in
-        }
+        coreDataManager.deleteFavorite(name: "Title2", url: "http://www.facebook.com") 
         coreDataManager.saveContext()
             
         XCTAssertEqual(coreDataManager.getFavorites().count, 1)

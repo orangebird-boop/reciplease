@@ -5,6 +5,13 @@ final class RecipeDetailsViewModelTests: XCTestCase {
     var viewModel: RecipeDetailsViewModel!
     var coreDataManager: CoreDataManager!
     
+    var observer: RecipesDetailsViewModelObserver!
+    var recipeState: RecipeState = .isNotFavorite {
+        didSet {
+            observer?.didToggleFavoriteStatusForRecipe(state: recipeState)
+        }
+    }
+    
     override func setUp() {
         coreDataManager = CoreDataManager()
         
@@ -12,5 +19,34 @@ final class RecipeDetailsViewModelTests: XCTestCase {
         }
         viewModel = RecipeDetailsViewModel(recipe: Recipe.init(name: "", foodImage: "", url: "", ingredientLines: [], totalTime: 1))
     }
-
+    
+    
+    func test_ShouldToggleFavoriteStatus() {
+        
+    }
+    
+    func test_ShouldAddRecipeInFavorites() {
+        
+    }
+    
+    func test_ShouldCheckIfRecipeIsFavorite() {
+        
+    }
+    
+    
+    class RecipesDetailsViewModelObserver: RecipeDetailsViewModelDelegate {
+        func didToggleFavoriteStatusForRecipe(state: Application.RecipeState) {
+            recipeState = coreDataManager.checkIfRecipeFavorite(name: recipe.name, url: recipe.url) ? .isFavorite : .isNotFavorite
+            
+        }
+        
+       
+        
+        
+        
+    
+        
+        
+    }
+    
 }

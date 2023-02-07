@@ -134,20 +134,24 @@ extension SearchViewController: SearchViewDelegate {
 }
 
 extension SearchViewController: SearchViewModelDelegate {
-    func noMatch() {
+    
+   
+    
+    func didNotFindRecipe(error: SearchViewModelError) {
+        toggleSearchButton(isEnabled: true)
         let alertViewController = UIAlertController(title: "Error", message: "No recipes found, check your ingredients", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertViewController, animated: true, completion: nil)
     }
     
-    func didNotFindRecipe(error: SearchViewModelError) {
-        toggleSearchButton(isEnabled: true)
-        
-        let alertViewController = UIAlertController(title: "Error", message: "Huston we have a problem", preferredStyle: .alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alertViewController, animated: true, completion: nil)
-        
-    }
+//    func didNotFindRecipe(error: SearchViewModelError) {
+//        toggleSearchButton(isEnabled: true)
+//        
+//        let alertViewController = UIAlertController(title: "Error", message: "Huston we have a problem", preferredStyle: .alert)
+//        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//        present(alertViewController, animated: true, completion: nil)
+//        
+//    }
     
     func didUpdateIngredients() {
         dataSourceProvider.applySnapshot(ingredients: searchViewModel.ingredients)

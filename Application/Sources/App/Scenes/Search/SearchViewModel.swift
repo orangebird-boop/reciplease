@@ -18,7 +18,7 @@ protocol SearchViewModelDelegate: AnyObject {
     func didNotUpdateIngredients(error: SearchViewModelError)
     func didFindRecipes()
     func didNotFindRecipe(error: SearchViewModelError)
-    func noMatch()
+    
 }
 
 class SearchViewModel {
@@ -66,7 +66,7 @@ class SearchViewModel {
             case.success(let recipeResponse):
                 
                 guard !recipeResponse.recipes.isEmpty else {
-                    self.delegate?.noMatch()
+                    self.delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
                     return
                 }
                 

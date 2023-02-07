@@ -5,8 +5,8 @@ class RecipesViewModel: RecipesViewModelProtocol {
     // MARK: - Properties
     
     let searchService: EdamamSearchService
-    private var recipes: [Recipe]
-    private var nextURL: String?
+    private (set) var recipes: [Recipe]
+    private (set) var nextURL: String?
     weak var delegate: RecipesViewModelDelegate?
     
     // MARK: - Initialization
@@ -39,6 +39,7 @@ class RecipesViewModel: RecipesViewModelProtocol {
                 self.delegate?.didFindRecipes()
                 
             case.failure:
+                // TODO: create an error instead of this
                 self.delegate?.noMoreRecipesToLoad()
             }
         }
