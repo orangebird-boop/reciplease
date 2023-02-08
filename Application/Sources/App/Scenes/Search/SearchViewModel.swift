@@ -64,26 +64,28 @@ class SearchViewModel {
             
             switch result {
             case.success(let recipeResponse):
-                
-                guard !recipeResponse.recipes.isEmpty else {
-                    self.delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
-                    return
+                DispatchQueue.main.async {
+                    guard !recipeResponse.recipes.isEmpty else {
+                        self.delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
+                        return
+                    }
+                    
+                    self.clearAll()
+                    self.recipes = recipeResponse.recipes
+                    self.nextUrl = recipeResponse.nextLink?.href
+                    self.delegate?.didFindRecipes()
                 }
                 
-                self.clearAll()
-                self.recipes = recipeResponse.recipes
-                self.nextUrl = recipeResponse.nextLink?.href
-                self.delegate?.didFindRecipes()
-                
-                
             case.failure(let error):
-                switch error {
-                case SearchServiceError.networkError:
-                    self.delegate?.didNotFindRecipe(error: .defaultError)
-                case SearchServiceError.invalidData:
-                    self.delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
-                default:
-                    self.delegate?.didNotFindRecipe(error: .defaultError)
+                DispatchQueue.main.async {
+                    switch error {
+                    case SearchServiceError.networkError:
+                        self.delegate?.didNotFindRecipe(error: .defaultError)
+                    case SearchServiceError.invalidData:
+                        self.delegate?.didNotFindRecipe(error: .failedToRetrieveRecipes)
+                    default:
+                        self.delegate?.didNotFindRecipe(error: .defaultError)
+                    }
                 }
             }
         }

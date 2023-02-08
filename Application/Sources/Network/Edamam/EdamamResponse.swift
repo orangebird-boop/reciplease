@@ -43,10 +43,7 @@ extension EdamamResponse {
 
 // MARK: - Hit
 struct Hit: Decodable {
-  
-    
-    
-    
+
     enum NestedLinksCodingKey: String, CodingKey {
         case recipeLink = "self"
     }

@@ -25,13 +25,13 @@ class SearchView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Functions
     
     func setupSearchView() {
         setupView()
         setupLayout()
         self.isAccessibilityElement = true
-//        applyAccessibility()
     }
     
     func setupView() {
@@ -93,14 +93,6 @@ class SearchView: UIView {
             
         ])
     }
-    
-//    private func applyAccessibility() {
-//        ingredientsTextField.accessibilityLabel = "text field"
-//        ingredientsTextField.accessibilityHint = "type your ingredient here"
-//        addButton.accessibilityLabel = "add ingredient"
-//        clearAllButton.accessibilityLabel = "clear all ingredients"
-//        label.accessibilityLabel = "your ingredients"
-//    }
     
     @objc
     func addIngredient() {

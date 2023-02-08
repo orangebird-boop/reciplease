@@ -1,11 +1,3 @@
-//
-//  RecipeEntity+CoreDataProperties.swift
-//  Application
-//
-//  Created by Nora Lilla Matyassi on 30/08/2022.
-//
-//
-
 import Foundation
 import CoreData
 

@@ -10,6 +10,5 @@ extension EdamamNextLinks {
     func toGenericModel() -> RecipeHitLinks {
      
         RecipeHitLinks(next: RecipeNext.init(href: next.href))
-        
     }
 }

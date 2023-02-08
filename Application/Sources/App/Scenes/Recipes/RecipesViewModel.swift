@@ -39,7 +39,6 @@ class RecipesViewModel: RecipesViewModelProtocol {
                 self.delegate?.didFindRecipes()
                 
             case.failure:
-                // TODO: create an error instead of this
                 self.delegate?.noMoreRecipesToLoad()
             }
         }

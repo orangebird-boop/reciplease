@@ -17,7 +17,7 @@ class RecipeDetailsViewModel {
     let coreDataManager: CoreDataManager
     var recipe: Recipe
     weak var delegate: RecipeDetailsViewModelDelegate?
-    var recipeState: RecipeState = .isNotFavorite {
+    private (set) var recipeState: RecipeState = .isNotFavorite {
         didSet {
             delegate?.didToggleFavoriteStatusForRecipe(state: recipeState)
         }
