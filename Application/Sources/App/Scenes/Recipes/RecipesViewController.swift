@@ -50,7 +50,6 @@ class RecipesViewController: UIViewController {
         
         title = "Recipes"
         view.backgroundColor = .black
- //       navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         tableView.delegate = self
         view.addSubview(tableView)
@@ -88,6 +87,17 @@ class RecipesViewController: UIViewController {
             loadMoreButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
             loadMoreButton.heightAnchor.constraint(equalToConstant: 42),
             loadMoreButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.small)
+            ])
+    }
+    
+    func setupLayoutForFavorites() {
+        [tableView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
+            tableView.bottomAnchor.constraint(equalTo: loadMoreButton.topAnchor, constant: -Margins.medium)
             ])
     }
     

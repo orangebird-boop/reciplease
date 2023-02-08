@@ -68,7 +68,7 @@ class CoreDataManager {
             return entities.map { $0.toGenericModel() }
             
         } catch {
-            fatalError("userfriendly message")
+            fatalError("fetching recipes was unsuccessful")
         }
     }
     
@@ -90,7 +90,7 @@ class CoreDataManager {
             entity.forEach { Self.context.delete($0) }
             
         } catch {
-            fatalError("userfriendly message")
+            fatalError("recipe was not deleted from favorites")
         }
         
         saveContext()
@@ -107,7 +107,7 @@ class CoreDataManager {
             entity.forEach { Self.context.delete($0) }
             
         } catch {
-            fatalError("userfriendly message")
+            fatalError("clearing all favorites was unsuccessful")
         }
         
         saveContext()
