@@ -1,6 +1,8 @@
 import Foundation
 
 class RecipesViewModel: RecipesViewModelProtocol {
+    var buttonState: Bool
+    
     
     // MARK: - Properties
     
@@ -8,6 +10,7 @@ class RecipesViewModel: RecipesViewModelProtocol {
     private (set) var recipes: [Recipe]
     private (set) var nextURL: String?
     weak var delegate: RecipesViewModelDelegate?
+ 
     
     // MARK: - Initialization
     
@@ -15,6 +18,7 @@ class RecipesViewModel: RecipesViewModelProtocol {
         self.searchService = searchService
         self.recipes = recipes
         self.nextURL = nextURL
+        self.buttonState = false
     }
     
     // MARK: - Functions
@@ -33,7 +37,7 @@ class RecipesViewModel: RecipesViewModelProtocol {
             
             switch result {
             case.success(let recipeResponse):
-                
+                self.buttonState = false
                 self.recipes +=  recipeResponse.recipes
                 self.nextURL = recipeResponse.nextLink?.href
                 self.delegate?.didFindRecipes()

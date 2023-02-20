@@ -48,7 +48,6 @@ class RecipesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Recipes"
         view.backgroundColor = .black
         
         tableView.delegate = self
@@ -70,7 +69,7 @@ class RecipesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.loadMoreButton.isHidden = self.viewModel.buttonState
         applySnapshot()
     }
     
@@ -87,17 +86,6 @@ class RecipesViewController: UIViewController {
             loadMoreButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
             loadMoreButton.heightAnchor.constraint(equalToConstant: 42),
             loadMoreButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Margins.small)
-            ])
-    }
-    
-    func setupLayoutForFavorites() {
-        [tableView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Margins.medium),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Margins.medium),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Margins.medium),
-            tableView.bottomAnchor.constraint(equalTo: loadMoreButton.topAnchor, constant: -Margins.medium)
             ])
     }
     
