@@ -1,6 +1,8 @@
 import Foundation
 
 class FavoritesViewModel: RecipesViewModelProtocol {
+    var navigationTitle: String
+    
     var buttonState: Bool
     
     
@@ -17,6 +19,7 @@ class FavoritesViewModel: RecipesViewModelProtocol {
     init(coreDataManager: CoreDataManager = .shared) {
         self.coreDataManager = coreDataManager
         self.buttonState = true
+        self.navigationTitle = "Favorites"
     }
     
     // MARK: - Functions
@@ -24,6 +27,7 @@ class FavoritesViewModel: RecipesViewModelProtocol {
     func getRecipes() -> [Recipe] {
         recipes = self.coreDataManager.getFavorites()
         self.buttonState = true
+        self.navigationTitle = "Favorites"
         return recipes
     }
 }

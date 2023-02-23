@@ -49,6 +49,7 @@ class RecipesViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
+        navigationController?.navigationBar.topItem?.title = viewModel.navigationTitle
         
         tableView.delegate = self
         view.addSubview(tableView)
@@ -69,6 +70,7 @@ class RecipesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.title = viewModel.navigationTitle
         self.loadMoreButton.isHidden = self.viewModel.buttonState
         applySnapshot()
     }

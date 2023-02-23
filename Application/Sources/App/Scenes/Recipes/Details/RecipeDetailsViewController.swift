@@ -31,7 +31,7 @@ class RecipeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.topItem?.title = "Reciplease"
+//        navigationController?.navigationBar.topItem?.title = "Search"
         
         viewModel.delegate = self
         

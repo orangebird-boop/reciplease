@@ -1,15 +1,15 @@
 import Foundation
 
 class RecipesViewModel: RecipesViewModelProtocol {
-    var buttonState: Bool
-    
-    
+ 
     // MARK: - Properties
     
     let searchService: EdamamSearchService
     private (set) var recipes: [Recipe]
     private (set) var nextURL: String?
     weak var delegate: RecipesViewModelDelegate?
+    var navigationTitle: String
+    var buttonState: Bool
  
     
     // MARK: - Initialization
@@ -19,6 +19,7 @@ class RecipesViewModel: RecipesViewModelProtocol {
         self.recipes = recipes
         self.nextURL = nextURL
         self.buttonState = false
+        self.navigationTitle = "Recipes"
     }
     
     // MARK: - Functions
