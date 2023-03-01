@@ -49,6 +49,7 @@ class RecipesViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
+        
         navigationController?.navigationBar.topItem?.title = viewModel.navigationTitle
         
         tableView.delegate = self

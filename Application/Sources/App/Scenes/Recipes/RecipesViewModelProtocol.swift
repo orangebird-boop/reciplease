@@ -20,7 +20,7 @@ protocol RecipesViewModelDelegate: AnyObject {
 protocol RecipesViewModelProtocol {
     var delegate: RecipesViewModelDelegate? {get set}
     var buttonState: Bool {get set}
-    var navigationTitle: String {get set}
+    var navigationTitle: String {get}
     func getRecipes() -> [Recipe]
     func loadMoreRecipes()
 }

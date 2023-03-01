@@ -15,18 +15,19 @@ class TabBarController: UITabBarController {
     func setupViews() {
         
         UINavigationBar.appearance().backgroundColor = .black
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = .black
         tabBar.standardAppearance = appearance
         
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(image: .mglass), tag: 1)
-        navigationController?.navigationBar.topItem?.title = "Search"
+        
         
         
         let favoritesViewController = RecipesViewController(viewModel: FavoritesViewModel())
         favoritesViewController.tabBarItem = UITabBarItem(title: "Favourites", image: UIImage(image: .star), tag: 2)
-        navigationController?.navigationBar.topItem?.title = "Favourites"
+        
         
         setViewControllers([
             UINavigationController(rootViewController: searchViewController),
